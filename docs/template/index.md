@@ -36,7 +36,20 @@ For more information, see the [aeon2yw project page](https://peter88213.github.i
 
 - Unzip the downloaded zipfile "aeon2yw_novelyst_v0.99.0.zip" into a new folder.
 - Move into this new folder and launch **setup.pyw**. This installs the script for the local user.
-- The plugin's features are accessible via the **Tools > Aeon Timeline 2** menu in *novelyst*.
+
+*Note: If you install *novelyst* at a later time, you can always install the plugin afterwards by running the *aeon2yw_novelyst* setup script again.*
+
+## Launch from novelyst
+
+The plugin's features are accessible via the **Tools > Aeon Timeline 2** submenu in *novelyst*.
+
+The submenu has the following entries:
+
+- Information (compare yWriter and timeline file dates)
+- Update timeline from yWriter
+- Update yWriter from timeline
+- Add or update moon phase data
+- Edit timeline (launch Aeon Timeline 2)
 
 ------------------------------------------------------------------
 
