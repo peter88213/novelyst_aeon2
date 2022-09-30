@@ -1,6 +1,6 @@
 # aeon2yw_novelyst
 
-An aeon2yw_novelyst plugin for novelyst.
+An *Aeon Timeline 2* converter plugin for novelyst.
 
 For more information, see the [project homepage](https://peter88213.github.io/aeon2yw_novelyst) with description and download instructions.
 
