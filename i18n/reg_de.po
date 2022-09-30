@@ -1,0 +1,22 @@
+# aeon2yw Dictionary
+# Copyright (C) 2022 Peter Triesberger
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: unknown\n"
+"POT-Creation-Date: 2022-09-02 20:55:50\n"
+"PO-Revision-Date: 2022-09-02 21:00:00\n"
+"Last-Translator: Peter Triesberger\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: PyWriter pgettext.py 0.3\n"
+
+
+msgid "Export to Aeon Timeline 2"
+msgstr "Zu Aeon Timeline 2 exportieren"
+
+msgid "Export to yWriter"
+msgstr "Zu yWriter exportieren"
+
