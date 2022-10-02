@@ -46,6 +46,10 @@ class Plugin():
         enable_menu() -- enable menu entries when a project is open.
         
     """
+    VERSION = '@release'
+    DESCRIPTION = 'Synchronize with Aeon Timeline 2'
+    URL = 'https://peter88213.github.io/aeon2yw_novelyst'
+
     SETTINGS = dict(
         narrative_arc='Narrative',
         property_description='Description',

@@ -8,6 +8,14 @@
 
 See the [GitHub "features" project](https://github.com/peter88213/aeon2yw_novelyst/projects/1).
 
+### v0.4.0 Beta test release
+
+- Provide information for the novelyst v0.50+ Plugin Manager.
+
+Compatibility: novelyst v0.46 API
+Based on PyWriter v7.4.9
+Based on aeon2yw v1.8.2
+
 ### v0.2.0 Beta test release
 
 Set up the project from aeon2yw v1.8.2
