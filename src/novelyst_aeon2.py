@@ -47,7 +47,7 @@ class Plugin():
         
     """
     VERSION = '@release'
-    NOVELYST_API = '1.0'
+    NOVELYST_API = '0.51'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
     URL = 'https://peter88213.github.io/novelyst_aeon2'
 
