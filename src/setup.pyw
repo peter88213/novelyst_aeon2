@@ -5,7 +5,7 @@ for extending the yWriter and Aeon Timeline 2 context menus.
 Version @release
 
 Copyright (c) 2022 Peter Triesberger
-For further information see https://github.com/peter88213/aeon2yw_novelyst
+For further information see https://github.com/peter88213/novelyst_aeon2
 Published under the MIT License (https://opensource.org/licenses/mit-license.php)
 """
 import sys
@@ -37,8 +37,8 @@ except:
         return message
 
 APPNAME = 'aeon2yw'
+PLUGIN = 'novelyst_aeon2.py'
 VERSION = ' @release'
-APP = f'{APPNAME}.pyw'
 INI_FILE = f'{APPNAME}.ini'
 INI_PATH = '/config/'
 SAMPLE_PATH = 'sample/'
@@ -102,14 +102,13 @@ def install(pywriterPath):
 
 def install_plugin(pywriterPath):
     """Install a novelyst plugin if novelyst is installed."""
-    plugin = f'{APPNAME}_novelyst.py'
-    if os.path.isfile(f'./{plugin}'):
+    if os.path.isfile(f'./{PLUGIN}'):
         novelystDir = f'{pywriterPath}novelyst'
         pluginDir = f'{novelystDir}/plugin'
         output(f'Installing novelyst plugin at "{os.path.normpath(pluginDir)}"')
         os.makedirs(pluginDir, exist_ok=True)
-        copyfile(plugin, f'{pluginDir}/{plugin}')
-        output(f'Copying "{plugin}"')
+        copyfile(PLUGIN, f'{pluginDir}/{PLUGIN}')
+        output(f'Copying "{PLUGIN}"')
     else:
         output('Error: novelyst plugin file not found.')
 
@@ -125,7 +124,7 @@ if __name__ == '__main__':
 
     # Open a tk window.
     root.geometry("800x600")
-    root.title(f'Install {APPNAME}{VERSION}')
+    root.title(f'Install {PLUGIN}{VERSION}')
     header = Label(root, text='')
     header.pack(padx=5, pady=5)
 

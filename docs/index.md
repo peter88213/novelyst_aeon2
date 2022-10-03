@@ -1,4 +1,4 @@
-# aeon2yw_novelyst
+# novelyst_aeon2
 
 ## Features
 
@@ -32,12 +32,12 @@ For more information, see the [aeon2yw project page](https://peter88213.github.i
 
 ## Download and install
 
-[Download the latest release (version 0.4.0)](https://raw.githubusercontent.com/peter88213/aeon2yw_novelyst/main/dist/aeon2yw_novelyst_v0.4.0.zip)
+[Download the latest release (version 0.5.0)](https://raw.githubusercontent.com/peter88213/novelyst_aeon2/main/dist/novelyst_aeon2_v0.5.0.zip)
 
-- Unzip the downloaded zipfile "aeon2yw_novelyst_v0.4.0.zip" into a new folder.
+- Unzip the downloaded zipfile "novelyst_aeon2_v0.5.0.zip" into a new folder.
 - Move into this new folder and launch **setup.pyw**. This installs the plugin.
 
-*Note: If you install *novelyst* at a later time, you can always install the plugin afterwards by running the *aeon2yw_novelyst* setup script again.*
+*Note: If you install *novelyst* at a later time, you can always install the plugin afterwards by running the *novelyst_aeon2* setup script again.*
 
 ## Launch from novelyst
 
@@ -58,7 +58,7 @@ The submenu has the following entries:
 
 ## License
 
-aeon2yw_novelyst is distributed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
+novelyst_aeon2 is distributed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
 
 
  

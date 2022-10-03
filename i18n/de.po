@@ -1,20 +1,17 @@
-# aeon2yw Dictionary (English-German)
+# novelyst_aeon2 Dictionary (English-German)
 # Copyright (C) 2022 Peter Triesberger
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.4.0\n"
-"POT-Creation-Date: 2022-10-02 11:33:11\n"
-"PO-Revision-Date: 2022-10-02 11:33:11\n"
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-10-03 09:33:56\n"
+"PO-Revision-Date: 2022-10-03 09:33:56\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-
-msgid "Action canceled by user"
-msgstr "Vorgang vom Benutzer abgebrochen"
 
 msgid "Add or update moon phase data"
 msgstr "Mondphasen hinzufügen oder aktualisieren"
@@ -31,29 +28,14 @@ msgstr "Kann Zeitleisten-Daten nicht einlesen"
 msgid "Cannot write file"
 msgstr "Kann Datei nicht schreiben"
 
-msgid "Create a yWriter project file from {0}\nNew project: \"{1}\""
-msgstr "Erzeuge eine yWriter-Projektdatei aus {0}\nNeues Projekt: \"{1}\""
-
 msgid "Edit the timeline"
 msgstr "Die Zeitleiste bearbeiten"
-
-msgid "File already exists"
-msgstr "Datei existiert bereits"
-
-msgid "File not found"
-msgstr "Datei nicht gefunden"
-
-msgid "File type is not supported"
-msgstr "Dateityp wird nicht unterstützt"
 
 msgid "File written"
 msgstr "Datei gespeichert"
 
 msgid "Information"
 msgstr "Information"
-
-msgid "Input: {0} \"{1}\"\nOutput: {2} \"{3}\""
-msgstr "Quelle: {0} \"{1}\"\nZiel: {2} \"{3}\""
 
 msgid "Invalid JSON data in timeline"
 msgstr "Ungültige JSON-Daten in der Zeitleiste"
@@ -67,9 +49,6 @@ msgstr "Neuer Teil"
 msgid "New Scene"
 msgstr "Neue Szene"
 
-msgid "New scenes created during conversion."
-msgstr "Während der Konvertierung wurden neue Szenen erzeugt."
-
 msgid "No JSON part found in timeline data"
 msgstr "Kein JSON-Teil in der Zeitleistendatei gefunden"
 
@@ -78,9 +57,6 @@ msgstr "Keine {0}-Datei für dieses Projekt vorhanden."
 
 msgid "Novel"
 msgstr "Roman"
-
-msgid "Overwrite existing file \"{}\"?"
-msgstr "Bestehende Datei \"{}\" überschreiben?"
 
 msgid "Save the project and update it?"
 msgstr "Projekt speichern und aktualisieren?"

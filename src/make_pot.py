@@ -1,11 +1,11 @@
 """Generate a template file (pot) for message translation.
 
-For further information see https://github.com/peter88213/aeon2yw_novelyst
+For further information see https://github.com/peter88213/novelyst_aeon2
 Published under the MIT License (https://opensource.org/licenses/mit-license.php)
 """
 import os
 import sys
-import build_aeon2yw_novelyst as build_plugin
+import build_novelyst_aeon2 as build_plugin
 sys.path.insert(0, f'{os.getcwd()}/../../PyWriter/src')
 import pgettext
 

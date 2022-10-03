@@ -14,7 +14,7 @@ File structure:
 │   └── src/
 │       ├── translations.py
 │       └── msgfmt.py
-└── aeon2yw_novelyst/
+└── novelyst_aeon2/
     ├── src/ 
     │   └── translate_de.py
     └── i18n/
@@ -27,10 +27,10 @@ File structure:
         └── plugin_locale/
             └─ de/
                └─ LC_MESSAGES/
-                  └─ aeon2yw_novelyst.mo
+                  └─ novelyst_aeon2.mo
     
 Copyright (c) 2022 Peter Triesberger
-For further information see https://github.com/peter88213/aeon2yw_novelyst
+For further information see https://github.com/peter88213/novelyst_aeon2
 Published under the MIT License (https://opensource.org/licenses/mit-license.php)
 """
 import os
@@ -40,11 +40,10 @@ import translations
 from shutil import copyfile
 import msgfmt
 
-APP_NAME = 'aeon2yw'
-PLUGIN_NAME = f'{APP_NAME}_novelyst'
+APP_NAME = 'novelyst_aeon2'
 PO_PATH = '../i18n/de.po'
-MO_PATH = f'../i18n/locale/de/LC_MESSAGES/{PLUGIN_NAME}.mo'
-MO_COPY = f'../../novelyst/src/locale/de/LC_MESSAGES/{PLUGIN_NAME}.mo'
+MO_PATH = f'../i18n/locale/de/LC_MESSAGES/{APP_NAME}.mo'
+MO_COPY = f'../../novelyst/src/locale/de/LC_MESSAGES/{APP_NAME}.mo'
 
 
 def main(version='unknown'):

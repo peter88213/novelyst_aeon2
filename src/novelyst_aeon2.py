@@ -1,10 +1,10 @@
 """Aeon Timeline 2 sync plugin for novelyst.
 
 Version @release
-Compatibility: novelyst v0.46 API 
+Compatibility: novelyst v0.52 API 
 Requires Python 3.6+
 Copyright (c) 2022 Peter Triesberger
-For further information see https://github.com/peter88213/aeon2yw_novelyst
+For further information see https://github.com/peter88213/novelyst_aeon2
 Published under the MIT License (https://opensource.org/licenses/mit-license.php)
 """
 import os
@@ -19,13 +19,13 @@ from pywriter.pywriter_globals import *
 from pywriter.config.configuration import Configuration
 from pywriter.file.doc_open import open_document
 from aeon2ywlib.json_timeline2 import JsonTimeline2
-from aeon2ywlib.aeon2_converter import Aeon2Converter
+from aeon2ywlib.yw7_target import Yw7Target
 
 # Initialize localization.
 LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
 CURRENT_LANGUAGE = locale.getdefaultlocale()[0][:2]
 try:
-    t = gettext.translation('aeon2yw_novelyst', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
+    t = gettext.translation('novelyst_aeon2', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
     _ = t.gettext
 except:
 
@@ -48,7 +48,7 @@ class Plugin():
     """
     VERSION = '@release'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
-    URL = 'https://peter88213.github.io/aeon2yw_novelyst'
+    URL = 'https://peter88213.github.io/novelyst_aeon2'
 
     SETTINGS = dict(
         narrative_arc='Narrative',
@@ -74,7 +74,6 @@ class Plugin():
         Positional arguments:
             ui -- reference to the NovelystTk instance of the application.
         """
-        self._exporter = Aeon2Converter
         self._ui = ui
 
         # Create a submenu
@@ -91,6 +90,29 @@ class Plugin():
         self._pluginMenu.add_command(label=_('Add or update moon phase data'), command=self._add_moonphase)
         self._pluginMenu.add_separator()
         self._pluginMenu.add_command(label=_('Edit the timeline'), command=self._launch_application)
+
+    def _get_config(self, sourcePath):
+        """ Read persistent configuration data for Aeon 2 conversion.
+        
+        First, look for a global configuration file in the aeon2yw installation directory,
+        then look for a local configuration file in the project directory.
+        """
+        sourceDir = os.path.dirname(sourcePath)
+        if not sourceDir:
+            sourceDir = '.'
+        try:
+            homeDir = str(Path.home()).replace('\\', '/')
+            pluginCnfDir = f'{homeDir}/{INI_FILEPATH}'
+        except:
+            pluginCnfDir = '.'
+        iniFiles = [f'{pluginCnfDir}/{INI_FILENAME}', f'{sourceDir}/{INI_FILENAME}']
+        configuration = Configuration(self.SETTINGS, self.OPTIONS)
+        for iniFile in iniFiles:
+            configuration.read(iniFile)
+        kwargs = {}
+        kwargs.update(configuration.settings)
+        kwargs.update(configuration.options)
+        return kwargs
 
     def _edit_settings(self):
         """Toplevel window"""
@@ -146,18 +168,6 @@ class Plugin():
                 else:
                     self._ui.set_info_how(timeline.write())
 
-    def _export_from_yw(self):
-        """Update timeline from yWriter.
-        """
-        if self._ui.ywPrj:
-            timelinePath = f'{os.path.splitext(self._ui.ywPrj.filePath)[0]}{JsonTimeline2.EXTENSION}'
-            if os.path.isfile(timelinePath):
-                if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
-                    self._ui.save_project()
-                    self._run(self._ui.ywPrj.filePath)
-            else:
-                self._ui.set_info_how(_('{0}No {1} file available for this project.').format(ERROR, APPLICATION))
-
     def _info(self):
         """Show information about the Aeon Timeline 2 file."""
         if self._ui.ywPrj:
@@ -177,37 +187,80 @@ class Plugin():
                 message = _('No {0} file available for this project.').format(APPLICATION)
             messagebox.showinfo(PLUGIN, message)
 
-    def _import_to_yw(self):
-        """Update yWriter from timeline.
+    def _export_from_yw(self):
+        """Update the timeline from yWriter.
+        
+        Note:
+        This works by merging the timeline with the open project as a source object.
+        The JsonTimeline2 target object's merge method reads from the disk.
         """
         if self._ui.ywPrj:
             timelinePath = f'{os.path.splitext(self._ui.ywPrj.filePath)[0]}{JsonTimeline2.EXTENSION}'
-            if os.path.isfile(timelinePath):
-                if self._ui.ask_yes_no(_('Save the project and update it?')):
-                    self._ui.save_project()
-                    self._run(timelinePath)
-                    self._ui.reload_project()
-            else:
+            if not os.path.isfile(timelinePath):
                 self._ui.set_info_how(_('{0}No {1} file available for this project.').format(ERROR, APPLICATION))
+                return
 
-    def _run(self, sourcePath):
-        #--- Try to get persistent configuration data
-        sourceDir = os.path.dirname(sourcePath)
-        if not sourceDir:
-            sourceDir = '.'
-        try:
-            homeDir = str(Path.home()).replace('\\', '/')
-            pluginCnfDir = f'{homeDir}/{INI_FILEPATH}'
-        except:
-            pluginCnfDir = '.'
-        iniFiles = [f'{pluginCnfDir}/{INI_FILENAME}', f'{sourceDir}/{INI_FILENAME}']
-        configuration = Configuration(self.SETTINGS, self.OPTIONS)
-        for iniFile in iniFiles:
-            configuration.read(iniFile)
-        kwargs = {'suffix': ''}
-        kwargs.update(configuration.settings)
-        kwargs.update(configuration.options)
-        converter = Aeon2Converter()
-        converter.ui = self._ui
-        converter.run(sourcePath, **kwargs)
+            if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
+                self._ui.save_project()
+                kwargs = self._get_config(timelinePath)
+                source = self._ui.ywPrj
+                target = JsonTimeline2(timelinePath, **kwargs)
 
+                # Read the timeline from disc and update it from the project.
+                message = target.merge(source)
+                if message.startswith(ERROR):
+                    self._ui.set_info_how(message)
+                    return
+
+                # Write the updated timeline to disc.
+                message = target.write()
+                self._ui.set_info_how(message)
+
+    def _import_to_yw(self):
+        """Update the current project from the timeline.
+        
+        Note:
+        The Yw7WorkFile object of the open project cannot be used as target object.
+        This is because the JsonTimeline2 source object's IDs do not match, so 
+        the scenes and other elements are identified by their titles when merging.
+        This is done by the special Yw7Target object. Its merge method reads from the disk. 
+        Re-reading the project afterwards is the safest way to get a display update.
+        """
+        if self._ui.ywPrj:
+            timelinePath = f'{os.path.splitext(self._ui.ywPrj.filePath)[0]}{JsonTimeline2.EXTENSION}'
+            if not os.path.isfile(timelinePath):
+                self._ui.set_info_how(_('{0}No {1} file available for this project.').format(ERROR, APPLICATION))
+                return
+
+            if self._ui.ask_yes_no(_('Save the project and update it?')):
+                self._ui.save_project()
+                kwargs = self._get_config(timelinePath)
+                source = JsonTimeline2(timelinePath, **kwargs)
+                target = Yw7Target(self._ui.ywPrj.filePath, **kwargs)
+
+                # Read the timeline.
+                message = source.read()
+                if message.startswith(ERROR):
+                    self._ui.set_info_how(message)
+                    return
+
+                # Read the project from disc and update it from the timeline.
+                message = target.merge(source)
+                if message.startswith(ERROR):
+                    self._ui.set_info_how(message)
+                    return
+
+                # Write the updated project to disc.
+                message = target.write()
+                if message.startswith(ERROR):
+                    return
+
+                # Reopen the project.
+                try:
+                    # Avoid popup message (novelyst v0.52+).
+                    self._ui.reloading = True
+                except:
+                    pass
+
+                self._ui.open_project(self._ui.ywPrj.filePath)
+                self._ui.set_info_how(message)

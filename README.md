@@ -1,12 +1,12 @@
-# aeon2yw_novelyst
+# novelyst_aeon2
 
 An *Aeon Timeline 2* converter plugin for novelyst.
 
-For more information, see the [project homepage](https://peter88213.github.io/aeon2yw_novelyst) with description and download instructions.
+For more information, see the [project homepage](https://peter88213.github.io/novelyst_aeon2) with description and download instructions.
 
 ## Development
 
-*aeon2yw_novelyst* depends on the [pywriter](https://github.com/peter88213/PyWriter) and [aeon2yw](https://github.com/peter88213/aeon2yw) libraries which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
+*novelyst_aeon2* depends on the [pywriter](https://github.com/peter88213/PyWriter) and [aeon2yw](https://github.com/peter88213/aeon2yw) libraries which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
 
 ### Mandatory directory structure for building the application script
 
@@ -18,7 +18,7 @@ For more information, see the [project homepage](https://peter88213.github.io/ae
 ├── aeon2yw/
 │   └── src/
 │      └── aeon2ywlib/
-└── aeon2yw_novelyst/
+└── novelyst_aeon2/
     ├── src/
     ├── test/
     └── tools/ 
@@ -39,4 +39,4 @@ For more information, see the [project homepage](https://peter88213.github.io/ae
 
 ## License
 
-aeon2yw_novelyst is distributed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
+novelyst_aeon2 is distributed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).

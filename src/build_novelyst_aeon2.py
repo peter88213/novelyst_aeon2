@@ -6,7 +6,7 @@ this script "inlines" all modules imported from the pywriter package.
 The PyWriter project (see see https://github.com/peter88213/PyWriter)
 must be located on the same directory level as the aeon2yw project. 
 
-For further information see https://github.com/peter88213/aeon2yw_novelyst
+For further information see https://github.com/peter88213/novelyst_aeon2
 Published under the MIT License (https://opensource.org/licenses/mit-license.php)
 """
 import os
@@ -16,8 +16,8 @@ import inliner
 
 SRC = '../src/'
 BUILD = '../test/'
-SOURCE_FILE = f'{SRC}aeon2yw_novelyst.py'
-TARGET_FILE = f'{BUILD}aeon2yw_novelyst.py'
+SOURCE_FILE = f'{SRC}novelyst_aeon2.py'
+TARGET_FILE = f'{BUILD}novelyst_aeon2.py'
 
 
 def main():

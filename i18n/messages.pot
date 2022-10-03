@@ -3,8 +3,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.4.0\n"
-"POT-Creation-Date: 2022-10-02 11:33:11\n"
+"Project-Id-Version: 0.5.0\n"
+"POT-Creation-Date: 2022-10-03 09:33:56\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -13,9 +13,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: PyWriter pgettext.py 0.3\n"
 
-
-msgid "Action canceled by user"
-msgstr ""
 
 msgid "Add or update moon phase data"
 msgstr ""
@@ -32,28 +29,13 @@ msgstr ""
 msgid "Cannot write file"
 msgstr ""
 
-msgid "Create a yWriter project file from {0}\nNew project: \"{1}\""
-msgstr ""
-
 msgid "Edit the timeline"
-msgstr ""
-
-msgid "File already exists"
-msgstr ""
-
-msgid "File not found"
-msgstr ""
-
-msgid "File type is not supported"
 msgstr ""
 
 msgid "File written"
 msgstr ""
 
 msgid "Information"
-msgstr ""
-
-msgid "Input: {0} \"{1}\"\nOutput: {2} \"{3}\""
 msgstr ""
 
 msgid "Invalid JSON data in timeline"
@@ -68,9 +50,6 @@ msgstr ""
 msgid "New Scene"
 msgstr ""
 
-msgid "New scenes created during conversion."
-msgstr ""
-
 msgid "No JSON part found in timeline data"
 msgstr ""
 
@@ -78,9 +57,6 @@ msgid "No {0} file available for this project."
 msgstr ""
 
 msgid "Novel"
-msgstr ""
-
-msgid "Overwrite existing file \"{}\"?"
 msgstr ""
 
 msgid "Save the project and update it?"
