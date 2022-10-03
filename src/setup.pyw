@@ -38,6 +38,7 @@ except:
 
 APPNAME = 'aeon2yw'
 PLUGIN = 'novelyst_aeon2.py'
+OLD_PLUGIN = 'aeon2yw_novelyst.py'
 VERSION = ' @release'
 INI_FILE = f'{APPNAME}.ini'
 INI_PATH = '/config/'
@@ -107,6 +108,11 @@ def install_plugin(pywriterPath):
         pluginDir = f'{novelystDir}/plugin'
         output(f'Installing novelyst plugin at "{os.path.normpath(pluginDir)}"')
         os.makedirs(pluginDir, exist_ok=True)
+        try:
+            os.remove(f'{pluginDir}/{OLD_PLUGIN}')
+            output('Removing old version')
+        except:
+            pass
         copyfile(PLUGIN, f'{pluginDir}/{PLUGIN}')
         output(f'Copying "{PLUGIN}"')
     else:
