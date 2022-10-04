@@ -257,11 +257,7 @@ class Plugin():
                     return
 
                 # Reopen the project.
-                try:
-                    # Avoid popup message (novelyst v0.52+).
-                    self._ui.reloading = True
-                except:
-                    pass
-
+                self._ui.reloading = True
+                # avoid popup message (novelyst v0.52+)
                 self._ui.open_project(self._ui.ywPrj.filePath)
                 self._ui.set_info_how(message)
