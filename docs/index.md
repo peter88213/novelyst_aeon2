@@ -1,31 +1,26 @@
-# novelyst_aeon2
-
 The [novelyst](https://peter88213.github.io/novelyst/) Python program helps authors organize novels.  
 
-The *novelyst_aeon2* plugin synchronizes projects with Aeon Timeline 2.
+The *novelyst_aeon2* plugin synchronizes novelyst projects with Aeon Timeline 2.
 
 ## Features
 
-### Update an existing yWriter project from a timeline
+### Update an existing novelyst project from a timeline
 
 - Update scene date, time, duration, description, tags, and relationships.
 - Missing scenes, characters, locations, and items are created.
 - Scenes are marked "unused" if the associated event is deleted in Aeon.
 
-### Update an existing timeline from a yWriter project
+### Update an existing timeline from a novelyst project
 
 - Update event date, time, duration, description, tags, and relationships.
 - Entity types "Arc", "Character", "Location", and "Item", and a *Narrative* arc are created, if missing.
 - Event properties "Description" and "Notes" are created, if missing.
 - Missing events, characters, locations, and items are created.
-- "Narrative" events are removed if the associated scene is deleted in yWriter.
+- "Narrative" events are removed if the associated scene is deleted in novelyst.
 
-### Create a new timeline from a yWriter project
+### Create a new timeline from a novelyst project
 
-- Just update an empty timeline from a yWriter project.
-
-
-For more information, see the [aeon2yw project page](https://peter88213.github.io/aeon2yw)
+- Just update an empty timeline from a novelyst project.
 
 
 ## Requirements
@@ -36,24 +31,16 @@ For more information, see the [aeon2yw project page](https://peter88213.github.i
 
 ## Download and install
 
-[Download the latest release (version 0.6.0)](https://raw.githubusercontent.com/peter88213/novelyst_aeon2/main/dist/novelyst_aeon2_v0.6.0.zip)
+[Download the latest release (version 1.0.0)](https://raw.githubusercontent.com/peter88213/novelyst_aeon2/main/dist/novelyst_aeon2_v1.0.0.zip)
 
-- Unzip the downloaded zipfile "novelyst_aeon2_v0.6.0.zip" into a new folder.
+- Unzip the downloaded zipfile "novelyst_aeon2_v1.0.0.zip" into a new folder.
 - Move into this new folder and launch **setup.pyw**. This installs the plugin.
 
-*Note: If you install *novelyst* at a later time, you can always install the plugin afterwards by running the *novelyst_aeon2* setup script again.*
+*Note: If you install novelyst at a later time, you can always install the plugin afterwards by running the novelyst_aeon2 setup script again.*
 
-## Launch from novelyst
+## Usage and conventions
 
-The plugin's features are accessible via the **Tools > Aeon Timeline 2** submenu in *novelyst*.
-
-The submenu has the following entries:
-
-- Information (compare yWriter and timeline file dates)
-- Update timeline from yWriter
-- Update yWriter from timeline
-- Add or update moon phase data
-- Edit timeline (launch Aeon Timeline 2)
+See the [instructions for use](usage)
 
 ------------------------------------------------------------------
 

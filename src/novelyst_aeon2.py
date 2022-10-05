@@ -181,7 +181,7 @@ class Plugin():
                     else:
                         cmp = _('older')
                     fileDate = datetime.fromtimestamp(timestamp).replace(microsecond=0).isoformat(sep=' ')
-                    message = _('{0} file is {1} than the yWriter project.\n (last saved on {2})').format(APPLICATION, cmp, fileDate)
+                    message = _('{0} file is {1} than the novelyst project.\n (last saved on {2})').format(APPLICATION, cmp, fileDate)
                 except:
                     message = _('Cannot determine file date.')
             else:
@@ -189,7 +189,7 @@ class Plugin():
             messagebox.showinfo(PLUGIN, message)
 
     def _export_from_yw(self):
-        """Update the timeline from yWriter.
+        """Update the timeline from novelyst.
         
         Note:
         This works by merging the timeline with the open project as a source object.

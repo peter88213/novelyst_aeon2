@@ -8,6 +8,16 @@
 
 See the [GitHub "features" project](https://github.com/peter88213/novelyst_aeon2/projects/1).
 
+### v1.0.0
+
+- Revise the wording: use "novelyst project" instead of "yWriter project."
+- Extend the instructions for use.
+- Provide a sample ini file.
+
+Compatibility: novelyst v1.0.0 API
+Based on PyWriter v7.4.9
+Based on aeon2yw v1.8.2
+
 ### v0.6.0
 
 - Release under the GPLv3 license.

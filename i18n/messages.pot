@@ -3,8 +3,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.6.0\n"
-"POT-Creation-Date: 2022-10-05 15:31:33\n"
+"Project-Id-Version: 1.0.0\n"
+"POT-Creation-Date: 2022-10-05 19:44:54\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "yWriter seems to be open. Please close first"
 msgstr ""
 
-msgid "{0} file is {1} than the yWriter project.\n (last saved on {2})"
+msgid "{0} file is {1} than the novelyst project.\n (last saved on {2})"
 msgstr ""
 
 msgid "{0}Ambiguous Aeon character \"{1}\"."

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="novelyst_aeon2" basedir=".">
-	<property name="version" value="0.6.0" />
+	<property name="version" value="1.0.0" />
 	<property name="test-app" value="novelyst_aeon2" />
 	
 	<property name="source-path" location="../src" />
@@ -42,6 +42,10 @@
 		
 		<fixcrlf encoding="utf-8" eol="lf" srcdir="${build-path}/${release}" includes="**/*.*" />
 		
+		<copy todir="${build-path}/${release}/sample" failonerror="false"> 
+			<fileset dir="../sample" />
+		</copy>		
+			
 		<copy todir="${build-path}/${release}/locale"> 
 			<fileset dir="${i18n-path}/locale" />
 		</copy>

@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 0.6.0\n"
-"POT-Creation-Date: 2022-10-05 15:31:33\n"
-"PO-Revision-Date: 2022-10-05 15:31:33\n"
+"Project-Id-Version: 1.0.0\n"
+"POT-Creation-Date: 2022-10-05 19:44:54\n"
+"PO-Revision-Date: 2022-10-05 19:44:54\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -85,8 +85,8 @@ msgstr "yWriter 7-Projekt"
 msgid "yWriter seems to be open. Please close first"
 msgstr "yWriter scheint offen zu sein. Bitte schließen"
 
-msgid "{0} file is {1} than the yWriter project.\n (last saved on {2})"
-msgstr "{0}-Datei ist {1} als das yWriter-Projekt.\n (zuletzt gespeichert: {2})"
+msgid "{0} file is {1} than the novelyst project.\n (last saved on {2})"
+msgstr "{0}-Datei ist {1} als das novelyst-Projekt.\n (zuletzt gespeichert: {2})"
 
 msgid "{0}Ambiguous Aeon character \"{1}\"."
 msgstr "{0}Figur \"{1}\" mehrfach in Aeon."
