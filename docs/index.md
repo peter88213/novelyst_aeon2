@@ -1,5 +1,9 @@
 # novelyst_aeon2
 
+The [novelyst](https://peter88213.github.io/novelyst/) Python program helps authors organize novels.  
+
+The *novelyst_aeon2* plugin synchronizes projects with Aeon Timeline 2.
+
 ## Features
 
 ### Update an existing yWriter project from a timeline
@@ -28,13 +32,13 @@ For more information, see the [aeon2yw project page](https://peter88213.github.i
 
 - [Python 3.6+](https://www.python.org).
 - Aeon Timeline 2. Note: There is now a separate [converter for Aeon Timeline 3](https://peter88213.github.io/aeon3yw). 
-- [novelyst v0.42+](https://peter88213.github.io/novelyst) 
+- [novelyst](https://peter88213.github.io/novelyst/) version 1.0.0+
 
 ## Download and install
 
-[Download the latest release (version 0.5.3)](https://raw.githubusercontent.com/peter88213/novelyst_aeon2/main/dist/novelyst_aeon2_v0.5.3.zip)
+[Download the latest release (version 0.6.0)](https://raw.githubusercontent.com/peter88213/novelyst_aeon2/main/dist/novelyst_aeon2_v0.6.0.zip)
 
-- Unzip the downloaded zipfile "novelyst_aeon2_v0.5.3.zip" into a new folder.
+- Unzip the downloaded zipfile "novelyst_aeon2_v0.6.0.zip" into a new folder.
 - Move into this new folder and launch **setup.pyw**. This installs the plugin.
 
 *Note: If you install *novelyst* at a later time, you can always install the plugin afterwards by running the *novelyst_aeon2* setup script again.*
@@ -58,7 +62,9 @@ The submenu has the following entries:
 
 ## License
 
-novelyst_aeon2 is distributed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
+This is Open Source software, and the *novelyst_aeon2* plugin is licenced under GPLv3. See the
+[GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
+details, or consult the [LICENSE](https://github.com/peter88213/novelyst_aeon2/blob/main/LICENSE.md) file.
 
 
  

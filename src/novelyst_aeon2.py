@@ -1,11 +1,11 @@
 """Aeon Timeline 2 sync plugin for novelyst.
 
 Version @release
-Compatibility: novelyst v0.52 API 
+Compatibility: novelyst v1.0 API 
 Requires Python 3.6+
 Copyright (c) 2022 Peter Triesberger
 For further information see https://github.com/peter88213/novelyst_aeon2
-Published under the MIT License (https://opensource.org/licenses/mit-license.php)
+License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import os
 import sys
@@ -47,7 +47,7 @@ class Plugin():
         
     """
     VERSION = '@release'
-    NOVELYST_API = '0.51'
+    NOVELYST_API = '1.0'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
     URL = 'https://peter88213.github.io/novelyst_aeon2'
 

@@ -1,7 +1,7 @@
 """Generate a template file (pot) for message translation.
 
 For further information see https://github.com/peter88213/novelyst_aeon2
-Published under the MIT License (https://opensource.org/licenses/mit-license.php)
+License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import os
 import sys
