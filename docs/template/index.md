@@ -25,7 +25,6 @@ The *novelyst_aeon2* plugin synchronizes novelyst projects with Aeon Timeline 2.
 
 ## Requirements
 
-- [Python 3.6+](https://www.python.org).
 - Aeon Timeline 2. Note: There is now a separate [converter for Aeon Timeline 3](https://peter88213.github.io/aeon3yw). 
 - [novelyst](https://peter88213.github.io/novelyst/) version 1.0.0+
 
