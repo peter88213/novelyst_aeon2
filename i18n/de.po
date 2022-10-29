@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 1.0.1\n"
-"POT-Creation-Date: 2022-10-07 21:29:43\n"
-"PO-Revision-Date: 2022-10-07 21:29:43\n"
+"Project-Id-Version: 1.1.0\n"
+"POT-Creation-Date: 2022-10-29 23:15:47\n"
+"PO-Revision-Date: 2022-10-29 23:15:48\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,30 @@ msgstr ""
 
 msgid "Add or update moon phase data"
 msgstr "Mondphasen hinzufügen oder aktualisieren"
+
+msgid "Ambiguous Aeon character \"{}\"."
+msgstr "Figur \"{}\" mehrfach in Aeon."
+
+msgid "Ambiguous Aeon event title \"{}\"."
+msgstr "Ereginistitel \"{}\" mehrfach in Aeon."
+
+msgid "Ambiguous Aeon item \"{}\"."
+msgstr "Gegenstand \"{}\" mehrfach in Aeon."
+
+msgid "Ambiguous Aeon location \"{}\"."
+msgstr "Schauplatz \"{}\" mehrfach in Aeon."
+
+msgid "Ambiguous yWriter character \"{}\"."
+msgstr "Figur \"{}\" mehrfach in yWriter."
+
+msgid "Ambiguous yWriter item \"{}\"."
+msgstr "Gegenstand \"{}\" mehrfach in yWriter."
+
+msgid "Ambiguous yWriter location \"{}\"."
+msgstr "Schauplatz \"{}\" mehrfach in yWriter."
+
+msgid "Ambiguous yWriter scene title \"{}\"."
+msgstr "Szenetitel \"{}\" mehrfach in yWriter."
 
 msgid "Can not process file"
 msgstr "Kann Datei nicht verarbeiten"
@@ -32,7 +56,7 @@ msgid "Edit the timeline"
 msgstr "Die Zeitleiste bearbeiten"
 
 msgid "File written"
-msgstr "Datei gespeichert"
+msgstr "Datei geschrieben"
 
 msgid "Information"
 msgstr "Information"
@@ -73,6 +97,9 @@ msgstr "Das Projekt aktualisieren"
 msgid "Update the timeline"
 msgstr "Die Zeitleiste aktualisieren"
 
+msgid "\"AD\" era is missing in the calendar."
+msgstr "\"AD\" Ära fehlt im Kalender"
+
 msgid "newer"
 msgstr "neuer"
 
@@ -87,34 +114,4 @@ msgstr "yWriter scheint offen zu sein. Bitte schließen"
 
 msgid "{0} file is {1} than the novelyst project.\n (last saved on {2})"
 msgstr "{0}-Datei ist {1} als das novelyst-Projekt.\n (zuletzt gespeichert: {2})"
-
-msgid "{0}Ambiguous Aeon character \"{1}\"."
-msgstr "{0}Figur \"{1}\" mehrfach in Aeon."
-
-msgid "{0}Ambiguous Aeon event title \"{1}\"."
-msgstr "{0}Ereginistitel \"{1}\" mehrfach in Aeon."
-
-msgid "{0}Ambiguous Aeon item \"{1}\"."
-msgstr "{0}Gegenstand \"{1}\" mehrfach in Aeon."
-
-msgid "{0}Ambiguous Aeon location \"{1}\"."
-msgstr "{0}Schauplatz \"{1}\" mehrfach in Aeon."
-
-msgid "{0}Ambiguous yWriter character \"{1}\"."
-msgstr "{0}Figur \"{1}\" mehrfach in yWriter."
-
-msgid "{0}Ambiguous yWriter item \"{1}\"."
-msgstr "{0}Gegenstand \"{1}\" mehrfach in yWriter."
-
-msgid "{0}Ambiguous yWriter location \"{1}\"."
-msgstr "{0}Schauplatz \"{1}\" mehrfach in yWriter."
-
-msgid "{0}Ambiguous yWriter scene title \"{1}\"."
-msgstr "{0}Szenetitel \"{1}\" mehrfach in yWriter."
-
-msgid "{0}No {1} file available for this project."
-msgstr "{0}Keine {1}-Datei für dieses Projekt verfügbar."
-
-msgid "{}\"AD\" era is missing in the calendar."
-msgstr "{}\"AD\" Ära fehlt im Kalender"
 

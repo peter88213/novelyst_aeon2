@@ -134,7 +134,7 @@ class Plugin():
                 if self._ui.lock():
                     open_document(timelinePath)
             else:
-                self._ui.set_info_how(_('{0}No {1} file available for this project.').format(ERROR, APPLICATION))
+                self._ui.set_info_how(_('No {0} file available for this project.').format(ERROR, APPLICATION))
 
     def _add_moonphase(self):
         """Add/update moon phase data.
@@ -163,11 +163,13 @@ class Plugin():
                 kwargs.update(configuration.options)
                 kwargs['add_moonphase'] = True
                 timeline = JsonTimeline2(timelinePath, **kwargs)
-                message = timeline.read()
-                if message.startswith(ERROR):
-                    self._ui.set_info_how(message)
-                else:
-                    self._ui.set_info_how(timeline.write())
+                try:
+                    timeline.read()
+                    timeline.write()
+                    message = f'{_("File written")}: "{os.path.normpath(timeline.filePath)}".'
+                except Error as ex:
+                    message = f'{ERROR}{str(ex)}'
+                self._ui.set_info_how(message)
 
     def _info(self):
         """Show information about the Aeon Timeline 2 file."""
@@ -198,7 +200,7 @@ class Plugin():
         if self._ui.ywPrj:
             timelinePath = f'{os.path.splitext(self._ui.ywPrj.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if not os.path.isfile(timelinePath):
-                self._ui.set_info_how(_('{0}No {1} file available for this project.').format(ERROR, APPLICATION))
+                self._ui.set_info_how(_('No {0} file available for this project.').format(ERROR, APPLICATION))
                 return
 
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
@@ -206,15 +208,12 @@ class Plugin():
                 kwargs = self._get_config(timelinePath)
                 source = self._ui.ywPrj
                 target = JsonTimeline2(timelinePath, **kwargs)
-
-                # Read the timeline from disc and update it from the project.
-                message = target.merge(source)
-                if message.startswith(ERROR):
-                    self._ui.set_info_how(message)
-                    return
-
-                # Write the updated timeline to disc.
-                message = target.write()
+                try:
+                    target.merge(source)
+                    target.write()
+                    message = f'{_("File written")}: "{os.path.normpath(target.filePath)}".'
+                except Error as ex:
+                    message = f'{ERROR}{str(ex)}'
                 self._ui.set_info_how(message)
 
     def _import_to_yw(self):
@@ -230,7 +229,7 @@ class Plugin():
         if self._ui.ywPrj:
             timelinePath = f'{os.path.splitext(self._ui.ywPrj.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if not os.path.isfile(timelinePath):
-                self._ui.set_info_how(_('{0}No {1} file available for this project.').format(ERROR, APPLICATION))
+                self._ui.set_info_how(_('No {0} file available for this project.').format(ERROR, APPLICATION))
                 return
 
             if self._ui.ask_yes_no(_('Save the project and update it?')):
@@ -238,23 +237,13 @@ class Plugin():
                 kwargs = self._get_config(timelinePath)
                 source = JsonTimeline2(timelinePath, **kwargs)
                 target = Yw7Target(self._ui.ywPrj.filePath, **kwargs)
-
-                # Read the timeline.
-                message = source.read()
-                if message.startswith(ERROR):
-                    self._ui.set_info_how(message)
-                    return
-
-                # Read the project from disc and update it from the timeline.
-                message = target.merge(source)
-                if message.startswith(ERROR):
-                    self._ui.set_info_how(message)
-                    return
-
-                # Write the updated project to disc.
-                message = target.write()
-                if message.startswith(ERROR):
-                    return
+                try:
+                    source.read()
+                    target.merge(source)
+                    target.write()
+                    message = f'{_("File written")}: "{os.path.normpath(target.filePath)}".'
+                except Error as ex:
+                    message = f'{ERROR}{str(ex)}'
 
                 # Reopen the project.
                 self._ui.reloading = True
