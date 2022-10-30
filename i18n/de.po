@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 2.0.0\n"
-"POT-Creation-Date: 2022-10-30 08:50:09\n"
-"PO-Revision-Date: 2022-10-30 08:50:09\n"
+"Project-Id-Version: 2.0.1\n"
+"POT-Creation-Date: 2022-10-30 11:38:16\n"
+"PO-Revision-Date: 2022-10-30 11:38:16\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -48,6 +48,9 @@ msgstr "Kann Datei nicht verarbeiten"
 
 msgid "Cannot determine file date."
 msgstr "Das Dateidatum ist nicht zu ermitteln."
+
+msgid "Cannot overwrite file"
+msgstr "Kann Datei nicht überschreiben"
 
 msgid "Cannot read timeline data"
 msgstr "Kann Zeitleisten-Daten nicht einlesen"
