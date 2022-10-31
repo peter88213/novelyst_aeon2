@@ -3,8 +3,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 2.0.1\n"
-"POT-Creation-Date: 2022-10-30 11:38:16\n"
+"Project-Id-Version: 2.0.2\n"
+"POT-Creation-Date: 2022-10-31 11:24:17\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -21,6 +21,9 @@ msgid "\"AD\" era is missing in the calendar."
 msgstr ""
 
 msgid "Add or update moon phase data"
+msgstr ""
+
+msgid "Aeon Timeline 2 project"
 msgstr ""
 
 msgid "Ambiguous Aeon character \"{}\"."
