@@ -166,7 +166,7 @@ class Plugin():
                 try:
                     timeline.read()
                     timeline.write()
-                    message = f'{_("File written")}: "{os.path.normpath(timeline.filePath)}".'
+                    message = f'{_("File written")}: "{norm_path(timeline.filePath)}".'
                 except Error as ex:
                     message = f'!{str(ex)}'
                 self._ui.set_info_how(message)
@@ -211,7 +211,7 @@ class Plugin():
                 try:
                     target.merge(source)
                     target.write()
-                    message = f'{_("File written")}: "{os.path.normpath(target.filePath)}".'
+                    message = f'{_("File written")}: "{norm_path(target.filePath)}".'
                 except Error as ex:
                     message = f'!{str(ex)}'
                 self._ui.set_info_how(message)
@@ -241,7 +241,7 @@ class Plugin():
                     source.read()
                     target.merge(source)
                     target.write()
-                    message = f'{_("File written")}: "{os.path.normpath(target.filePath)}".'
+                    message = f'{_("File written")}: "{norm_path(target.filePath)}".'
                 except Error as ex:
                     message = f'!{str(ex)}'
 
