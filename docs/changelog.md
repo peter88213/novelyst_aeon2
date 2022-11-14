@@ -8,15 +8,15 @@
 
 See the [GitHub "features" project](https://github.com/peter88213/novelyst_aeon2/projects/1).
 
-### v2.0.2
+### v2.0.3
 
 - Code optimization and library update. 
 - Fix a bug where attempting to save a write-protected file raises an uncaught exception.
 - Extend localization.
 
 Compatibility: novelyst v2.0 API
-Based on PyWriter v8.0.3
-Based on aeon2yw v2.0.2
+Based on PyWriter v8.0.8
+Based on aeon2yw v2.0.3
 
 ### v1.0.1 Bugfix release
 
