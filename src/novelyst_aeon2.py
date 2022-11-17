@@ -128,8 +128,8 @@ class Plugin():
 
     def _launch_application(self):
         """Launch Aeon Timeline 2 with the current project."""
-        if self._ui.ywPrj:
-            timelinePath = f'{os.path.splitext(self._ui.ywPrj.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._ui.prjFile:
+            timelinePath = f'{os.path.splitext(self._ui.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if os.path.isfile(timelinePath):
                 if self._ui.lock():
                     open_document(timelinePath)
@@ -143,8 +143,8 @@ class Plugin():
         If the moon phase event property already exists, just update.
         """
         #--- Try to get persistent configuration data
-        if self._ui.ywPrj:
-            timelinePath = f'{os.path.splitext(self._ui.ywPrj.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._ui.prjFile:
+            timelinePath = f'{os.path.splitext(self._ui.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if os.path.isfile(timelinePath):
                 sourceDir = os.path.dirname(timelinePath)
                 if not sourceDir:
@@ -173,12 +173,12 @@ class Plugin():
 
     def _info(self):
         """Show information about the Aeon Timeline 2 file."""
-        if self._ui.ywPrj:
-            timelinePath = f'{os.path.splitext(self._ui.ywPrj.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._ui.prjFile:
+            timelinePath = f'{os.path.splitext(self._ui.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if os.path.isfile(timelinePath):
                 try:
                     timestamp = os.path.getmtime(timelinePath)
-                    if timestamp > self._ui.ywPrj.timestamp:
+                    if timestamp > self._ui.prjFile.timestamp:
                         cmp = _('newer')
                     else:
                         cmp = _('older')
@@ -197,8 +197,8 @@ class Plugin():
         This works by merging the timeline with the open project as a source object.
         The JsonTimeline2 target object's merge method reads from the disk.
         """
-        if self._ui.ywPrj:
-            timelinePath = f'{os.path.splitext(self._ui.ywPrj.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._ui.prjFile:
+            timelinePath = f'{os.path.splitext(self._ui.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if not os.path.isfile(timelinePath):
                 self._ui.set_info_how(_('!No {} file available for this project.').format(APPLICATION))
                 return
@@ -206,7 +206,7 @@ class Plugin():
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
                 self._ui.save_project()
                 kwargs = self._get_config(timelinePath)
-                source = self._ui.ywPrj
+                source = self._ui.prjFile
                 target = JsonTimeline2(timelinePath, **kwargs)
                 try:
                     target.merge(source)
@@ -226,8 +226,8 @@ class Plugin():
         This is done by the special Yw7Target object. Its merge method reads from the disk. 
         Re-reading the project afterwards is the safest way to get a display update.
         """
-        if self._ui.ywPrj:
-            timelinePath = f'{os.path.splitext(self._ui.ywPrj.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._ui.prjFile:
+            timelinePath = f'{os.path.splitext(self._ui.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if not os.path.isfile(timelinePath):
                 self._ui.set_info_how(_('!No {} file available for this project.').format(APPLICATION))
                 return
@@ -236,7 +236,7 @@ class Plugin():
                 self._ui.save_project()
                 kwargs = self._get_config(timelinePath)
                 source = JsonTimeline2(timelinePath, **kwargs)
-                target = Yw7Target(self._ui.ywPrj.filePath, **kwargs)
+                target = Yw7Target(self._ui.prjFile.filePath, **kwargs)
                 try:
                     source.read()
                     target.merge(source)
@@ -248,5 +248,5 @@ class Plugin():
                 # Reopen the project.
                 self._ui.reloading = True
                 # avoid popup message (novelyst v0.52+)
-                self._ui.open_project(self._ui.ywPrj.filePath)
+                self._ui.open_project(self._ui.prjFile.filePath)
                 self._ui.set_info_how(message)
