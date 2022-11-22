@@ -3,8 +3,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 2.0.3\n"
-"POT-Creation-Date: 2022-11-14 09:41:10\n"
+"Project-Id-Version: 3.0.0\n"
+"POT-Creation-Date: 2022-11-22 16:05:53\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -68,6 +68,9 @@ msgstr ""
 msgid "Edit the timeline"
 msgstr ""
 
+msgid "File"
+msgstr ""
+
 msgid "File written"
 msgstr ""
 
@@ -77,22 +80,10 @@ msgstr ""
 msgid "Invalid JSON data in timeline"
 msgstr ""
 
-msgid "New Chapter"
-msgstr ""
-
-msgid "New Part"
-msgstr ""
-
-msgid "New Scene"
-msgstr ""
-
 msgid "No JSON part found in timeline data"
 msgstr ""
 
 msgid "No {} file available for this project."
-msgstr ""
-
-msgid "Novel"
 msgstr ""
 
 msgid "Save the project and update it?"

@@ -1,7 +1,6 @@
 """Aeon Timeline 2 sync plugin for novelyst.
 
 Version @release
-Compatibility: novelyst v2.0 API 
 Requires Python 3.6+
 Copyright (c) 2022 Peter Triesberger
 For further information see https://github.com/peter88213/novelyst_aeon2
@@ -16,10 +15,12 @@ import gettext
 from tkinter import messagebox
 from datetime import datetime
 from pywriter.pywriter_globals import *
+from pywriter.model.novel import Novel
 from pywriter.config.configuration import Configuration
 from pywriter.file.doc_open import open_document
 from aeon2ywlib.json_timeline2 import JsonTimeline2
 from aeon2ywlib.yw7_target import Yw7Target
+from aeon2ywlib.yw7_source import Yw7Source
 
 # Initialize localization.
 LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
@@ -47,7 +48,7 @@ class Plugin():
         
     """
     VERSION = '@release'
-    NOVELYST_API = '2.0'
+    NOVELYST_API = '3.0'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
     URL = 'https://peter88213.github.io/novelyst_aeon2'
 
@@ -206,10 +207,12 @@ class Plugin():
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
                 self._ui.save_project()
                 kwargs = self._get_config(timelinePath)
-                source = self._ui.prjFile
+                source = Yw7Source(self._ui.prjFile.filePath, **kwargs)
+                source.novel = Novel()
                 target = JsonTimeline2(timelinePath, **kwargs)
                 try:
-                    target.merge(source)
+                    source.read()
+                    target.novel = source.novel
                     target.write()
                     message = f'{_("File written")}: "{norm_path(target.filePath)}".'
                 except Error as ex:
@@ -238,8 +241,11 @@ class Plugin():
                 source = JsonTimeline2(timelinePath, **kwargs)
                 target = Yw7Target(self._ui.prjFile.filePath, **kwargs)
                 try:
+                    target.novel = Novel()
+                    target.read()
+                    source.novel = target.novel
                     source.read()
-                    target.merge(source)
+                    target.novel = source.novel
                     target.write()
                     message = f'{_("File written")}: "{norm_path(target.filePath)}".'
                 except Error as ex:
