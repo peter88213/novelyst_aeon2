@@ -8,6 +8,12 @@
 
 See the [GitHub "features" project](https://github.com/peter88213/novelyst_aeon2/projects/1).
 
+### v4.0.0
+
+- API update. 
+
+Compatibility: novelyst v4.0 API
+
 ### v3.0.0
 
 - Code optimization and library update. 
