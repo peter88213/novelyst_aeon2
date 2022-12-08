@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Install the aeon2yw script and set up the registry files
 for extending the yWriter and Aeon Timeline 2 context menus. 
 
