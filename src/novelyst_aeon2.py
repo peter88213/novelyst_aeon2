@@ -1,7 +1,6 @@
 """Aeon Timeline 2 sync plugin for novelyst.
 
 Version @release
-Compatibility: novelyst v2.0 API 
 Requires Python 3.6+
 Copyright (c) 2022 Peter Triesberger
 For further information see https://github.com/peter88213/novelyst_aeon2
@@ -20,6 +19,7 @@ from pywriter.config.configuration import Configuration
 from pywriter.file.doc_open import open_document
 from aeon2ywlib.json_timeline2 import JsonTimeline2
 from aeon2ywlib.yw7_target import Yw7Target
+from aeon2ywlib.yw7_source import Yw7Source
 
 # Initialize localization.
 LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
@@ -47,7 +47,7 @@ class Plugin():
         
     """
     VERSION = '@release'
-    NOVELYST_API = '2.0'
+    NOVELYST_API = '4.0'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
     URL = 'https://peter88213.github.io/novelyst_aeon2'
 
@@ -194,7 +194,9 @@ class Plugin():
         """Update the timeline from novelyst.
         
         Note:
-        This works by merging the timeline with the open project as a source object.
+        The Yw7WorkFile object of the open project cannot be used as source object.
+        This is because the JsonTimeline2 target object's IDs do not match, so 
+        the scenes and other elements are identified by their titles when merging.
         The JsonTimeline2 target object's merge method reads from the disk.
         """
         if self._ui.prjFile:
@@ -206,9 +208,10 @@ class Plugin():
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
                 self._ui.save_project()
                 kwargs = self._get_config(timelinePath)
-                source = self._ui.prjFile
+                source = Yw7Source(self._ui.prjFile.filePath)
                 target = JsonTimeline2(timelinePath, **kwargs)
                 try:
+                    source.read()
                     target.merge(source)
                     target.write()
                     message = f'{_("File written")}: "{norm_path(target.filePath)}".'
@@ -245,7 +248,7 @@ class Plugin():
                 except Error as ex:
                     message = f'!{str(ex)}'
 
-                # Reopen the project.
+                # Reopen the project. Don't call reload_project() in order to avoid warnings.
                 self._ui.reloading = True
                 # avoid popup message (novelyst v0.52+)
                 self._ui.open_project(self._ui.prjFile.filePath)
