@@ -16,6 +16,26 @@ Compatibility: novelyst v4.0 API
 Based on PyWriter v8.0.10
 Based on aeon2yw v2.0.4
 
+### v4.0.1
+
+- Make the setup script run with Python 3.11 under Windows.
+
+Compatibility: novelyst v4.0 API
+
+### v4.0.0
+
+- API update. 
+
+Compatibility: novelyst v4.0 API
+
+### v3.0.0
+
+- Code optimization and library update. 
+
+Compatibility: novelyst v3.0 API
+Based on PyWriter v9.0.4
+Based on aeon2yw v3.0.1
+
 ### v2.0.3
 
 - Code optimization and library update. 
