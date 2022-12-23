@@ -26,7 +26,7 @@ The *novelyst_aeon2* plugin synchronizes novelyst projects with Aeon Timeline 2.
 ## Requirements
 
 - Aeon Timeline 2. Note: There is now a separate [converter for Aeon Timeline 3](https://peter88213.github.io/aeon3yw). 
-- [novelyst](https://peter88213.github.io/novelyst/) version 4.0.0+
+- [novelyst](https://peter88213.github.io/novelyst/) version 4.0+
 
 ## Download and install
 
@@ -48,7 +48,7 @@ See the [instructions for use](usage)
 
 ## License
 
-This is Open Source software, and the *novelyst_aeon2* plugin is licenced under GPLv3. See the
+This is Open Source software, and the *novelyst_aeon2* plugin is licensed under GPLv3. See the
 [GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
 details, or consult the [LICENSE](https://github.com/peter88213/novelyst_aeon2/blob/main/LICENSE) file.
 
