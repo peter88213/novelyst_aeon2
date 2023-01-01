@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Install the aeon2yw script and set up the registry files
-for extending the yWriter and Aeon Timeline 2 context menus. 
+"""Install the novelyst_aeon2 plugin.
 
 Version @release
 
@@ -10,31 +9,15 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import sys
 import os
-import stat
 from shutil import copytree
 from shutil import copyfile
-from shutil import rmtree
 from pathlib import Path
-from string import Template
-import gettext
-import locale
 try:
     from tkinter import *
     from tkinter import messagebox
 except ModuleNotFoundError:
     print('The tkinter module is missing. Please install the tk support package for your python3 version.')
     sys.exit(1)
-
-# Initialize localization.
-LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
-CURRENT_LANGUAGE = locale.getlocale()[0][:2]
-try:
-    t = gettext.translation('reg', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
-    _ = t.gettext
-except:
-
-    def _(message):
-        return message
 
 APPNAME = 'aeon2yw'
 PLUGIN = 'novelyst_aeon2.py'
