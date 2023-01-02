@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 2.0.5\n"
-"POT-Creation-Date: 2023-01-01 17:07:34\n"
-"PO-Revision-Date: 2023-01-01 17:07:35\n"
+"Project-Id-Version: 2.1.0\n"
+"POT-Creation-Date: 2023-01-02 18:15:06\n"
+"PO-Revision-Date: 2023-01-02 18:15:06\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,9 @@ msgstr "!Keine {}-Datei für dieses Projekt vorhanden."
 
 msgid "Add or update moon phase data"
 msgstr "Mondphasen hinzufügen oder aktualisieren"
+
+msgid "Aeon 2 plugin Online help"
+msgstr "Aeon 2-Plugin Online-Hilfe"
 
 msgid "Aeon Timeline 2 project"
 msgstr "Aeon Timeline 2-Projekt"
@@ -64,6 +67,9 @@ msgstr "Kann Datei nicht schreiben"
 msgid "Edit the timeline"
 msgstr "Die Zeitleiste bearbeiten"
 
+msgid "File"
+msgstr "Datei"
+
 msgid "File written"
 msgstr "Datei geschrieben"
 
@@ -73,23 +79,11 @@ msgstr "Information"
 msgid "Invalid JSON data in timeline"
 msgstr "Ungültige JSON-Daten in der Zeitleiste"
 
-msgid "New Chapter"
-msgstr "Neues Kapitel"
-
-msgid "New Part"
-msgstr "Neuer Teil"
-
-msgid "New Scene"
-msgstr "Neue Szene"
-
 msgid "No JSON part found in timeline data"
 msgstr "Kein JSON-Teil in der Zeitleistendatei gefunden"
 
 msgid "No {} file available for this project."
 msgstr "Keine {}-Datei für dieses Projekt vorhanden."
-
-msgid "Novel"
-msgstr "Roman"
 
 msgid "Save the project and update it?"
 msgstr "Projekt speichern und aktualisieren?"

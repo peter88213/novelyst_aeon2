@@ -1,13 +1,27 @@
-# The novelyst_aeon2 plugin
+[Project homepage](https://peter88213.github.io/novelyst_aeon2)
 
-## How to install
+--- 
+
+A [novelyst](https://peter88213.github.io/novelyst/) plugin providing synchronization with Aeon Timeline 2. 
+
+---
+
+# Installation
 
 - Unzip the downloaded zipfile into a new folder.
 - Move into this new folder and launch **setup.pyw**. This installs the plugin.
 
 *Note: If you install novelyst at a later time, you can always install the plugin afterwards by running the novelyst_aeon2 setup script again.*
 
-### Launch from novelyst
+The plugin adds an **Aeon Timeline 2** entry to the *novelyst* **Tools** menu, and an **Aeon 2 plugin Online Help** entry to the **Help** menu. 
+
+---
+
+# Operation
+
+---
+
+## Launch the converter
 
 The plugin's features are accessible via the **Tools > Aeon Timeline 2** submenu in *novelyst*.
 
@@ -19,6 +33,12 @@ The submenu has the following entries:
 - Add or update moon phase data
 - Edit timeline (launch Aeon Timeline 2)
 
+---
+
+# Control conversion
+
+---
+
 ## Prepare your timeline for export
 
 The included installation script installs a "yWriter" template in the *aeon2yw* configuration folder. 
@@ -29,6 +49,7 @@ For existing timelines you have two choices:
 - Option 1: Add or rename the required entities and event properties in the Timeline settings.
 - Option 2: Customize the *aeon2yw* configuration to fit your timeline, see [Custom configuration](#custom-configuration).
 
+---
 
 ## Synchronization in detail
 
@@ -94,6 +115,7 @@ The names/column labels refer to timelines based on the "yWriter" template.
 (*) Applies to the default configuration, but can be customized.
 (**) To be set in the configuration file.
 
+---
 
 ## Custom configuration
 
@@ -180,7 +202,11 @@ add_moonphase = No
 Note: Your custom configuration file does not have to contain all the entries listed above. 
 The changed entries are sufficient. 
 
+---
 
-## See also:
+# License
 
-Home page of the novelyst application: https://peter88213.github.io/novelyst
+This is Open Source software, and the *novelyst_aeon2* plugin is licensed under GPLv3. See the
+[GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
+details, or consult the [LICENSE](https://github.com/peter88213/novelyst_aeon2/blob/main/LICENSE) file.
+
