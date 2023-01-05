@@ -8,6 +8,14 @@
 
 See the [GitHub "features" project](https://github.com/peter88213/novelyst_aeon2/projects/1).
 
+### v2.1.1
+
+Rebuild with restructured build environment and defined dependencies.
+
+Compatibility: novelyst v4.0 API
+Based on PyWriter v8.0.11
+Based on aeon2yw v2.0.5
+
 ### v2.1.0
 
 - Provide online help.
