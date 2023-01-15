@@ -8,7 +8,7 @@
 
 See the [GitHub "features" project](https://github.com/peter88213/novelyst_aeon2/projects/1).
 
-### v3.0.0 for novelyst v4.4+
+### v3.1.0 for novelyst v4.4+
 
 - This update is mandatory for novelyst v4.4+, because v2.1.1 interferes with the scene arc assignments.
 - Update for PyWriter v9+
