@@ -8,6 +8,31 @@
 
 See the [GitHub "features" project](https://github.com/peter88213/novelyst_aeon2/projects/1).
 
+### v3.0.0 for novelyst v4.4+
+
+- This update is mandatory for novelyst v4.4+, because v2.1.1 interferes with the scene arc assignments.
+- Update for PyWriter v9+
+
+Compatibility: novelyst v4.0 API
+Based on PyWriter v10.0.1
+Based on aeon2yw v3.1.0
+
+### v2.1.1
+
+Rebuild with restructured build environment and defined dependencies.
+
+Compatibility: novelyst v4.0 API
+Based on PyWriter v8.0.11
+Based on aeon2yw v2.0.5
+
+### v2.1.0
+
+- Provide online help.
+
+Compatibility: novelyst v4.0 API
+Based on PyWriter v8.0.11
+Based on aeon2yw v2.0.5
+
 ### v2.0.5
 
 - Make it run on old Windows versions.
