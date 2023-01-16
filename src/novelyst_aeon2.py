@@ -2,7 +2,7 @@
 
 Version @release
 Requires Python 3.6+
-Copyright (c) 2022 Peter Triesberger
+Copyright (c) 2023 Peter Triesberger
 For further information see https://github.com/peter88213/novelyst_aeon2
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
@@ -20,8 +20,7 @@ from pywriter.model.novel import Novel
 from pywriter.config.configuration import Configuration
 from pywriter.file.doc_open import open_document
 from aeon2ywlib.json_timeline2 import JsonTimeline2
-from aeon2ywlib.yw7_target import Yw7Target
-from aeon2ywlib.yw7_source import Yw7Source
+from pywriter.yw.yw7_file import Yw7File
 
 # Initialize localization.
 LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
@@ -212,7 +211,7 @@ class Plugin():
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
                 self._ui.save_project()
                 kwargs = self._get_config(timelinePath)
-                source = Yw7Source(self._ui.prjFile.filePath, **kwargs)
+                source = Yw7File(self._ui.prjFile.filePath, **kwargs)
                 source.novel = Novel()
                 target = JsonTimeline2(timelinePath, **kwargs)
                 try:
@@ -244,7 +243,7 @@ class Plugin():
                 self._ui.save_project()
                 kwargs = self._get_config(timelinePath)
                 source = JsonTimeline2(timelinePath, **kwargs)
-                target = Yw7Target(self._ui.prjFile.filePath, **kwargs)
+                target = Yw7File(self._ui.prjFile.filePath, **kwargs)
                 try:
                     target.novel = Novel()
                     target.read()
