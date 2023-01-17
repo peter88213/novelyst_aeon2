@@ -8,6 +8,14 @@
 
 See the [GitHub "features" project](https://github.com/peter88213/novelyst_aeon2/projects/1).
 
+### v3.2.0 for novelyst v4.4+
+
+- The "scenes_only" parameter only affects the creation of new scenes, but not the update.
+
+Compatibility: novelyst v4.0 API
+Based on PyWriter v10.0.1
+Based on aeon2yw v3.2.1
+
 ### v3.1.0 for novelyst v4.4+
 
 - This update is mandatory for novelyst v4.4+, because v2.1.1 interferes with the scene arc assignments.

@@ -3,8 +3,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 3.1.0\n"
-"POT-Creation-Date: 2023-01-15 12:57:57\n"
+"Project-Id-Version: 3.2.0\n"
+"POT-Creation-Date: 2023-01-17 21:08:29\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -81,6 +81,9 @@ msgid "Information"
 msgstr ""
 
 msgid "Invalid JSON data in timeline"
+msgstr ""
+
+msgid "New scenes"
 msgstr ""
 
 msgid "No JSON part found in timeline data"

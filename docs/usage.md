@@ -63,8 +63,9 @@ For existing timelines you have two choices:
 The names/column labels refer to timelines based on the "yWriter" template. 
 
 - If an Aeon event title occurs more than once, the program aborts with an error message.
-- Events assigned to the "Narrative" arc are converted to regular scenes and placed in a regular chapter (*).
-- Events not assigned to the "Narrative" arc are converted to "Notes" scenes and placed in a "Notes" chapter (*).
+- Events assigned to the "Narrative" arc are converted to regular scenes (*).
+- Optionally, events not assigned to the "Narrative" arc are converted to "Notes" scenes (**).
+- New scenes are put into a new chapter named "New scenes". 
 - All scenes are sorted chronologically. 
 - The scene status is "Outline". 
 - The event title is used as scene title (*).
@@ -88,8 +89,9 @@ The names/column labels refer to timelines based on the "yWriter" template.
 - Notes of events with a matching title are appended to the scene notes.
 - The start date is overwritten, if the start year is 100 or above.
 - The scene duration is overwritten, if the start year is 100 or above.
-- Scenes updated from "Narrative" events are "Normal" type (*).
-- Optionally, scenes updated from non-"Narrative" events are "Notes" type (**).
+- New "Normal" type scenes are created from "Narrative" events, if missing (*).
+- Optionally, new "Notes" type scenes are created from non-"Narrative" events, if missing (**).
+- New scenes are put into a new chapter named "New scenes". 
 - New arcs, characters, locations, and items are added, if assigned to "Narrative" events.
 - Arc, character, location, and item relationships are updated, if the entity names match.
 
@@ -190,8 +192,8 @@ color_event = Yellow
 
 scenes_only = Yes
 
-# Yes: Synchronize only "Normal" scenes.
-# No:  Synchronize "Notes" scenes as well.
+# Yes: Create new scenes from "narrative" events only.
+# No: Additionally create "Notes scenes" from "non-narrative" events.
 
 add_moonphase = No
 

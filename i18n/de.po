@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 3.1.0\n"
-"POT-Creation-Date: 2023-01-15 12:57:57\n"
-"PO-Revision-Date: 2023-01-15 12:57:57\n"
+"Project-Id-Version: 3.2.0\n"
+"POT-Creation-Date: 2023-01-17 21:08:29\n"
+"PO-Revision-Date: 2023-01-17 21:08:29\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -78,6 +78,9 @@ msgstr "Information"
 
 msgid "Invalid JSON data in timeline"
 msgstr "Ungültige JSON-Daten in der Zeitleiste"
+
+msgid "New scenes"
+msgstr "Neue Szenen"
 
 msgid "No JSON part found in timeline data"
 msgstr "Kein JSON-Teil in der Zeitleistendatei gefunden"
