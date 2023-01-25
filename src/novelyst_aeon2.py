@@ -54,6 +54,7 @@ class Plugin():
     _HELP_URL = 'https://peter88213.github.io/novelyst_aeon2/usage'
 
     SETTINGS = dict(
+        default_date_time='2023-01-01 00:00:00',
         narrative_arc='Narrative',
         property_description='Description',
         property_notes='Notes',

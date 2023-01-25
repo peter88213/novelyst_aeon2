@@ -8,13 +8,13 @@
 
 See the [GitHub "features" project](https://github.com/peter88213/novelyst_aeon2/projects/1).
 
-### v3.3.0 for novelyst v4.4+
+### v3.3.1 for novelyst v4.4+
 
 - Process unspecific date (day/hour/minute).
 
 Compatibility: novelyst v4.0 API
-Based on PyWriter v10.0.1
-Based on aeon2yw v3.2.3
+Based on PyWriter v11.0.2
+Based on aeon2yw v3.3.1
 
 ### v3.2.2 for novelyst v4.4+
 
