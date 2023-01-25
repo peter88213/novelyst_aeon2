@@ -94,6 +94,7 @@ The names/column labels refer to timelines based on the "yWriter" template.
 - New scenes are put into a new chapter named "New scenes". 
 - New arcs, characters, locations, and items are added, if assigned to "Narrative" events.
 - Arc, character, location, and item relationships are updated, if the entity names match.
+- When processing unspecific "day/hour/minute" information, a reference date that can be set in the configuration is used.
 
 
 ### Update rules for Aeon Timeline 2 projects
@@ -113,6 +114,8 @@ The names/column labels refer to timelines based on the "yWriter" template.
 - New arcs, characters, locations, and items are added, if assigned to scenes.
 - Arc, character, location, and item relationships are updated, if the entity names match.
 - When creating events from scenes without date/time, they get the actual date and are sorted in reading order.
+- When creating events from scenes without any date/time information, they get the default date from the configuration, and are sorted in reading order.
+- When processing unspecific "day/hour/minute" information, a reference date that can be set in the configuration is used.
 
 (*) Applies to the default configuration, but can be customized.
 (**) To be set in the configuration file.
@@ -143,6 +146,15 @@ This is the configuration explained:
 
 ```
 [SETTINGS]
+
+default_date_time = 2023-01-01 00:00:00
+
+# Date/time used for new events and for converted events
+# where the scene has no date/time information at all.
+# The date is also used as a reference when converting 
+# unspecific scene "days" into event dates.
+# The format must be yyyy-mm-dd hh:mm:ss
+# If the format is invalid, the current date/time is used instead.
 
 narrative_arc = Narrative
 
