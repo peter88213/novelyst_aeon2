@@ -4,10 +4,6 @@
 
 ## Changelog
 
-### Planned features
-
-See the [GitHub "features" project](https://github.com/peter88213/novelyst_aeon2/projects/1).
-
 ### v3.3.2 for novelyst v4.4+
 
 - Update for PyWriter v12.
