@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 3.3.2\n"
-"POT-Creation-Date: 2023-02-06 22:20:29\n"
-"PO-Revision-Date: 2023-02-06 22:20:29\n"
+"Project-Id-Version: 3.3.3\n"
+"POT-Creation-Date: 2023-02-27 23:14:38\n"
+"PO-Revision-Date: 2023-02-27 23:14:38\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -93,9 +93,6 @@ msgstr "Projekt speichern und aktualisieren?"
 
 msgid "Save the project and update the timeline?"
 msgstr "Projekt speichern und die Zeitleiste aktualisieren?"
-
-msgid "Settings"
-msgstr "Einstellungen"
 
 msgid "Update the project"
 msgstr "Das Projekt aktualisieren"

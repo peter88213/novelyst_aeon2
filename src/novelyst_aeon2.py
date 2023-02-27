@@ -123,6 +123,7 @@ class Plugin():
 
     def _edit_settings(self):
         """Toplevel window"""
+        return
 
     def disable_menu(self):
         """Disable menu entries when no project is open."""

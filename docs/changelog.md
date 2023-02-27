@@ -4,6 +4,14 @@
 
 ## Changelog
 
+### v3.3.3 for novelyst v4.4+
+
+- Reduce the memory use by discarding the docstrings on building.
+
+Compatibility: novelyst v4.0 API
+Based on PyWriter v12.1.2
+Based on aeon2yw v3.3.2
+
 ### v3.3.2 for novelyst v4.4+
 
 - Update for PyWriter v12.
