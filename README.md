@@ -99,15 +99,13 @@ An easy way may be to put a posting in the [novelyst forum](https://github.com/p
 
 ### Conventions
 
-- Minimum Python version is 3.6. 
-- The Python **source code formatting** follows widely the [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide, except the maximum line length, which is 120 characters here.
+See https://github.com/peter88213/PyWriter/blob/main/docs/conventions.md
 
-### Development tools
+## Development tools
 
-- [Python](https://python.org) version 3.9
-- [Eclipse IDE](https://eclipse.org) with [PyDev](https://pydev.org) and [EGit](https://www.eclipse.org/egit/)
-- [Apache Ant](https://ant.apache.org/) for building the application script
-
+- [Python](https://python.org) version 3.9.
+- [Eclipse IDE](https://eclipse.org) with [PyDev](https://pydev.org) and *EGit*.
+- *Apache Ant* is used for building the application.
 
 ## License
 
