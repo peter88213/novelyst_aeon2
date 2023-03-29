@@ -118,6 +118,7 @@ The names/column labels refer to timelines based on the "yWriter" template.
 - When processing unspecific "day/hour/minute" information, a reference date that can be set in the configuration is used.
 
 (*) Applies to the default configuration, but can be customized.
+
 (**) To be set in the configuration file.
 
 ---
