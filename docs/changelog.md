@@ -6,9 +6,7 @@
 
 ### v3.4.1 for novelyst v4.4+
 
-- New arc points in yw7 are assigned a different color when converting to aeonzip.
-- New arc points in yw7 are no longer assigned to the "Narrative" arc when converting to aeonzip.
-- Arc points existing in aeonzip are not synchronized with yw7.
+- Library update.
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v12.4.1
