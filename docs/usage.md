@@ -1,4 +1,4 @@
-[Project homepage](https://peter88213.github.io/novelyst_aeon2)
+[Project homepage](https://peter88213.github.io/novelyst_aeon2) > Instructions for use
 
 --- 
 
