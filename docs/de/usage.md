@@ -1,8 +1,8 @@
-[Project homepage](https://peter88213.github.io/novelyst_aeon2)
+[Projekt-Homepage](https://peter88213.github.io/novelyst_aeon2) > Gebrauchsanleitung
 
 --- 
 
-A [novelyst](https://peter88213.github.io/novelyst/) plugin providing synchronization with Aeon Timeline 2. 
+Ein [novelyst](https://peter88213.github.io/novelyst/)-Plugin providing synchronization with Aeon Timeline 2. 
 
 ---
 
@@ -13,11 +13,11 @@ A [novelyst](https://peter88213.github.io/novelyst/) plugin providing synchroniz
 
 *Note: If you install novelyst at a later time, you can always install the plugin afterwards by running the novelyst_aeon2 setup script again.*
 
-The plugin adds an **Aeon Timeline 2** entry to the *novelyst* **Extras**-Menü, and an **Aeon 2 plugin Online Hilfe** entry to the **Hilfe**-Menü. 
+Das Plugin hängt einen **Aeon Timeline 2**-Eintrag an das *novelyst* **Extras**-Menü, und einen **Aeon 2 plugin Online Hilfe**-Eintrag an das **Hilfe**-Menü an. 
 
 ---
 
-# Operation
+# Benutzung
 
 ---
 
@@ -219,9 +219,7 @@ The changed entries are sufficient.
 
 ---
 
-# License
+# Lizenz
 
-This is Open Source software, and the *novelyst_aeon2* plugin is licensed under GPLv3. See the
-[GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
-details, or consult the [LICENSE](https://github.com/peter88213/novelyst_aeon2/blob/main/LICENSE) file.
+Dies ist quelloffene Software, und das *novelyst_aeon2*-Plugin steht unter der GPLv3-Lizenz. Für mehr Details besuchen Sie die[Website der GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.de.html), oder schauen Sie sich die [LICENSE](https://github.com/peter88213/novelyst_aeon2/blob/main/LICENSE)-Datei an.
 
