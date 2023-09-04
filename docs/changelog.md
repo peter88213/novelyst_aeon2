@@ -4,7 +4,15 @@
 
 ## Changelog
 
-### v3.4.1 for novelyst v4.4+
+### v3.4.2 for novelyst v4.0+
+
+- Update German translations.
+
+Compatibility: novelyst v4.0 API
+Based on PyWriter v12.14.0
+Based on aeon2yw v3.4.1
+
+### v3.4.1 for novelyst v4.0+
 
 - Library update.
 
@@ -12,7 +20,7 @@ Compatibility: novelyst v4.0 API
 Based on PyWriter v12.4.1
 Based on aeon2yw v3.4.1
 
-### v3.4.0 for novelyst v4.4+
+### v3.4.0 for novelyst v4.0+
 
 - New arc points in yw7 are assigned a different color when converting to aeonzip.
 - New arc points in yw7 are no longer assigned to the "Narrative" arc when converting to aeonzip.
@@ -22,7 +30,7 @@ Compatibility: novelyst v4.0 API
 Based on PyWriter v12.1.2
 Based on aeon2yw v3.4.0
 
-### v3.3.3 for novelyst v4.4+
+### v3.3.3 for novelyst v4.0+
 
 - Reduce the memory use by discarding the docstrings on building.
 
@@ -30,7 +38,7 @@ Compatibility: novelyst v4.0 API
 Based on PyWriter v12.1.2
 Based on aeon2yw v3.3.2
 
-### v3.3.2 for novelyst v4.4+
+### v3.3.2 for novelyst v4.0+
 
 - Update for PyWriter v12.
 
@@ -38,7 +46,7 @@ Compatibility: novelyst v4.0 API
 Based on PyWriter v12.1.0
 Based on aeon2yw v3.3.2
 
-### v3.3.1 for novelyst v4.4+
+### v3.3.1 for novelyst v4.0+
 
 - Process unspecific date (day/hour/minute).
 
@@ -46,7 +54,7 @@ Compatibility: novelyst v4.0 API
 Based on PyWriter v11.0.2
 Based on aeon2yw v3.3.1
 
-### v3.2.2 for novelyst v4.4+
+### v3.2.2 for novelyst v4.0+
 
 This update is mandatory for novelyst v4.4+, because v2.1.1 interferes with the scene arc assignments.
 - The "scenes_only" parameter only affects the creation of new scenes, but not the update.

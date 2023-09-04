@@ -32,9 +32,9 @@ The *novelyst_aeon2* plugin synchronizes novelyst projects with Aeon Timeline 2.
 
 ## Download and install
 
-[Download the latest release (version 3.4.1)](https://github.com/peter88213/novelyst_aeon2/raw/main/dist/novelyst_aeon2_v3.4.1.zip)
+[Download the latest release (version 3.4.2)](https://github.com/peter88213/novelyst_aeon2/raw/main/dist/novelyst_aeon2_v3.4.2.zip)
 
-- Extract the "novelyst_aeon2_v3.4.1" folder from the downloaded zipfile "novelyst_aeon2_v3.4.1.zip".
+- Extract the "novelyst_aeon2_v3.4.2" folder from the downloaded zipfile "novelyst_aeon2_v3.4.2.zip".
 - Move into this new folder and launch **setup.pyw**. This installs the plugin for the local user.
 
 ---

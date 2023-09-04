@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 3.4.1\n"
-"POT-Creation-Date: 2023-04-17 15:14:54\n"
-"PO-Revision-Date: 2023-04-17 15:14:54\n"
+"Project-Id-Version: 3.4.2\n"
+"POT-Creation-Date: 2023-09-04 19:01:22\n"
+"PO-Revision-Date: 2023-09-04 19:01:22\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgid "Ambiguous yWriter location \"{}\"."
 msgstr "Schauplatz \"{}\" mehrfach in yWriter."
 
 msgid "Ambiguous yWriter scene title \"{}\"."
-msgstr "Szenetitel \"{}\" mehrfach in yWriter."
+msgstr "Abschnittstitel \"{}\" mehrfach in yWriter."
 
 msgid "Can not process file"
 msgstr "Kann Datei nicht verarbeiten"
@@ -71,7 +71,7 @@ msgid "File"
 msgstr "Datei"
 
 msgid "File written"
-msgstr "Datei geschrieben"
+msgstr "Datei gespeichert"
 
 msgid "Information"
 msgstr "Information"
@@ -80,7 +80,7 @@ msgid "Invalid JSON data in timeline"
 msgstr "Ungültige JSON-Daten in der Zeitleiste"
 
 msgid "New scenes"
-msgstr "Neue Szenen"
+msgstr "Neue Abschnitte"
 
 msgid "No JSON part found in timeline data"
 msgstr "Kein JSON-Teil in der Zeitleistendatei gefunden"
