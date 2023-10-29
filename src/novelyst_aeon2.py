@@ -25,12 +25,12 @@ import gettext
 import webbrowser
 from tkinter import messagebox
 from datetime import datetime
-from pywriter.pywriter_globals import *
-from pywriter.model.novel import Novel
-from pywriter.config.configuration import Configuration
-from pywriter.file.doc_open import open_document
-from aeon2ywlib.json_timeline2 import JsonTimeline2
-from pywriter.yw.yw7_file import Yw7File
+from novxlib.novx_globals import *
+from novxlib.model.novel import Novel
+from novxlib.config.configuration import Configuration
+from novxlib.file.doc_open import open_document
+from nvaeon2lib.json_timeline2 import JsonTimeline2
+from novxlib.novx.novx_file import NovxFile
 
 # Initialize localization.
 LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
@@ -46,7 +46,7 @@ except:
 APPLICATION = 'Aeon Timeline 2'
 PLUGIN = f'{APPLICATION} plugin v@release'
 INI_FILENAME = 'aeon2yw.ini'
-INI_FILEPATH = '.pywriter/aeon2yw/config'
+INI_FILEPATH = '.kalliope/aeon2yw/config'
 
 
 class Plugin():
@@ -58,7 +58,7 @@ class Plugin():
         
     """
     VERSION = '@release'
-    NOVELYST_API = '4.0'
+    NOVELYST_API = '5.0'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
     URL = 'https://peter88213.github.io/novelyst_aeon2'
     _HELP_URL = 'https://peter88213.github.io/novelyst_aeon2/usage'
@@ -102,8 +102,8 @@ class Plugin():
         self._pluginMenu.add_separator()
         # self._pluginMenu.add_command(label=_('Settings'), command=self._edit_settings)
         # self._pluginMenu.add_separator()
-        self._pluginMenu.add_command(label=_('Update the timeline'), command=self._export_from_yw)
-        self._pluginMenu.add_command(label=_('Update the project'), command=self._import_to_yw)
+        self._pluginMenu.add_command(label=_('Update the timeline'), command=self._export_from_novx)
+        self._pluginMenu.add_command(label=_('Update the project'), command=self._import_to_novx)
         self._pluginMenu.add_separator()
         self._pluginMenu.add_command(label=_('Add or update moon phase data'), command=self._add_moonphase)
         self._pluginMenu.add_separator()
@@ -211,7 +211,7 @@ class Plugin():
                 message = _('No {} file available for this project.').format(APPLICATION)
             messagebox.showinfo(PLUGIN, message)
 
-    def _export_from_yw(self):
+    def _export_from_novx(self):
         """Update the timeline from novelyst.
         
         Note:
@@ -227,7 +227,7 @@ class Plugin():
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
                 self._ui.save_project()
                 kwargs = self._get_config(timelinePath)
-                source = Yw7File(self._ui.prjFile.filePath, **kwargs)
+                source = NovxFile(self._ui.prjFile.filePath, **kwargs)
                 source.novel = Novel()
                 target = JsonTimeline2(timelinePath, **kwargs)
                 try:
@@ -239,7 +239,7 @@ class Plugin():
                     message = f'!{str(ex)}'
                 self._ui.set_info_how(message)
 
-    def _import_to_yw(self):
+    def _import_to_novx(self):
         """Update the current project from the timeline.
         
         Note:
@@ -259,7 +259,7 @@ class Plugin():
                 self._ui.save_project()
                 kwargs = self._get_config(timelinePath)
                 source = JsonTimeline2(timelinePath, **kwargs)
-                target = Yw7File(self._ui.prjFile.filePath, **kwargs)
+                target = NovxFile(self._ui.prjFile.filePath, **kwargs)
                 try:
                     target.novel = Novel()
                     target.read()
