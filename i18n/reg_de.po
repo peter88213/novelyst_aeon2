@@ -1,4 +1,4 @@
-# aeon2yw Dictionary
+# aeon2nv Dictionary
 # Copyright (C) 2022 Peter Triesberger
 #
 msgid ""

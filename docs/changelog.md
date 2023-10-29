@@ -10,7 +10,7 @@
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v12.14.0
-Based on aeon2yw v3.4.1
+Based on aeon2nv v3.4.1
 
 ### v3.4.1 for novelyst v4.0+
 
@@ -18,7 +18,7 @@ Based on aeon2yw v3.4.1
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v12.4.1
-Based on aeon2yw v3.4.1
+Based on aeon2nv v3.4.1
 
 ### v3.4.0 for novelyst v4.0+
 
@@ -28,7 +28,7 @@ Based on aeon2yw v3.4.1
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v12.1.2
-Based on aeon2yw v3.4.0
+Based on aeon2nv v3.4.0
 
 ### v3.3.3 for novelyst v4.0+
 
@@ -36,7 +36,7 @@ Based on aeon2yw v3.4.0
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v12.1.2
-Based on aeon2yw v3.3.2
+Based on aeon2nv v3.3.2
 
 ### v3.3.2 for novelyst v4.0+
 
@@ -44,7 +44,7 @@ Based on aeon2yw v3.3.2
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v12.1.0
-Based on aeon2yw v3.3.2
+Based on aeon2nv v3.3.2
 
 ### v3.3.1 for novelyst v4.0+
 
@@ -52,7 +52,7 @@ Based on aeon2yw v3.3.2
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v11.0.2
-Based on aeon2yw v3.3.1
+Based on aeon2nv v3.3.1
 
 ### v3.2.2 for novelyst v4.0+
 
@@ -62,7 +62,7 @@ This update is mandatory for novelyst v4.4+, because v2.1.1 interferes with the 
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v10.0.1
-Based on aeon2yw v3.2.3
+Based on aeon2nv v3.2.3
 
 ### v3.2.1
 
@@ -70,14 +70,14 @@ Based on aeon2yw v3.2.3
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v10.0.1
-Based on aeon2yw v3.2.2
+Based on aeon2nv v3.2.2
 
 ### v3.2.0
 
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v10.0.1
-Based on aeon2yw v3.2.1
+Based on aeon2nv v3.2.1
 
 ### v3.1.0
 
@@ -86,7 +86,7 @@ Based on aeon2yw v3.2.1
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v10.0.1
-Based on aeon2yw v3.1.0
+Based on aeon2nv v3.1.0
 
 ### v2.1.1
 
@@ -94,7 +94,7 @@ Rebuild with restructured build environment and defined dependencies.
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v8.0.11
-Based on aeon2yw v2.0.5
+Based on aeon2nv v2.0.5
 
 ### v2.1.0
 
@@ -102,7 +102,7 @@ Based on aeon2yw v2.0.5
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v8.0.11
-Based on aeon2yw v2.0.5
+Based on aeon2nv v2.0.5
 
 ### v2.0.5
 
@@ -111,7 +111,7 @@ Based on aeon2yw v2.0.5
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v8.0.11
-Based on aeon2yw v2.0.5
+Based on aeon2nv v2.0.5
 
 ### v2.0.4
 
@@ -119,7 +119,7 @@ Downgrade from v4.0.1 due to a regression that takes some time to fix.
 
 Compatibility: novelyst v4.0 API
 Based on PyWriter v8.0.10
-Based on aeon2yw v2.0.4
+Based on aeon2nv v2.0.4
 
 ### v4.0.1
 
@@ -139,7 +139,7 @@ Compatibility: novelyst v4.0 API
 
 Compatibility: novelyst v3.0 API
 Based on PyWriter v9.0.4
-Based on aeon2yw v3.0.1
+Based on aeon2nv v3.0.1
 
 ### v2.0.3
 
@@ -149,15 +149,15 @@ Based on aeon2yw v3.0.1
 
 Compatibility: novelyst v2.0 API
 Based on PyWriter v8.0.8
-Based on aeon2yw v2.0.3
+Based on aeon2nv v2.0.3
 
 ### v1.0.1 Bugfix release
 
-- Fix a bug in aeon2ywlib where the program aborts silently due to an unhandled exception.
+- Fix a bug in aeon2nvlib where the program aborts silently due to an unhandled exception.
 
 Compatibility: novelyst v1.0.0 API
 Based on PyWriter v7.4.9
-Based on aeon2yw v1.8.3
+Based on aeon2nv v1.8.3
 
 ### v1.0.0
 
@@ -167,7 +167,7 @@ Based on aeon2yw v1.8.3
 
 Compatibility: novelyst v1.0.0 API
 Based on PyWriter v7.4.9
-Based on aeon2yw v1.8.2
+Based on aeon2nv v1.8.2
 
 ### v0.6.0
 
@@ -175,7 +175,7 @@ Based on aeon2yw v1.8.2
 
 Compatibility: novelyst v1.0.0 API
 Based on PyWriter v7.4.9
-Based on aeon2yw v1.8.2
+Based on aeon2nv v1.8.2
 
 ### v0.4.0 Beta test release
 
@@ -183,12 +183,12 @@ Based on aeon2yw v1.8.2
 
 Compatibility: novelyst v0.46 API
 Based on PyWriter v7.4.9
-Based on aeon2yw v1.8.2
+Based on aeon2nv v1.8.2
 
 ### v0.2.0 Beta test release
 
-Set up the project from aeon2yw v1.8.2
+Set up the project from aeon2nv v1.8.2
 
 Based on PyWriter v7.4.9
-Based on aeon2yw v1.8.2
+Based on aeon2nv v1.8.2
 

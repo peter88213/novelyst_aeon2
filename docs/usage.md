@@ -41,13 +41,13 @@ The submenu has the following entries:
 
 ## Prepare your timeline for export
 
-The included installation script installs a "yWriter" template in the *aeon2yw* configuration folder. 
+The included installation script installs a "yWriter" template in the *aeon2nv* configuration folder. 
 The easiest way is to create new timelines based on this template. It provides the entities and event properties that are converted to novelyst by default.
 
 For existing timelines you have two choices:
 
 - Option 1: Add or rename the required entities and event properties in the Timeline settings.
-- Option 2: Customize the *aeon2yw* configuration to fit your timeline, see [Custom configuration](#custom-configuration).
+- Option 2: Customize the *aeon2nv* configuration to fit your timeline, see [Custom configuration](#custom-configuration).
 
 ---
 
@@ -129,16 +129,16 @@ You can override the default settings by providing a configuration file. Be alwa
 
 ### Global configuration
 
-An optional global configuration file can be placed in the configuration directory in your user profile. It is applied to any project. Its entries override aeon2yw's built-in constants. This is the path:
-`c:\Users\<user name>\.pywriter\aeon2yw\config\aeon2yw.ini`
+An optional global configuration file can be placed in the configuration directory in your user profile. It is applied to any project. Its entries override aeon2nv's built-in constants. This is the path:
+`c:\Users\<user name>\.novelyst\config\aeon2nv.ini`
   
 ### Local project configuration
 
-An optional project configuration file named `aeon2yw.ini` can be placed in your project directory, i.e. the folder containing your novelyst and Aeon Timeline project files. It is only applied to this project. Its entries override aeon2yw's built-in constants as well as the global configuration, if any.
+An optional project configuration file named `aeon2nv.ini` can be placed in your project directory, i.e. the folder containing your novelyst and Aeon Timeline project files. It is only applied to this project. Its entries override aeon2nv's built-in constants as well as the global configuration, if any.
 
 ### How to provide/modify a configuration file
 
-The aeon2yw distribution comes with a sample configuration file located in the `sample` subfolder. It contains aeon2yw's default settings and options. You can copy this file to the global configuration folder and edit it.
+The aeon2nv distribution comes with a sample configuration file located in the `sample` subfolder. It contains aeon2nv's default settings and options. You can copy this file to the global configuration folder and edit it.
 
 - The SETTINGS section mainly refers to custom property, role, and type names. 
 - Comment lines begin with a `#` number sign. In the example, they refer to the code line immediately above.

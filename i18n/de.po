@@ -3,9 +3,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 3.4.2\n"
-"POT-Creation-Date: 2023-09-04 19:01:22\n"
-"PO-Revision-Date: 2023-09-04 19:01:22\n"
+"Project-Id-Version: unknown\n"
+"POT-Creation-Date: 2023-10-29 10:47:51\n"
+"PO-Revision-Date: 2023-10-29 10:47:56\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -22,33 +22,6 @@ msgstr "Mondphasen hinzufügen oder aktualisieren"
 msgid "Aeon 2 plugin Online help"
 msgstr "Aeon 2-Plugin Online-Hilfe"
 
-msgid "Aeon Timeline 2 project"
-msgstr "Aeon Timeline 2-Projekt"
-
-msgid "Ambiguous Aeon character \"{}\"."
-msgstr "Figur \"{}\" mehrfach in Aeon."
-
-msgid "Ambiguous Aeon event title \"{}\"."
-msgstr "Ereginistitel \"{}\" mehrfach in Aeon."
-
-msgid "Ambiguous Aeon item \"{}\"."
-msgstr "Gegenstand \"{}\" mehrfach in Aeon."
-
-msgid "Ambiguous Aeon location \"{}\"."
-msgstr "Schauplatz \"{}\" mehrfach in Aeon."
-
-msgid "Ambiguous yWriter character \"{}\"."
-msgstr "Figur \"{}\" mehrfach in yWriter."
-
-msgid "Ambiguous yWriter item \"{}\"."
-msgstr "Gegenstand \"{}\" mehrfach in yWriter."
-
-msgid "Ambiguous yWriter location \"{}\"."
-msgstr "Schauplatz \"{}\" mehrfach in yWriter."
-
-msgid "Ambiguous yWriter scene title \"{}\"."
-msgstr "Abschnittstitel \"{}\" mehrfach in yWriter."
-
 msgid "Can not process file"
 msgstr "Kann Datei nicht verarbeiten"
 
@@ -57,9 +30,6 @@ msgstr "Das Dateidatum ist nicht zu ermitteln."
 
 msgid "Cannot overwrite file"
 msgstr "Kann Datei nicht überschreiben"
-
-msgid "Cannot read timeline data"
-msgstr "Kann Zeitleisten-Daten nicht einlesen"
 
 msgid "Cannot write file"
 msgstr "Kann Datei nicht schreiben"
@@ -76,15 +46,6 @@ msgstr "Datei gespeichert"
 msgid "Information"
 msgstr "Information"
 
-msgid "Invalid JSON data in timeline"
-msgstr "Ungültige JSON-Daten in der Zeitleiste"
-
-msgid "New scenes"
-msgstr "Neue Abschnitte"
-
-msgid "No JSON part found in timeline data"
-msgstr "Kein JSON-Teil in der Zeitleistendatei gefunden"
-
 msgid "No {} file available for this project."
 msgstr "Keine {}-Datei für dieses Projekt vorhanden."
 
@@ -100,20 +61,14 @@ msgstr "Das Projekt aktualisieren"
 msgid "Update the timeline"
 msgstr "Die Zeitleiste aktualisieren"
 
-msgid "\"AD\" era is missing in the calendar."
-msgstr "\"AD\" Ära fehlt im Kalender"
-
 msgid "newer"
 msgstr "neuer"
 
+msgid "novelyst project"
+msgstr "novelyst-Projekt"
+
 msgid "older"
 msgstr "älter"
-
-msgid "yWriter 7 project"
-msgstr "yWriter 7-Projekt"
-
-msgid "yWriter seems to be open. Please close first"
-msgstr "yWriter scheint offen zu sein. Bitte schließen"
 
 msgid "{0} file is {1} than the novelyst project.\n (last saved on {2})"
 msgstr "{0}-Datei ist {1} als das novelyst-Projekt.\n (zuletzt gespeichert: {2})"

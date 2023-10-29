@@ -1,56 +1,26 @@
 # novelyst_aeon2 Dictionary
-# Copyright (C) 2022 Peter Triesberger
+# Copyright (C) 2023 Peter Triesberger
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 3.4.2\n"
-"POT-Creation-Date: 2023-09-04 19:01:22\n"
+"Project-Id-Version: unknown\n"
+"POT-Creation-Date: 2023-10-29 10:47:51\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: PyWriter pgettext.py 0.3\n"
+"Generated-By: novxlib pgettext.py 0.3\n"
 
 
 msgid "!No {} file available for this project."
-msgstr ""
-
-msgid "\"AD\" era is missing in the calendar."
 msgstr ""
 
 msgid "Add or update moon phase data"
 msgstr ""
 
 msgid "Aeon 2 plugin Online help"
-msgstr ""
-
-msgid "Aeon Timeline 2 project"
-msgstr ""
-
-msgid "Ambiguous Aeon character \"{}\"."
-msgstr ""
-
-msgid "Ambiguous Aeon event title \"{}\"."
-msgstr ""
-
-msgid "Ambiguous Aeon item \"{}\"."
-msgstr ""
-
-msgid "Ambiguous Aeon location \"{}\"."
-msgstr ""
-
-msgid "Ambiguous yWriter character \"{}\"."
-msgstr ""
-
-msgid "Ambiguous yWriter item \"{}\"."
-msgstr ""
-
-msgid "Ambiguous yWriter location \"{}\"."
-msgstr ""
-
-msgid "Ambiguous yWriter scene title \"{}\"."
 msgstr ""
 
 msgid "Can not process file"
@@ -60,9 +30,6 @@ msgid "Cannot determine file date."
 msgstr ""
 
 msgid "Cannot overwrite file"
-msgstr ""
-
-msgid "Cannot read timeline data"
 msgstr ""
 
 msgid "Cannot write file"
@@ -78,15 +45,6 @@ msgid "File written"
 msgstr ""
 
 msgid "Information"
-msgstr ""
-
-msgid "Invalid JSON data in timeline"
-msgstr ""
-
-msgid "New scenes"
-msgstr ""
-
-msgid "No JSON part found in timeline data"
 msgstr ""
 
 msgid "No {} file available for this project."
@@ -107,13 +65,10 @@ msgstr ""
 msgid "newer"
 msgstr ""
 
+msgid "novelyst project"
+msgstr ""
+
 msgid "older"
-msgstr ""
-
-msgid "yWriter 7 project"
-msgstr ""
-
-msgid "yWriter seems to be open. Please close first"
 msgstr ""
 
 msgid "{0} file is {1} than the novelyst project.\n (last saved on {2})"

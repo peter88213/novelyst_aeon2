@@ -3,7 +3,7 @@
 	<name>novelyst_aeon2</name>
 	<comment></comment>
 	<projects>
-		<project>PyWriter</project>
+		<project>novxlib</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

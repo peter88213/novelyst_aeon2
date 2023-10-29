@@ -45,8 +45,8 @@ except:
 
 APPLICATION = 'Aeon Timeline 2'
 PLUGIN = f'{APPLICATION} plugin v@release'
-INI_FILENAME = 'aeon2yw.ini'
-INI_FILEPATH = '.kalliope/aeon2yw/config'
+INI_FILENAME = 'aeon2nv.ini'
+INI_FILEPATH = '.kalliope/aeon2nv/config'
 
 
 class Plugin():
@@ -115,7 +115,7 @@ class Plugin():
     def _get_config(self, sourcePath):
         """ Read persistent configuration data for Aeon 2 conversion.
         
-        First, look for a global configuration file in the aeon2yw installation directory,
+        First, look for a global configuration file in the aeon2nv installation directory,
         then look for a local configuration file in the project directory.
         """
         sourceDir = os.path.dirname(sourcePath)

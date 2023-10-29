@@ -1,7 +1,7 @@
 """Provide helper functions for Aeon Timeline 2 file operation.
 
 Copyright (c) 2022 Peter Triesberger
-For further information see https://github.com/peter88213/aeon2yw
+For further information see https://github.com/peter88213/aeon2nv
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import zipfile

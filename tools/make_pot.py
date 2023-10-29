@@ -6,7 +6,7 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 import os
 import sys
 import build_novelyst_aeon2 as build_plugin
-sys.path.insert(0, f'{os.getcwd()}/../../PyWriter/src')
+sys.path.insert(0, f'{os.getcwd()}/../../novxlib/src')
 import pgettext
 
 APP = 'novelyst_aeon2'

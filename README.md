@@ -62,7 +62,7 @@ Add a subdirectory tree to **novelyst/locale**, and place *novelyst_aeon2.mo* th
 
 ```
 <your home directory>
-└── .pywriter/
+└── .novxlib/
     └── novelyst/
         └── locale/
             └─ <language code>/
@@ -86,18 +86,18 @@ An easy way may be to put a posting in the [novelyst forum](https://github.com/p
 
 ## Development
 
-*novelyst_aeon2* depends on the [pywriter](https://github.com/peter88213/PyWriter) and [aeon2yw](https://github.com/peter88213/aeon2yw) libraries which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
+*novelyst_aeon2* depends on the [novxlib](https://github.com/peter88213/novxlib) and [aeon2nv](https://github.com/peter88213/aeon2nv) libraries which must be present in your file system. It is organized as an Eclipse PyDev project. The official release branch on GitHub is *main*.
 
 ### Mandatory directory structure for building the application script
 
 ```
 .
-├── PyWriter/
+├── novxlib/
 │   └── src/
-│       └── pywriter/
-├── aeon2yw/
+│       └── novxlib/
+├── aeon2nv/
 │   └── src/
-│      └── aeon2ywlib/
+│      └── aeon2nvlib/
 └── novelyst_aeon2/
     ├── src/
     ├── test/
@@ -107,7 +107,7 @@ An easy way may be to put a posting in the [novelyst forum](https://github.com/p
 
 ### Conventions
 
-See https://github.com/peter88213/PyWriter/blob/main/docs/conventions.md
+See https://github.com/peter88213/novxlib/blob/main/docs/conventions.md
 
 ## Development tools
 
