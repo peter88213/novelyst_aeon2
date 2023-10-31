@@ -56,8 +56,8 @@ Based on aeon2nv v3.3.1
 
 ### v3.2.2 for novelyst v4.0+
 
-This update is mandatory for novelyst v4.4+, because v2.1.1 interferes with the scene arc assignments.
-- The "scenes_only" parameter only affects the creation of new scenes, but not the update.
+This update is mandatory for novelyst v4.4+, because v2.1.1 interferes with the section arc assignments.
+- The "sections_only" parameter only affects the creation of new sections, but not the update.
 - Update for PyWriter v9+
 
 Compatibility: novelyst v4.0 API
@@ -81,7 +81,7 @@ Based on aeon2nv v3.2.1
 
 ### v3.1.0
 
-- The "scenes_only" parameter only affects the creation of new scenes, but not the update.
+- The "sections_only" parameter only affects the creation of new sections, but not the update.
 - Update for PyWriter v9+
 
 Compatibility: novelyst v4.0 API

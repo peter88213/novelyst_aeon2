@@ -8,9 +8,9 @@ The *novelyst_aeon2* plugin synchronizes novelyst projects with Aeon Timeline 2.
 
 ### Update an existing novelyst project from a timeline
 
-- Update scene date, time, duration, description, tags, and relationships.
-- Missing scenes, characters, locations, and items are created.
-- Scenes are marked "unused" if the associated event is deleted in Aeon.
+- Update section date, time, duration, description, tags, and relationships.
+- Missing sections, characters, locations, and items are created.
+- Sections are marked "unused" if the associated event is deleted in Aeon.
 
 ### Update an existing timeline from a novelyst project
 
@@ -18,7 +18,7 @@ The *novelyst_aeon2* plugin synchronizes novelyst projects with Aeon Timeline 2.
 - Entity types "Arc", "Character", "Location", and "Item", and a *Narrative* arc are created, if missing.
 - Event properties "Description" and "Notes" are created, if missing.
 - Missing events, characters, locations, and items are created.
-- "Narrative" events are removed if the associated scene is deleted in novelyst.
+- "Narrative" events are removed if the associated section is deleted in novelyst.
 
 ### Create a new timeline from a novelyst project
 

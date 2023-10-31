@@ -76,13 +76,13 @@ class Plugin():
         type_character='Character',
         type_location='Location',
         type_item='Item',
-        color_scene='Red',
+        color_section='Red',
         color_event='Yellow',
         color_point='Blue',
 
     )
     OPTIONS = dict(
-        scenes_only=True,
+        sections_only=True,
         add_moonphase=False,
     )
 
@@ -245,7 +245,7 @@ class Plugin():
         Note:
         The Yw7WorkFile object of the open project cannot be used as target object.
         This is because the JsonTimeline2 source object's IDs do not match, so 
-        the scenes and other elements are identified by their titles when merging.
+        the sections and other elements are identified by their titles when merging.
         This is done by the special Yw7Target object. Its merge method reads from the disk. 
         Re-reading the project afterwards is the safest way to get a display update.
         """

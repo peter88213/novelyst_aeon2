@@ -8,7 +8,7 @@ from datetime import datetime
 from datetime import timedelta
 from novxlib.novx_globals import *
 from novxlib.model.chapter import Chapter
-from novxlib.model.scene import Scene
+from novxlib.model.section import Section
 from novxlib.model.character import Character
 from novxlib.model.world_element import WorldElement
 from novxlib.model.novel import Novel
@@ -29,7 +29,7 @@ class JsonTimeline2(File):
         write() -- write instance variables to the file.
 
     Public class constants:
-        SCN_KWVAR -- List of the names of the scene keyword variables.
+        SCN_KWVAR -- List of the names of the section keyword variables.
         CRT_KWVAR -- List of the names of the character keyword variables.
     
     Represents the .aeonzip file containing 'timeline.json'.
@@ -44,7 +44,7 @@ class JsonTimeline2(File):
     PROPERTY_MOONPHASE = 'Moon phase'
 
     SCN_KWVAR = [
-        'Field_SceneArcs',
+        'Field_SectionArcs',
         ]
     CRT_KWVAR = [
         'Field_BirthDate',
@@ -59,21 +59,21 @@ class JsonTimeline2(File):
             
         Required keyword arguments:
             narrative_arc: str -- name of the user-defined "Narrative" arc.
-            property_description: str -- name of the user-defined scene description property.
-            property_notes: str -- name of the user-defined scene notes property.
-            role_location: str -- name of the user-defined role for scene locations.
-            role_item: str -- name of the user-defined role for items in a scene.
-            role_character: str -- name of the user-defined role for characters in a scene.
+            property_description: str -- name of the user-defined section description property.
+            property_notes: str -- name of the user-defined section notes property.
+            role_location: str -- name of the user-defined role for section locations.
+            role_item: str -- name of the user-defined role for items in a section.
+            role_character: str -- name of the user-defined role for characters in a section.
             type_character: str -- name of the user-defined "Character" type.
             type_location: str -- name of the user-defined "Location" type.
             type_item: str -- name of the user-defined "Item" type.
-            scenes_only: bool -- synchronize only "Normal" scenes.
-            color_scene: str -- color of new scene events.
-            color_event: str -- color of new non-scene events.
+            sections_only: bool -- synchronize only "Normal" sections.
+            color_section: str -- color of new section events.
+            color_event: str -- color of new non-section events.
             add_moonphase: bool -- add a moon phase property to each event.
         
-        If scenes_only is True: synchronize only "Normal" scenes.
-        If scenes_only is False: synchronize "Notes" scenes as well.            
+        If sections_only is True: synchronize only "Normal" sections.
+        If sections_only is False: synchronize "Notes" sections as well.            
         Extends the superclass constructor.
         """
         super().__init__(filePath, **kwargs)
@@ -118,9 +118,9 @@ class JsonTimeline2(File):
             self.referenceDate = datetime.fromisoformat(self.referenceDateStr)
         except ValueError:
             self.referenceDate = datetime.today()
-        self._scenesOnly = kwargs['scenes_only']
+        self._sectionsOnly = kwargs['sections_only']
         self._addMoonphase = kwargs['add_moonphase']
-        self._sceneColor = kwargs['color_scene']
+        self._sectionColor = kwargs['color_section']
         self._eventColor = kwargs['color_event']
         self._pointColor = kwargs['color_point']
         self._timestampMax = 0
@@ -138,8 +138,8 @@ class JsonTimeline2(File):
         
         Read the JSON part of the Aeon Timeline 2 file located at filePath, 
         and build a novelyst novel structure.
-        - Events marked as scenes are converted to scenes in one single chapter.
-        - Other events are converted to "Notes" scenes in another chapter.
+        - Events marked as sections are converted to sections in one single chapter.
+        - Other events are converted to "Notes" sections in another chapter.
         Raise the "Error" exception in case of error. 
         Overrides the superclass method.
         """
@@ -324,11 +324,11 @@ class JsonTimeline2(File):
         # In order to reuse them, they are collected in the "target element ID by title" dictionaries.
 
         targetScIdByTitle = {}
-        for scId in self.novel.scenes:
-            title = self.novel.scenes[scId].title
+        for scId in self.novel.sections:
+            title = self.novel.sections[scId].title
             if title:
                 if title in targetScIdByTitle:
-                    raise Error(_('Ambiguous novelyst scene title "{}".').format(title))
+                    raise Error(_('Ambiguous novelyst section title "{}".').format(title))
 
                 targetScIdByTitle[title] = scId
 
@@ -359,7 +359,7 @@ class JsonTimeline2(File):
 
                 targetItIdByTitle[title] = itId
 
-        # For scene relationship lookup:
+        # For section relationship lookup:
         crIdsByGuid = {}
         lcIdsByGuid = {}
         itIdsByGuid = {}
@@ -484,13 +484,13 @@ class JsonTimeline2(File):
                 'type': 'text'
             })
 
-        #--- Update/create scenes.
+        #--- Update/create sections.
         scIdsByDate = {}
         scnTitles = []
         narrativeEvents = []
         for evt in self._jsonData['events']:
 
-            # Find out whether the event is associated to a normal scene:
+            # Find out whether the event is associated to a normal section:
             isNarrative = False
             for evtRel in evt['relationships']:
                 if evtRel['role'] == self._roleArcGuid:
@@ -505,18 +505,18 @@ class JsonTimeline2(File):
             if evt['title'] in targetScIdByTitle:
                 scId = targetScIdByTitle[evt['title']]
             else:
-                if self._scenesOnly and not isNarrative:
-                    # don't create a "Notes" scene
+                if self._sectionsOnly and not isNarrative:
+                    # don't create a "Notes" section
                     continue
 
-                # Create a new scene.
-                scId = create_id(self.novel.scenes)
-                self.novel.scenes[scId] = Scene()
-                self.novel.scenes[scId].title = evt['title']
-                # print(f'read creates {self.novel.scenes[scId].title}')
-                self.novel.scenes[scId].status = 1
-                self.novel.scenes[scId].scType = 0
-                self.novel.scenes[scId].scPacing = 0
+                # Create a new section.
+                scId = create_id(self.novel.sections)
+                self.novel.sections[scId] = Section()
+                self.novel.sections[scId].title = evt['title']
+                # print(f'read creates {self.novel.sections[scId].title}')
+                self.novel.sections[scId].status = 1
+                self.novel.sections[scId].scType = 0
+                self.novel.sections[scId].scPacing = 0
 
             narrativeEvents.append(scId)
             displayId = float(evt['displayId'])
@@ -528,29 +528,29 @@ class JsonTimeline2(File):
             hasNotes = False
             for evtVal in evt['values']:
 
-                # Get scene description.
+                # Get section description.
                 if evtVal['property'] == self._propertyDescGuid:
                     hasDescription = True
                     if evtVal['value']:
-                        self.novel.scenes[scId].desc = evtVal['value']
+                        self.novel.sections[scId].desc = evtVal['value']
 
-                # Get scene notes.
+                # Get section notes.
                 elif evtVal['property'] == self._propertyNotesGuid:
                     hasNotes = True
                     if evtVal['value']:
-                        self.novel.scenes[scId].notes = evtVal['value']
+                        self.novel.sections[scId].notes = evtVal['value']
 
-            #--- Add description and scene notes, if missing.
+            #--- Add description and section notes, if missing.
             if not hasDescription:
                 evt['values'].append({'property': self._propertyDescGuid, 'value': ''})
             if not hasNotes:
                 evt['values'].append({'property': self._propertyNotesGuid, 'value': ''})
 
-            #--- Get scene tags.
+            #--- Get section tags.
             if evt['tags']:
-                self.novel.scenes[scId].tags = []
+                self.novel.sections[scId].tags = []
                 for evtTag in evt['tags']:
-                    self.novel.scenes[scId].tags.append(evtTag)
+                    self.novel.sections[scId].tags.append(evtTag)
 
             #--- Get date/time/duration
             timestamp = 0
@@ -559,25 +559,25 @@ class JsonTimeline2(File):
                     timestamp = evtRgv['position']['timestamp']
                     if timestamp >= self.DATE_LIMIT:
                         # Restrict date/time calculation to dates within novelyst's range
-                        sceneStart = datetime.min + timedelta(seconds=timestamp)
-                        startDateTime = sceneStart.isoformat().split('T')
+                        sectionStart = datetime.min + timedelta(seconds=timestamp)
+                        startDateTime = sectionStart.isoformat().split('T')
 
                         # Has the source an unspecific date?
-                        if self.novel.scenes[scId].day is not None:
+                        if self.novel.sections[scId].day is not None:
                             # Convert date to day.
-                            sceneDelta = sceneStart - self.referenceDate
-                            self.novel.scenes[scId].day = str(sceneDelta.days)
-                        elif (self.novel.scenes[scId].time is not None) and (self.novel.scenes[scId].date is None):
+                            sectionDelta = sectionStart - self.referenceDate
+                            self.novel.sections[scId].day = str(sectionDelta.days)
+                        elif (self.novel.sections[scId].time is not None) and (self.novel.sections[scId].date is None):
                             # Use the default date.
-                            self.novel.scenes[scId].day = '0'
+                            self.novel.sections[scId].day = '0'
                         else:
-                            self.novel.scenes[scId].date = startDateTime[0]
-                        self.novel.scenes[scId].time = startDateTime[1]
+                            self.novel.sections[scId].date = startDateTime[0]
+                        self.novel.sections[scId].time = startDateTime[1]
 
                         # Calculate duration
                         if 'years' in evtRgv['span'] or 'months' in evtRgv['span']:
-                            endYear = sceneStart.year
-                            endMonth = sceneStart.month
+                            endYear = sectionStart.year
+                            endMonth = sectionStart.month
                             if 'years' in evtRgv['span']:
                                 endYear += evtRgv['span']['years']
                             if 'months' in evtRgv['span']:
@@ -585,11 +585,11 @@ class JsonTimeline2(File):
                                 while endMonth > 12:
                                     endMonth -= 12
                                     endYear += 1
-                            sceneEnd = datetime(endYear, endMonth, sceneStart.day)
-                            sceneDuration = sceneEnd - datetime(sceneStart.year, sceneStart.month, sceneStart.day)
-                            lastsDays = sceneDuration.days
-                            lastsHours = sceneDuration.seconds // 3600
-                            lastsMinutes = (sceneDuration.seconds % 3600) // 60
+                            sectionEnd = datetime(endYear, endMonth, sectionStart.day)
+                            sectionDuration = sectionEnd - datetime(sectionStart.year, sectionStart.month, sectionStart.day)
+                            lastsDays = sectionDuration.days
+                            lastsHours = sectionDuration.seconds // 3600
+                            lastsMinutes = (sectionDuration.seconds % 3600) // 60
                         else:
                             lastsDays = 0
                             lastsHours = 0
@@ -610,9 +610,9 @@ class JsonTimeline2(File):
                         lastsMinutes %= 60
                         lastsDays += lastsHours // 24
                         lastsHours %= 24
-                        self.novel.scenes[scId].lastsDays = str(lastsDays)
-                        self.novel.scenes[scId].lastsHours = str(lastsHours)
-                        self.novel.scenes[scId].lastsMinutes = str(lastsMinutes)
+                        self.novel.sections[scId].lastsDays = str(lastsDays)
+                        self.novel.sections[scId].lastsHours = str(lastsHours)
+                        self.novel.sections[scId].lastsMinutes = str(lastsMinutes)
                     break
 
             # Use the timestamp for chronological sorting.
@@ -620,72 +620,72 @@ class JsonTimeline2(File):
                 scIdsByDate[timestamp] = []
             scIdsByDate[timestamp].append(scId)
 
-            #--- Find scenes and get characters, locations, and items.
-            self.novel.scenes[scId].scType = 1
+            #--- Find sections and get characters, locations, and items.
+            self.novel.sections[scId].scType = 1
             # type = "Notes"
-            self.novel.scenes[scId].characters = None
-            self.novel.scenes[scId].locations = None
-            self.novel.scenes[scId].items = None
+            self.novel.sections[scId].characters = None
+            self.novel.sections[scId].locations = None
+            self.novel.sections[scId].items = None
             arcs = []
             for evtRel in evt['relationships']:
                 if evtRel['role'] == self._roleArcGuid:
-                    # Make scene event "Normal" type scene.
+                    # Make section event "Normal" type section.
                     if self._entityNarrativeGuid and evtRel['entity'] == self._entityNarrativeGuid:
-                        self.novel.scenes[scId].scType = 0
+                        self.novel.sections[scId].scType = 0
                         # type = "Normal"
                         if timestamp > self._timestampMax:
                             self._timestampMax = timestamp
                 if evtRel['role'] == self._roleStorylineGuid:
-                    # Collect scene arcs.
+                    # Collect section arcs.
                     for arcName in self._arcGuidsByName:
                         if evtRel['entity'] == self._arcGuidsByName[arcName]:
                             arcs.append(arcName)
                 elif evtRel['role'] == self._roleCharacterGuid:
-                    if self.novel.scenes[scId].characters is None:
-                        self.novel.scenes[scId].characters = []
+                    if self.novel.sections[scId].characters is None:
+                        self.novel.sections[scId].characters = []
                     crId = crIdsByGuid[evtRel['entity']]
-                    self.novel.scenes[scId].characters.append(crId)
+                    self.novel.sections[scId].characters.append(crId)
                 elif evtRel['role'] == self._roleLocationGuid:
-                    if self.novel.scenes[scId].locations is None:
-                        self.novel.scenes[scId].locations = []
+                    if self.novel.sections[scId].locations is None:
+                        self.novel.sections[scId].locations = []
                     lcId = lcIdsByGuid[evtRel['entity']]
-                    self.novel.scenes[scId].locations.append(lcId)
+                    self.novel.sections[scId].locations.append(lcId)
                 elif evtRel['role'] == self._roleItemGuid:
-                    if self.novel.scenes[scId].items is None:
-                        self.novel.scenes[scId].items = []
+                    if self.novel.sections[scId].items is None:
+                        self.novel.sections[scId].items = []
                     itId = itIdsByGuid[evtRel['entity']]
-                    self.novel.scenes[scId].items.append(itId)
+                    self.novel.sections[scId].items.append(itId)
 
-            # Add arcs to the scene keyword variables.
-            self.novel.scenes[scId].arcs = list_to_string(arcs)
+            # Add arcs to the section keyword variables.
+            self.novel.sections[scId].arcs = list_to_string(arcs)
 
-        #--- Mark scenes deleted in Aeon "Unused".
-        for scId in self.novel.scenes:
+        #--- Mark sections deleted in Aeon "Unused".
+        for scId in self.novel.sections:
             if not scId in narrativeEvents:
-                if self.novel.scenes[scId].scType == 0:
-                    self.novel.scenes[scId].scType = 3
+                if self.novel.sections[scId].scType == 0:
+                    self.novel.sections[scId].scType = 3
 
-        #--- Make sure every scene is assigned to a chapter.
-        scenesInChapters = []
-        # List all scenes already assigned to a chapter.
+        #--- Make sure every section is assigned to a chapter.
+        sectionsInChapters = []
+        # List all sections already assigned to a chapter.
         for chId in self.novel.tree.get_children(CH_ROOT):
-            scenesInChapters.extend(self.novel.tree.get_children(chId))
+            sectionsInChapters.extend(self.novel.tree.get_children(chId))
 
-        # Create a chapter for new scenes.
+        # Create a chapter for new sections.
         newChapterId = create_id(self.novel.srtChapters)
         newChapter = Chapter()
-        newChapter.title = _('New scenes')
+        newChapter.title = _('New sections')
         newChapter.chType = 0
 
-        # Sort scenes by date/time, then put the orphaned ones into the new chapter.
-        srtScenes = sorted(scIdsByDate.items())
-        for __, scList in srtScenes:
+        # Sort sections by date/time, then put the orphaned ones into the new chapter.
+        srtSections = sorted(scIdsByDate.items())
+        for __, scList in srtSections:
             for scId in scList:
-                if not scId in scenesInChapters:
+                if not scId in sectionsInChapters:
                     if not newChapterId in self.novel.srtChapters:
                         self.novel.chapters[newChapterId] = newChapter
                         self.novel.srtChapters.append(newChapterId)
-                    self.novel.chapters[newChapterId].srtScenes.append(scId)
+                    self.novel.chapters[newChapterId].srtSections.append(scId)
 
         if self._timestampMax == 0:
             self._timestampMax = (self.referenceDate - datetime.min).total_seconds()
@@ -695,55 +695,55 @@ class JsonTimeline2(File):
         
         Update instance variables from a source instance.              
         Update date/time/duration from the source,
-        if the scene title matches.
+        if the section title matches.
         Overrides the superclass method.
         """
 
-        def get_timestamp(scene):
-            """Return a timestamp integer from the scene date.
+        def get_timestamp(section):
+            """Return a timestamp integer from the section date.
             
             Positional arguments:
-                scene -- Scene instance
+                section -- Section instance
             """
             self._timestampMax += 1
             timestamp = int(self._timestampMax)
             try:
-                if scene.date:
-                    isoDt = scene.date
-                    if scene.time:
-                        isoDt = (f'{isoDt} {scene.time}')
+                if section.date:
+                    isoDt = section.date
+                    if section.time:
+                        isoDt = (f'{isoDt} {section.time}')
                 timestamp = int((datetime.fromisoformat(isoDt) - datetime.min).total_seconds())
             except:
                 pass
             return timestamp
 
-        def get_span(scene):
-            """Return a time span dictionary from the scene duration.
+        def get_span(section):
+            """Return a time span dictionary from the section duration.
             
             Positional arguments:
-                scene -- Scene instance
+                section -- Section instance
             """
             span = {}
-            if scene.lastsDays:
-                span['days'] = int(scene.lastsDays)
-            if scene.lastsHours:
-                span['hours'] = int(scene.lastsHours)
-            if scene.lastsMinutes:
-                span['minutes'] = int(scene.lastsMinutes)
+            if section.lastsDays:
+                span['days'] = int(section.lastsDays)
+            if section.lastsHours:
+                span['hours'] = int(section.lastsHours)
+            if section.lastsMinutes:
+                span['minutes'] = int(section.lastsMinutes)
             return span
 
         def get_display_id():
             self._displayIdMax += 1
             return str(int(self._displayIdMax))
 
-        def build_event(scene):
-            """Create a new event from a scene.
+        def build_event(section):
+            """Create a new event from a section.
             """
             event = {
                 'attachments': [],
                 'color': '',
                 'displayId': get_display_id(),
-                'guid': get_uid(f'scene{scene.title}'),
+                'guid': get_uid(f'section{section.title}'),
                 'links': [],
                 'locked': False,
                 'priority': 500,
@@ -758,7 +758,7 @@ class JsonTimeline2(File):
                 }],
                 'relationships': [],
                 'tags': [],
-                'title': scene.title,
+                'title': section.title,
                 'values': [{
                     'property': self._propertyNotesGuid,
                     'value': ''
@@ -768,12 +768,12 @@ class JsonTimeline2(File):
                     'value': ''
                 }],
             }
-            if scene.scType == 1:
+            if section.scType == 1:
                 event['color'] = self._colors[self._eventColor]
-            elif scene.scType == 2:
+            elif section.scType == 2:
                 event['color'] = self._colors[self._pointColor]
             else:
-                event['color'] = self._colors[self._sceneColor]
+                event['color'] = self._colors[self._sectionColor]
             return event
 
         #--- Merge first.
@@ -791,28 +791,28 @@ class JsonTimeline2(File):
         linkedItems = []
 
         #--- Check the source for ambiguous titles.
-        # Check scenes.
+        # Check sections.
         srcScnTitles = []
         for chId in source.chapters:
             if source.chapters[chId].isTrash:
                 continue
 
             for scId in source.get_tree_elements(chId):
-                if source.scenes[scId].title in srcScnTitles:
-                    raise Error(_('Ambiguous novelyst scene title "{}".').format(source.scenes[scId].title))
+                if source.sections[scId].title in srcScnTitles:
+                    raise Error(_('Ambiguous novelyst section title "{}".').format(source.sections[scId].title))
 
-                srcScnTitles.append(source.scenes[scId].title)
+                srcScnTitles.append(source.sections[scId].title)
 
-                #--- Collect characters, locations, and items assigned to scenes.
-                if source.scenes[scId].characters:
-                    linkedCharacters = list(set(linkedCharacters + source.scenes[scId].characters))
-                if source.scenes[scId].locations:
-                    linkedLocations = list(set(linkedLocations + source.scenes[scId].locations))
-                if source.scenes[scId].items:
-                    linkedItems = list(set(linkedItems + source.scenes[scId].items))
+                #--- Collect characters, locations, and items assigned to sections.
+                if source.sections[scId].characters:
+                    linkedCharacters = list(set(linkedCharacters + source.sections[scId].characters))
+                if source.sections[scId].locations:
+                    linkedLocations = list(set(linkedLocations + source.sections[scId].locations))
+                if source.sections[scId].items:
+                    linkedItems = list(set(linkedItems + source.sections[scId].items))
 
                 #--- Collect arcs from source.
-                arcs = string_to_list(source.scenes[scId].arcs)
+                arcs = string_to_list(source.sections[scId].arcs)
                 for arc in arcs:
                     if not arc in self._arcGuidsByName:
                         self._arcGuidsByName[arc] = None
@@ -852,19 +852,19 @@ class JsonTimeline2(File):
             srcItmTitles.append(source.items[itId].title)
 
         #--- Check the target for ambiguous titles.
-        # Check scenes.
+        # Check sections.
         scIdsByTitle = {}
-        for scId in self.novel.scenes:
-            if self.novel.scenes[scId].title in scIdsByTitle:
-                raise Error(_('Ambiguous Aeon event title "{}".').format(self.novel.scenes[scId].title))
+        for scId in self.novel.sections:
+            if self.novel.sections[scId].title in scIdsByTitle:
+                raise Error(_('Ambiguous Aeon event title "{}".').format(self.novel.sections[scId].title))
 
-            scIdsByTitle[self.novel.scenes[scId].title] = scId
-            # print(f'merge finds {self.novel.scenes[scId].title}')
+            scIdsByTitle[self.novel.sections[scId].title] = scId
+            # print(f'merge finds {self.novel.sections[scId].title}')
 
-            #--- Mark non-scene events.
-            # This is to recognize "Trash" scenes.
-            if not self.novel.scenes[scId].title in srcScnTitles:
-                if not self.novel.scenes[scId].scType == 1:
+            #--- Mark non-section events.
+            # This is to recognize "Trash" sections.
+            if not self.novel.sections[scId].title in srcScnTitles:
+                if not self.novel.sections[scId].scType == 1:
                     self._trashEvents.append(scId)
 
         # Check characters.
@@ -898,7 +898,7 @@ class JsonTimeline2(File):
             if source.characters[srcCrId].title in crIdsByTitle:
                 crIdsBySrcId[srcCrId] = crIdsByTitle[source.characters[srcCrId].title]
             elif srcCrId in linkedCharacters:
-                #--- Create a new character if it is assigned to at least one scene.
+                #--- Create a new character if it is assigned to at least one section.
                 crIdMax += 1
                 crId = str(crIdMax)
                 crIdsBySrcId[srcCrId] = crId
@@ -923,7 +923,7 @@ class JsonTimeline2(File):
             if source.locations[srcLcId].title in lcIdsByTitle:
                 lcIdsBySrcId[srcLcId] = lcIdsByTitle[source.locations[srcLcId].title]
             elif srcLcId in linkedLocations:
-                #--- Create a new location if it is assigned to at least one scene.
+                #--- Create a new location if it is assigned to at least one section.
                 lcIdMax += 1
                 lcId = str(lcIdMax)
                 lcIdsBySrcId[srcLcId] = lcId
@@ -948,7 +948,7 @@ class JsonTimeline2(File):
             if source.items[srcItId].title in itIdsByTitle:
                 itIdsBySrcId[srcItId] = itIdsByTitle[source.items[srcItId].title]
             elif srcItId in linkedItems:
-                #--- Create a new Item if it is assigned to at least one scene.
+                #--- Create a new Item if it is assigned to at least one section.
                 itIdMax += 1
                 itId = str(itIdMax)
                 itIdsBySrcId[srcItId] = itId
@@ -966,108 +966,108 @@ class JsonTimeline2(File):
                         'swatchColor': 'denim'
                     })
 
-        #--- Update scenes from the source.
+        #--- Update sections from the source.
         totalEvents = len(self._jsonData['events'])
         for chId in source.chapters:
             for srcId in source.get_tree_elements(chId):
-                if source.scenes[srcId].scType == 3:
-                    # Remove unused scene from the "Narrative" arc.
-                    if source.scenes[srcId].title in scIdsByTitle:
-                        scId = scIdsByTitle[source.scenes[srcId].title]
-                        self.novel.scenes[scId].scType = 1
+                if source.sections[srcId].scType == 3:
+                    # Remove unused section from the "Narrative" arc.
+                    if source.sections[srcId].title in scIdsByTitle:
+                        scId = scIdsByTitle[source.sections[srcId].title]
+                        self.novel.sections[scId].scType = 1
                     continue
 
-                if source.scenes[srcId].scType == 1 and self._scenesOnly:
-                    # Remove unsynchronized scene from the "Narrative" arc.
-                    if source.scenes[srcId].title in scIdsByTitle:
-                        scId = scIdsByTitle[source.scenes[srcId].title]
-                        self.novel.scenes[scId].scType = 1
+                if source.sections[srcId].scType == 1 and self._sectionsOnly:
+                    # Remove unsynchronized section from the "Narrative" arc.
+                    if source.sections[srcId].title in scIdsByTitle:
+                        scId = scIdsByTitle[source.sections[srcId].title]
+                        self.novel.sections[scId].scType = 1
                     continue
 
-                if source.scenes[srcId].scType == 2 and source.scenes[srcId].arcs is None:
-                    # Remove "non-point" Todo scene from the "Narrative" arc.
-                    if source.scenes[srcId].title in scIdsByTitle:
-                        scId = scIdsByTitle[source.scenes[srcId].title]
-                        self.novel.scenes[scId].scType = 1
+                if source.sections[srcId].scType == 2 and source.sections[srcId].arcs is None:
+                    # Remove "non-point" Todo section from the "Narrative" arc.
+                    if source.sections[srcId].title in scIdsByTitle:
+                        scId = scIdsByTitle[source.sections[srcId].title]
+                        self.novel.sections[scId].scType = 1
                     continue
 
-                if source.scenes[srcId].title in scIdsByTitle:
-                    scId = scIdsByTitle[source.scenes[srcId].title]
-                elif source.scenes[srcId].title in targetEvents:
+                if source.sections[srcId].title in scIdsByTitle:
+                    scId = scIdsByTitle[source.sections[srcId].title]
+                elif source.sections[srcId].title in targetEvents:
                     # catch non-narrative events in the target
                     continue
 
                 else:
-                    #--- Create a new scene.
+                    #--- Create a new section.
                     totalEvents += 1
                     scId = str(totalEvents)
-                    self.novel.scenes[scId] = Scene()
-                    self.novel.scenes[scId].title = source.scenes[srcId].title
-                    # print(f'merge creates {self.novel.scenes[scId].title}')
-                    scIdsByTitle[self.novel.scenes[scId].title] = scId
-                    self.novel.scenes[scId].scType = source.scenes[srcId].scType
-                    self.novel.scenes[scId].scPacing = source.scenes[srcId].scPacing
-                    newEvent = build_event(self.novel.scenes[scId])
+                    self.novel.sections[scId] = Section()
+                    self.novel.sections[scId].title = source.sections[srcId].title
+                    # print(f'merge creates {self.novel.sections[scId].title}')
+                    scIdsByTitle[self.novel.sections[scId].title] = scId
+                    self.novel.sections[scId].scType = source.sections[srcId].scType
+                    self.novel.sections[scId].scPacing = source.sections[srcId].scPacing
+                    newEvent = build_event(self.novel.sections[scId])
                     self._jsonData['events'].append(newEvent)
-                self.novel.scenes[scId].status = source.scenes[srcId].status
+                self.novel.sections[scId].status = source.sections[srcId].status
 
-                #--- Update scene type.
-                if source.scenes[srcId].scType is not None:
-                    self.novel.scenes[scId].scType = source.scenes[srcId].scType
+                #--- Update section type.
+                if source.sections[srcId].scType is not None:
+                    self.novel.sections[scId].scType = source.sections[srcId].scType
 
-                #--- Update scene tags.
-                if source.scenes[srcId].tags is not None:
-                    self.novel.scenes[scId].tags = source.scenes[srcId].tags
+                #--- Update section tags.
+                if source.sections[srcId].tags is not None:
+                    self.novel.sections[scId].tags = source.sections[srcId].tags
 
-                #--- Update scene description.
-                if source.scenes[srcId].desc is not None:
-                    self.novel.scenes[scId].desc = source.scenes[srcId].desc
+                #--- Update section description.
+                if source.sections[srcId].desc is not None:
+                    self.novel.sections[scId].desc = source.sections[srcId].desc
 
-                #--- Update scene characters.
-                if source.scenes[srcId].characters is not None:
-                    self.novel.scenes[scId].characters = []
-                    for crId in source.scenes[srcId].characters:
+                #--- Update section characters.
+                if source.sections[srcId].characters is not None:
+                    self.novel.sections[scId].characters = []
+                    for crId in source.sections[srcId].characters:
                         if crId in crIdsBySrcId:
-                            self.novel.scenes[scId].characters.append(crIdsBySrcId[crId])
+                            self.novel.sections[scId].characters.append(crIdsBySrcId[crId])
 
-                #--- Update scene locations.
-                if source.scenes[srcId].locations is not None:
-                    self.novel.scenes[scId].locations = []
-                    for lcId in source.scenes[srcId].locations:
+                #--- Update section locations.
+                if source.sections[srcId].locations is not None:
+                    self.novel.sections[scId].locations = []
+                    for lcId in source.sections[srcId].locations:
                         if lcId in lcIdsBySrcId:
-                            self.novel.scenes[scId].locations.append(lcIdsBySrcId[lcId])
+                            self.novel.sections[scId].locations.append(lcIdsBySrcId[lcId])
 
-                #--- Update scene items.
-                if source.scenes[srcId].items is not None:
-                    self.novel.scenes[scId].items = []
-                    for itId in source.scenes[srcId].items:
+                #--- Update section items.
+                if source.sections[srcId].items is not None:
+                    self.novel.sections[scId].items = []
+                    for itId in source.sections[srcId].items:
                         if itId in itIdsBySrcId:
-                            self.novel.scenes[scId].items.append(itIdsBySrcId[itId])
+                            self.novel.sections[scId].items.append(itIdsBySrcId[itId])
 
-                #--- Update scene arcs.
-                self.novel.scenes[scId].arcs = source.scenes[srcId].arcs
+                #--- Update section arcs.
+                self.novel.sections[scId].arcs = source.sections[srcId].arcs
 
-                #--- Update scene start date/time.
-                if source.scenes[srcId].time is not None:
-                    self.novel.scenes[scId].time = source.scenes[srcId].time
+                #--- Update section start date/time.
+                if source.sections[srcId].time is not None:
+                    self.novel.sections[scId].time = source.sections[srcId].time
 
-                #--- Calculate event date from unspecific scene date, if any:
-                if source.scenes[srcId].day is not None:
-                    dayInt = int(source.scenes[srcId].day)
-                    sceneDelta = timedelta(days=dayInt)
-                    self.novel.scenes[scId].date = (self.referenceDate + sceneDelta).isoformat().split('T')[0]
-                elif (source.scenes[srcId].date is None) and (source.scenes[srcId].time is not None):
-                    self.novel.scenes[scId].date = self.referenceDate.isoformat().split('T')[0]
+                #--- Calculate event date from unspecific section date, if any:
+                if source.sections[srcId].day is not None:
+                    dayInt = int(source.sections[srcId].day)
+                    sectionDelta = timedelta(days=dayInt)
+                    self.novel.sections[scId].date = (self.referenceDate + sectionDelta).isoformat().split('T')[0]
+                elif (source.sections[srcId].date is None) and (source.sections[srcId].time is not None):
+                    self.novel.sections[scId].date = self.referenceDate.isoformat().split('T')[0]
                 else:
-                    self.novel.scenes[scId].date = source.scenes[srcId].date
+                    self.novel.sections[scId].date = source.sections[srcId].date
 
-                #--- Update scene duration.
-                if source.scenes[srcId].lastsMinutes is not None:
-                    self.novel.scenes[scId].lastsMinutes = source.scenes[srcId].lastsMinutes
-                if source.scenes[srcId].lastsHours is not None:
-                    self.novel.scenes[scId].lastsHours = source.scenes[srcId].lastsHours
-                if source.scenes[srcId].lastsDays is not None:
-                    self.novel.scenes[scId].lastsDays = source.scenes[srcId].lastsDays
+                #--- Update section duration.
+                if source.sections[srcId].lastsMinutes is not None:
+                    self.novel.sections[scId].lastsMinutes = source.sections[srcId].lastsMinutes
+                if source.sections[srcId].lastsHours is not None:
+                    self.novel.sections[scId].lastsHours = source.sections[srcId].lastsHours
+                if source.sections[srcId].lastsDays is not None:
+                    self.novel.sections[scId].lastsDays = source.sections[srcId].lastsDays
 
         #--- Begin writing
 
@@ -1114,7 +1114,7 @@ class JsonTimeline2(File):
                 'role': self._roleStorylineGuid,
             }
 
-        #--- Update events from scenes.
+        #--- Update events from sections.
         for evt in self._jsonData['events']:
             try:
                 scId = scIdsByTitle[evt['title']]
@@ -1123,28 +1123,28 @@ class JsonTimeline2(File):
 
             #--- Set event date/time/span.
             if evt['rangeValues'][0]['position']['timestamp'] >= self.DATE_LIMIT:
-                evt['rangeValues'][0]['span'] = get_span(self.novel.scenes[scId])
-                evt['rangeValues'][0]['position']['timestamp'] = get_timestamp(self.novel.scenes[scId])
+                evt['rangeValues'][0]['span'] = get_span(self.novel.sections[scId])
+                evt['rangeValues'][0]['position']['timestamp'] = get_timestamp(self.novel.sections[scId])
 
             #--- Calculate moon phase.
             if self._propertyMoonphaseGuid is not None:
-                eventMoonphase = get_moon_phase_plus(self.novel.scenes[scId].date)
+                eventMoonphase = get_moon_phase_plus(self.novel.sections[scId].date)
             else:
                 eventMoonphase = ''
 
-            #--- Set scene description, notes, and moon phase.
+            #--- Set section description, notes, and moon phase.
             hasMoonphase = False
             for evtVal in evt['values']:
 
-                # Set scene description.
+                # Set section description.
                 if evtVal['property'] == self._propertyDescGuid:
-                    if self.novel.scenes[scId].desc:
-                        evtVal['value'] = self.novel.scenes[scId].desc
+                    if self.novel.sections[scId].desc:
+                        evtVal['value'] = self.novel.sections[scId].desc
 
-                # Set scene notes.
+                # Set section notes.
                 elif evtVal['property'] == self._propertyNotesGuid:
-                    if self.novel.scenes[scId].notes:
-                        evtVal['value'] = self.novel.scenes[scId].notes
+                    if self.novel.sections[scId].notes:
+                        evtVal['value'] = self.novel.sections[scId].notes
 
                 # Set moon phase.
                 elif evtVal['property'] == self._propertyMoonphaseGuid:
@@ -1155,9 +1155,9 @@ class JsonTimeline2(File):
             if not hasMoonphase and self._propertyMoonphaseGuid is not None:
                 evt['values'].append({'property': self._propertyMoonphaseGuid, 'value': eventMoonphase})
 
-            #--- Set scene tags.
-            if self.novel.scenes[scId].tags:
-                evt['tags'] = self.novel.scenes[scId].tags
+            #--- Set section tags.
+            if self.novel.sections[scId].tags:
+                evt['tags'] = self.novel.sections[scId].tags
 
             #--- Update characters, locations, and items.
             # Delete assignments.
@@ -1176,8 +1176,8 @@ class JsonTimeline2(File):
                     newRel.append(evtRel)
 
             # Add characters.
-            if self.novel.scenes[scId].characters:
-                for crId in self.novel.scenes[scId].characters:
+            if self.novel.sections[scId].characters:
+                for crId in self.novel.sections[scId].characters:
                     newRel.append(
                         {
                             'entity': self._characterGuidById[crId],
@@ -1186,8 +1186,8 @@ class JsonTimeline2(File):
                         })
 
             # Add locations.
-            if self.novel.scenes[scId].locations:
-                for lcId in self.novel.scenes[scId].locations:
+            if self.novel.sections[scId].locations:
+                for lcId in self.novel.sections[scId].locations:
                     newRel.append(
                         {
                             'entity': self._locationGuidById[lcId],
@@ -1196,8 +1196,8 @@ class JsonTimeline2(File):
                         })
 
             # Add items.
-            if self.novel.scenes[scId].items:
-                for itId in self.novel.scenes[scId].items:
+            if self.novel.sections[scId].items:
+                for itId in self.novel.sections[scId].items:
                     newRel.append(
                         {
                             'entity': self._itemGuidById[itId],
@@ -1207,15 +1207,15 @@ class JsonTimeline2(File):
 
             evt['relationships'] = newRel
 
-            #--- Assign "scene" events to the "Narrative" arc.
-            if self.novel.scenes[scId].scType == 0:
+            #--- Assign "section" events to the "Narrative" arc.
+            if self.novel.sections[scId].scType == 0:
                 if narrativeArc not in evt['relationships']:
                     evt['relationships'].append(narrativeArc)
 
                 #--- Assign events to arcs.
-                sceneArcs = string_to_list(self.novel.scenes[scId].arcs)
+                sectionArcs = string_to_list(self.novel.sections[scId].arcs)
                 for arcName in arcs:
-                    if arcName in sceneArcs:
+                    if arcName in sectionArcs:
                         if arcs[arcName] not in evt['relationships']:
                             evt['relationships'].append(arcs[arcName])
                     else:
@@ -1224,14 +1224,14 @@ class JsonTimeline2(File):
                         except:
                             pass
 
-            elif self.novel.scenes[scId].scType == 2:
+            elif self.novel.sections[scId].scType == 2:
                 if narrativeArc in evt['relationships']:
                     evt['relationships'].remove(narrativeArc)
 
                 #--- Assign events to arcs.
-                sceneArcs = string_to_list(self.novel.scenes[scId].arcs)
+                sectionArcs = string_to_list(self.novel.sections[scId].arcs)
                 for arcName in arcs:
-                    if arcName in sceneArcs:
+                    if arcName in sectionArcs:
                         if arcs[arcName] not in evt['relationships']:
                             evt['relationships'].append(arcs[arcName])
                     else:
@@ -1240,16 +1240,16 @@ class JsonTimeline2(File):
                         except:
                             pass
 
-            elif self.novel.scenes[scId].scType == 1:
+            elif self.novel.sections[scId].scType == 1:
                 if narrativeArc in evt['relationships']:
                     evt['relationships'].remove(narrativeArc)
 
                 #--- Clear arcs, if any.
-                sceneArcs = string_to_list(self.novel.scenes[scId].arcs)
-                for arcName in sceneArcs:
+                sectionArcs = string_to_list(self.novel.sections[scId].arcs)
+                for arcName in sectionArcs:
                     evt['relationships'].remove(arcs[arcName])
 
-        #--- Delete "Trash" scenes.
+        #--- Delete "Trash" sections.
         events = []
         for evt in self._jsonData['events']:
             try:

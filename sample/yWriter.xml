@@ -338,6 +338,6 @@
 	</RangeProperties>
 	<DefaultLayout>
 		<LeftColumn><Array><ArrayItem type="string">Viewpoint</ArrayItem><ArrayItem type="string">Location</ArrayItem><ArrayItem type="string">Tags</ArrayItem></Array></LeftColumn>
-		<RightColumn><Array><ArrayItem type="string">Participant</ArrayItem><ArrayItem type="string">Item</ArrayItem><ArrayItem type="string">Scene</ArrayItem></Array></RightColumn>
+		<RightColumn><Array><ArrayItem type="string">Participant</ArrayItem><ArrayItem type="string">Item</ArrayItem><ArrayItem type="string">Section</ArrayItem></Array></RightColumn>
 	</DefaultLayout>
 </Template>
