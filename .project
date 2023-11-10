@@ -3,7 +3,7 @@
 	<name>novelyst_aeon2</name>
 	<comment></comment>
 	<projects>
-		<project>novxlib</project>
+		<project>novxlib-Alpha</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

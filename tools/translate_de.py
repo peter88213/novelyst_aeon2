@@ -35,7 +35,7 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import os
 import sys
-sys.path.insert(0, f'{os.getcwd()}/../../novxlib/src')
+sys.path.insert(0, f'{os.getcwd()}/../../novxlib-Alpha/src')
 import translations
 from shutil import copyfile
 import msgfmt
