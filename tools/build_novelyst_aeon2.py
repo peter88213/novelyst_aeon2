@@ -7,7 +7,7 @@ The novxlib project (see see https://github.com/peter88213/novxlib)
 must be located on the same directory level as the aeon2nv project. 
 
 Copyright (c) 2023 Peter Triesberger
-For further information see https://github.com/peter88213/novelyst_aeon2
+For further information see https://github.com/peter88213/noveltree_aeon2
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import os

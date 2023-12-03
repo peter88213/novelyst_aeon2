@@ -6,7 +6,7 @@ For more information, see the [project homepage](https://peter88213.github.io/no
 
 ## Feedback? Ideas? Feature requests?
 
-You can go to the [novelyst "discussions" forum](https://github.com/peter88213/novelyst/discussions) and start a thread.
+You can go to the [novelyst "discussions" forum](https://github.com/peter88213/noveltree/discussions) and start a thread.
 
 # Contributing
 
@@ -16,13 +16,13 @@ First, you need to know your language code according to ISO 639-1.
 
 For English, this is, for example, `en`, for German, it is `de`.
 
-**NOTE:** The procedure described below is greatly simplified if you create a language pack based on the [novelyst_xx](https://github.com/peter88213/novelyst_xx) template and use the tools provided for this purpose. 
+**NOTE:** The procedure described below is greatly simplified if you create a language pack based on the [novelyst_xx](https://github.com/peter88213/noveltree_xx) template and use the tools provided for this purpose. 
 
 ### Create a message catalog
 
 A "message catalog" is a dictionary for the plugin's messages and menu entries.
 
-For creating a message catalog, you download a template with all English messages from [here](https://github.com/peter88213/novelyst_aeon2/blob/main/i18n/messages.pot). 
+For creating a message catalog, you download a template with all English messages from [here](https://github.com/peter88213/noveltree_aeon2/blob/main/i18n/messages.pot). 
 
 
 Rename `messages.pot` to `<your language code>.po`, then give some specific information in the header data by modifying the following lines:
@@ -81,7 +81,7 @@ Then start *novelyst* and see whether your translation works.
 
 If *novelyst* works fine with your translations, you can consider contributing it. 
 
-An easy way may be to put a posting in the [novelyst forum](https://github.com/peter88213/novelyst/discussions), appending your  `<your language code>.po` file. 
+An easy way may be to put a posting in the [novelyst forum](https://github.com/peter88213/noveltree/discussions), appending your  `<your language code>.po` file. 
 
 
 ## Development
@@ -119,4 +119,4 @@ See https://github.com/peter88213/novxlib/blob/main/docs/conventions.md
 
 This is Open Source software, and the *novelyst_aeon2* plugin is licensed under GPLv3. See the
 [GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
-details, or consult the [LICENSE](https://github.com/peter88213/novelyst_aeon2/blob/main/LICENSE) file.
+details, or consult the [LICENSE](https://github.com/peter88213/noveltree_aeon2/blob/main/LICENSE) file.
