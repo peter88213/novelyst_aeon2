@@ -17,8 +17,8 @@ import inliner
 
 SRC = '../src/'
 BUILD = '../test/'
-SOURCE_FILE = f'{SRC}novelyst_aeon2.py'
-TARGET_FILE = f'{BUILD}novelyst_aeon2.py'
+SOURCE_FILE = f'{SRC}nv_aeon2.py'
+TARGET_FILE = f'{BUILD}nv_aeon2.py'
 
 
 def main():

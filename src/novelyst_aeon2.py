@@ -36,7 +36,7 @@ from novxlib.novx.novx_file import NovxFile
 LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
 CURRENT_LANGUAGE = locale.getlocale()[0][:2]
 try:
-    t = gettext.translation('novelyst_aeon2', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
+    t = gettext.translation('nv_aeon2', LOCALE_PATH, languages=[CURRENT_LANGUAGE])
     _ = t.gettext
 except:
 
@@ -46,7 +46,7 @@ except:
 APPLICATION = 'Aeon Timeline 2'
 PLUGIN = f'{APPLICATION} plugin v@release'
 INI_FILENAME = 'aeon2nv.ini'
-INI_FILEPATH = '.kalliope/aeon2nv/config'
+INI_FILEPATH = '.noveltree/aeon2nv/config'
 
 
 class Plugin():
@@ -58,7 +58,7 @@ class Plugin():
         
     """
     VERSION = '@release'
-    NOVELYST_API = '5.0'
+    NOVELYST_API = '0.1'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
     URL = 'https://peter88213.github.io/novelyst_aeon2'
     _HELP_URL = 'https://peter88213.github.io/novelyst_aeon2/usage'

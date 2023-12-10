@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="novelyst_aeon2" basedir=".">
+<project name="nv_aeon2" basedir=".">
 	<property name="version" value="3.4.2" />
 	<property name="test-app" value="novelyst_aeon2" />
 	
