@@ -90,7 +90,7 @@ class Plugin():
         """Add a submenu to the main menu.
         
         Positional arguments:
-            ui -- reference to the NovelystTk instance of the application.
+            ui -- reference to the NoveltreeUi instance of the application.
         """
         self._ui = ui
 
