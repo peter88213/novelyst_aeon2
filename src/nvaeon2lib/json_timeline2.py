@@ -408,7 +408,7 @@ class JsonTimeline2(File):
                     lcId = create_id(self.novel.locations)
                     self.novel.locations[lcId] = WorldElement()
                     self.novel.locations[lcId].title = ent['name']
-                    self.novel.srtLocations.append(lcId)
+                    self.novel.tree.append(LC_ROOT, lcId)
                 lcIdsByGuid[ent['guid']] = lcId
                 self._locationGuidById[lcId] = ent['guid']
 
@@ -423,7 +423,7 @@ class JsonTimeline2(File):
                     itId = create_id(self.novel.items)
                     self.novel.items[itId] = WorldElement()
                     self.novel.items[itId].title = ent['name']
-                    self.novel.srtItems.append(itId)
+                    self.novel.tree.append(IT_ROOT, itId)
                 itIdsByGuid[ent['guid']] = itId
                 self._itemGuidById[itId] = ent['guid']
 
@@ -673,7 +673,7 @@ class JsonTimeline2(File):
             sectionsInChapters.extend(self.novel.tree.get_children(chId))
 
         # Create a chapter for new sections.
-        newChapterId = create_id(self.novel.srtChapters)
+        newChapterId = create_id(self.novel.chapters)
         newChapter = Chapter()
         newChapter.title = _('New sections')
         newChapter.chType = 0
@@ -683,10 +683,10 @@ class JsonTimeline2(File):
         for __, scList in srtSections:
             for scId in scList:
                 if not scId in sectionsInChapters:
-                    if not newChapterId in self.novel.srtChapters:
+                    if not newChapterId in self.novel.tree.get_children(CH_ROOT):
                         self.novel.chapters[newChapterId] = newChapter
-                        self.novel.srtChapters.append(newChapterId)
-                    self.novel.chapters[newChapterId].srtSections.append(scId)
+                        self.novel.tree.append(CH_ROOT, newChapterId)
+                    self.novel.tree.append(newChapterId, scId)
 
         if self._timestampMax == 0:
             self._timestampMax = (self.referenceDate - datetime.min).total_seconds()
@@ -812,12 +812,11 @@ class JsonTimeline2(File):
                 if source.sections[scId].items:
                     linkedItems = list(set(linkedItems + source.sections[scId].items))
 
-                #--- Collect arcs from source.
-                arcs = string_to_list(source.sections[scId].arcs)
-                for arc in arcs:
-                    if not arc in self._arcGuidsByName:
-                        self._arcGuidsByName[arc] = None
-                        # new arc; GUID is generated on writing
+        #--- Collect arcs from source.
+        for arc in source.arcs:
+            if not arc in self._arcGuidsByName:
+                self._arcGuidsByName[arc] = None
+                # new arc; GUID is generated on writing
 
         # Check characters.
         srcChrNames = []
@@ -1045,8 +1044,9 @@ class JsonTimeline2(File):
                         if itId in itIdsBySrcId:
                             self.novel.sections[scId].items.append(itIdsBySrcId[itId])
 
-                #--- Update section arcs.
-                self.novel.sections[scId].arcs = source.sections[srcId].arcs
+                #--- Update section arcs and turning points.
+                self.novel.sections[scId].scArcs = source.sections[srcId].scArcs
+                self.novel.sections[scId].scTurningPoints = source.sections[srcId].scTurningPoints
 
                 #--- Update section start date/time.
                 if source.sections[srcId].time is not None:
@@ -1214,7 +1214,7 @@ class JsonTimeline2(File):
                     evt['relationships'].append(narrativeArc)
 
                 #--- Assign events to arcs.
-                sectionArcs = string_to_list(self.novel.sections[scId].arcs)
+                sectionArcs = self.novel.sections[scId].scArcs
                 for arcName in arcs:
                     if arcName in sectionArcs:
                         if arcs[arcName] not in evt['relationships']:
