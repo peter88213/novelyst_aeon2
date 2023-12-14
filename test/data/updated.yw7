@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<YWRITER7>
+  <PROJECT>
+    <Ver>7</Ver>
+  </PROJECT>
+  <LOCATIONS>
+    <LOCATION>
+      <ID>1</ID>
+      <Title><![CDATA[Santa Barbara]]></Title>
+      <SortOrder>1</SortOrder>
+    </LOCATION>
+  </LOCATIONS>
+  <ITEMS>
+    <ITEM>
+      <ID>1</ID>
+      <Title><![CDATA[Typewriter]]></Title>
+      <SortOrder>1</SortOrder>
+    </ITEM>
+  </ITEMS>
+  <CHARACTERS>
+    <CHARACTER>
+      <ID>1</ID>
+      <Title><![CDATA[Poirot]]></Title>
+      <SortOrder>1</SortOrder>
+    </CHARACTER>
+    <CHARACTER>
+      <ID>2</ID>
+      <Title><![CDATA[B.C. Toyle]]></Title>
+      <SortOrder>2</SortOrder>
+    </CHARACTER>
+  </CHARACTERS>
+  <SCENES>
+    <SCENE>
+      <ID>1</ID>
+      <Title><![CDATA[NaNoWriMo 2021]]></Title>
+      <BelongsToChID>1</BelongsToChID>
+      <Desc><![CDATA[Poirot interrogates Author B.C. Toyle at his home.]]></Desc>
+      <SceneContent />
+      <WordCount>0</WordCount>
+      <LetterCount>0</LetterCount>
+      <Status>1</Status>
+      <Notes><![CDATA[To be continued]]></Notes>
+      <Tags><![CDATA[Work]]></Tags>
+      <SpecificDateTime>2021-11-01 00:00:00</SpecificDateTime>
+      <SpecificDateMode>-1</SpecificDateMode>
+      <LastsDays>25</LastsDays>
+      <LastsHours>5</LastsHours>
+      <LastsMinutes>0</LastsMinutes>
+      <Characters>
+        <CharID>1</CharID>
+        <CharID>2</CharID>
+      </Characters>
+      <Locations>
+        <LocID>1</LocID>
+      </Locations>
+      <Items>
+        <ItemID>1</ItemID>
+      </Items>
+      <Unused>-1</Unused>
+      <Fields>
+        <Field_SceneType>1</Field_SceneType>
+      </Fields>
+    </SCENE>
+    <SCENE>
+      <ID>2</ID>
+      <Title><![CDATA[Narrative event]]></Title>
+      <BelongsToChID>1</BelongsToChID>
+      <SceneContent />
+      <WordCount>0</WordCount>
+      <LetterCount>0</LetterCount>
+      <Status>1</Status>
+      <SpecificDateTime>2021-11-02 15:00:00</SpecificDateTime>
+      <SpecificDateMode>-1</SpecificDateMode>
+      <LastsDays>0</LastsDays>
+      <LastsHours>0</LastsHours>
+      <LastsMinutes>0</LastsMinutes>
+      <Unused>-1</Unused>
+      <Fields>
+        <Field_SceneType>0</Field_SceneType>
+      </Fields>
+    </SCENE>
+    <SCENE>
+      <ID>3</ID>
+      <Title><![CDATA[New scene]]></Title>
+      <BelongsToChID>2</BelongsToChID>
+      <SceneContent />
+      <WordCount>0</WordCount>
+      <LetterCount>0</LetterCount>
+      <Status>1</Status>
+      <SpecificDateTime>2021-11-22 22:00:00</SpecificDateTime>
+      <SpecificDateMode>-1</SpecificDateMode>
+      <LastsDays>0</LastsDays>
+      <LastsHours>0</LastsHours>
+      <LastsMinutes>0</LastsMinutes>
+    </SCENE>
+    <SCENE>
+      <ID>4</ID>
+      <Title><![CDATA[Day 0]]></Title>
+      <BelongsToChID>2</BelongsToChID>
+      <SceneContent />
+      <WordCount>0</WordCount>
+      <LetterCount>0</LetterCount>
+      <Status>1</Status>
+      <SpecificDateTime>2021-11-01 00:00:00</SpecificDateTime>
+      <SpecificDateMode>-1</SpecificDateMode>
+      <LastsDays>0</LastsDays>
+      <LastsHours>0</LastsHours>
+      <LastsMinutes>0</LastsMinutes>
+    </SCENE>
+  </SCENES>
+  <CHAPTERS>
+    <CHAPTER>
+      <ID>1</ID>
+      <Title><![CDATA[New scenes]]></Title>
+      <SortOrder>1</SortOrder>
+      <Type>0</Type>
+      <ChapterType>0</ChapterType>
+      <Scenes>
+        <ScID>1</ScID>
+        <ScID>2</ScID>
+      </Scenes>
+    </CHAPTER>
+    <CHAPTER>
+      <ID>2</ID>
+      <Title><![CDATA[New scenes]]></Title>
+      <SortOrder>2</SortOrder>
+      <Type>0</Type>
+      <ChapterType>0</ChapterType>
+      <Scenes>
+        <ScID>4</ScID>
+        <ScID>3</ScID>
+      </Scenes>
+    </CHAPTER>
+  </CHAPTERS>
+</YWRITER7>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE novx SYSTEM "novx_1_0.dtd">
+<?xml-stylesheet href="novx.css" type="text/css"?>
+<novx version="1.0" xml:lang="de-DE">
+  <PROJECT />
+  <CHAPTERS>
+    <CHAPTER id="ch1">
+      <Title>New scenes</Title>
+      <SECTION id="sc1">
+        <Title>NaNoWriMo 2021</Title>
+        <Desc>
+          <p>Poirot interrogates Author B.C. Toyle at his home.</p>
+        </Desc>
+        <Notes>
+          <p>To be continued</p>
+        </Notes>
+        <Tags>Work</Tags>
+        <Date>2021-11-01</Date>
+        <Time>00:00:00</Time>
+        <LastsDays>30</LastsDays>
+        <Characters ids="cr1 cr2" />
+        <Locations ids="lc1" />
+        <Items ids="it1" />
+      </SECTION>
+      <SECTION id="sc2">
+        <Title>Narrative event</Title>
+        <Date>2021-11-02</Date>
+        <Time>15:00:00</Time>
+      </SECTION>
+    </CHAPTER>
+    <CHAPTER id="ch3" type="1" isTrash="1">
+      <Title>Papierkorb</Title>
+    </CHAPTER>
+    <CHAPTER id="ch2" type="1" level="1">
+      <Title>Bögen</Title>
+    </CHAPTER>
+  </CHAPTERS>
+  <CHARACTERS>
+    <CHARACTER id="cr1">
+      <Title>Poirot</Title>
+    </CHARACTER>
+    <CHARACTER id="cr2">
+      <Title>B.C. Toyle</Title>
+    </CHARACTER>
+  </CHARACTERS>
+  <LOCATIONS>
+    <LOCATION id="lc1">
+      <Title>Santa Barbara</Title>
+    </LOCATION>
+  </LOCATIONS>
+  <ITEMS>
+    <ITEM id="it1">
+      <Title>Typewriter</Title>
+    </ITEM>
+  </ITEMS>
+  <ARCS>
+    <ARC id="ac4">
+      <Title>A - Handlungsbogen</Title>
+      <ShortName>A</ShortName>
+      <Sections ids="sc2" />
+    </ARC>
+    <ARC id="ac6">
+      <Title>B - Handlungsbogen</Title>
+      <ShortName>B</ShortName>
+    </ARC>
+  </ARCS>
+  <PROJECTNOTES />
+</novx>

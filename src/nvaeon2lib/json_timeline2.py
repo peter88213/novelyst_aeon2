@@ -12,6 +12,7 @@ from novxlib.model.section import Section
 from novxlib.model.character import Character
 from novxlib.model.world_element import WorldElement
 from novxlib.model.novel import Novel
+from novxlib.model.nv_tree import NvTree
 from novxlib.model.id_generator import create_id
 from novxlib.file.file import File
 from nvaeon2lib.aeon2_fop import open_timeline
@@ -388,7 +389,7 @@ class JsonTimeline2(File):
                     crId = create_id(self.novel.characters)
                     self.novel.characters[crId] = Character()
                     self.novel.characters[crId].title = ent['name']
-                    self.novel.srtCharacters.append(crId)
+                    self.novel.tree.append(CR_ROOT, crId)
                 crIdsByGuid[ent['guid']] = crId
                 self._characterGuidById[crId] = ent['guid']
                 if ent['notes']:
@@ -778,7 +779,7 @@ class JsonTimeline2(File):
 
         #--- Merge first.
         source = self.novel
-        self.novel = Novel()
+        self.novel = Novel(tree=NvTree())
         self.read()
         # create a new target novel from the aeon2 project file
 
@@ -797,7 +798,7 @@ class JsonTimeline2(File):
             if source.chapters[chId].isTrash:
                 continue
 
-            for scId in source.get_tree_elements(chId):
+            for scId in source.tree.get_children(chId):
                 if source.sections[scId].title in srcScnTitles:
                     raise Error(_('Ambiguous novelyst section title "{}".').format(source.sections[scId].title))
 
@@ -969,7 +970,7 @@ class JsonTimeline2(File):
         #--- Update sections from the source.
         totalEvents = len(self._jsonData['events'])
         for chId in source.chapters:
-            for srcId in source.get_tree_elements(chId):
+            for srcId in source.tree.get_children(chId):
                 if source.sections[srcId].scType == 3:
                     # Remove unused section from the "Narrative" arc.
                     if source.sections[srcId].title in scIdsByTitle:

@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE novx SYSTEM "novx_1_0.dtd">
+<?xml-stylesheet href="novx.css" type="text/css"?>
+<novx version="1.0" xml:lang="de-DE">
+  <PROJECT />
+  <CHAPTERS>
+    <CHAPTER id="ch1">
+      <Title>Chapter 1</Title>
+      <SECTION id="sc76">
+        <Title>Train leaves Belgrade</Title>
+        <Desc>
+          <p>The loco puffs happily. All aboard are well.</p>
+        </Desc>
+        <Tags>Train Movement</Tags>
+        <Date>1933-02-06</Date>
+        <Time>21:15:00</Time>
+      </SECTION>
+      <SECTION id="sc22">
+        <Title>The Valet leaves Ratchett with sleeping draught beside him</Title>
+        <Date>1933-02-06</Date>
+        <Time>21:40:00</Time>
+        <Characters ids="cr7 cr8" />
+      </SECTION>
+      <SECTION id="sc64">
+        <Title>MacQueen leaves Ratchett</Title>
+        <Date>1933-02-06</Date>
+        <Time>22:00:00</Time>
+        <Characters ids="cr2 cr7" />
+      </SECTION>
+      <SECTION id="sc80">
+        <Title>Greta Ohlsson sees Ratchett</Title>
+        <Desc>
+          <p>This was the last time Ratchett was seen alive</p>
+        </Desc>
+        <Date>1933-02-06</Date>
+        <Time>22:39:00</Time>
+        <Characters ids="cr7 cr10" />
+      </SECTION>
+      <SECTION id="sc4">
+        <Title>No one enters or leaves Rachett's apartment, according to the Conductor</Title>
+        <Date>1933-02-07</Date>
+        <Time>00:00:00</Time>
+        <LastsHours>1</LastsHours>
+      </SECTION>
+      <SECTION id="sc59">
+        <Title> Train leaves Vincovci (late)</Title>
+        <Tags>Train Movement</Tags>
+        <Date>1933-02-07</Date>
+        <Time>00:10:00</Time>
+      </SECTION>
+      <SECTION id="sc12">
+        <Title>Train runs into snowdrift</Title>
+        <Desc>
+          <p>After this time it was impossible for anyone to leave the train</p>
+        </Desc>
+        <Tags>Clue;Train Movement</Tags>
+        <Date>1933-02-07</Date>
+        <Time>00:30:00</Time>
+      </SECTION>
+      <SECTION id="sc60">
+        <Title>Ratchett's bell rings. Conductor answers it. Rachett replies in French</Title>
+        <Tags>Clue</Tags>
+        <Date>1933-02-07</Date>
+        <Time>00:37:00</Time>
+        <Characters ids="cr5" />
+      </SECTION>
+      <SECTION id="sc47">
+        <Title>No one enters or leaves Rachett's apartment, according to the Conductor</Title>
+        <Date>1933-02-07</Date>
+        <Time>01:17:00</Time>
+        <LastsMinutes>45</LastsMinutes>
+      </SECTION>
+      <SECTION id="sc51">
+        <Title>Mrs Hubbard thinks man is in her carriage. Rings for conductor</Title>
+        <Tags>Clue</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:17:00</Time>
+        <Characters ids="cr13" />
+      </SECTION>
+      <SECTION id="sc50">
+        <Title>Poirot hears a noise and sees a women in a kimono in the corridor</Title>
+        <Tags>Clue;Imposter in Kimono</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:35:00</Time>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc27">
+        <Title>Rachett's body found</Title>
+        <Date>1933-02-07</Date>
+        <Time>11:00:00</Time>
+        <Characters ids="cr5" />
+      </SECTION>
+      <SECTION id="sc39">
+        <Title>Poirot talks to the Conductor and MacQueen about the murder</Title>
+        <Date>1933-02-07</Date>
+        <Time>11:10:00</Time>
+        <LastsMinutes>20</LastsMinutes>
+        <Characters ids="cr2 cr4 cr5" />
+      </SECTION>
+      <SECTION id="sc61">
+        <Title>Poirot examines the dead man's body and compartment</Title>
+        <Desc>
+          <p>12 stab wounds to the body</p>
+          <p>Ratchett was already dead for some time before some of the stabs</p>
+          <p>Some left handed, some right handed</p>
+          <p>Some weak, some strong</p>
+        </Desc>
+        <Date>1933-02-07</Date>
+        <Time>11:30:00</Time>
+        <LastsMinutes>30</LastsMinutes>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc37">
+        <Title>Poirot finds matches in compartment</Title>
+        <Desc>
+          <p>This indicates to him that something incriminating has been burnt</p>
+        </Desc>
+        <Tags>Clue;Burnt Paper</Tags>
+        <Date>1933-02-07</Date>
+        <Time>11:35:00</Time>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc72">
+        <Title>Poirot finds women's handkerchief with the initial 'H'</Title>
+        <Tags>Clue;Hankerchief</Tags>
+        <Date>1933-02-07</Date>
+        <Time>11:37:00</Time>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc13">
+        <Title>Poirot finds tobacco pipe</Title>
+        <Desc>
+          <p>Matches Colonel Arthbutnots</p>
+        </Desc>
+        <Tags>Clue;Pipe</Tags>
+        <Date>1933-02-07</Date>
+        <Time>11:39:00</Time>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc93">
+        <Title>Poirot finds smashed watch</Title>
+        <Desc>
+          <p>The hands point to 1:15</p>
+        </Desc>
+        <Tags>Clue</Tags>
+        <Date>1933-02-07</Date>
+        <Time>11:45:00</Time>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc89">
+        <Title>Poirot finds scrap of paper with the words "-member little Daisy Armstrong"</Title>
+        <Tags>Burnt Paper</Tags>
+        <Date>1933-02-07</Date>
+        <Time>11:50:00</Time>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc81">
+        <Title>Poirot learns identity of dead man</Title>
+        <Desc>
+          <p>A man responsible for the kidnap and murder of a little girl called Daisy Armstrong</p>
+        </Desc>
+        <Tags>Burnt Paper</Tags>
+        <Date>1933-02-07</Date>
+        <Time>11:58:00</Time>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc63">
+        <Title>Poirot interviews the Conductor</Title>
+        <Date>1933-02-07</Date>
+        <Time>13:00:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr4 cr5" />
+      </SECTION>
+      <SECTION id="sc67">
+        <Title>Poirot interviews the passengers about the murder</Title>
+        <Date>1933-02-07</Date>
+        <Time>13:10:00</Time>
+        <LastsHours>2</LastsHours>
+        <Characters ids="cr1 cr2 cr3 cr4 cr5 cr6 cr8 cr9 cr10 cr11 cr12 cr13 cr14 cr15" />
+      </SECTION>
+      <SECTION id="sc53">
+        <Title>Mrs Hubbard finds bloody knife in her sponge-bag</Title>
+        <Tags>Murder Weapon</Tags>
+        <Date>1933-02-07</Date>
+        <Time>15:30:00</Time>
+        <Characters ids="cr13" />
+      </SECTION>
+      <SECTION id="sc62">
+        <Title>Poirot searches the passengers luggage</Title>
+        <Date>1933-02-07</Date>
+        <Time>15:45:00</Time>
+        <LastsMinutes>15</LastsMinutes>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc21">
+        <Title>Poirot discovers Countess Andrenyi's connection to the dead man</Title>
+        <Date>1933-02-07</Date>
+        <Time>19:10:00</Time>
+        <Characters ids="cr4 cr9 cr14" />
+      </SECTION>
+      <SECTION id="sc8">
+        <Title>Princess Dragonmiroff admits the handkerchief is hers</Title>
+        <Tags>Hankerchief</Tags>
+        <Date>1933-02-07</Date>
+        <Time>19:15:00</Time>
+        <Characters ids="cr4 cr11" />
+      </SECTION>
+      <SECTION id="sc48">
+        <Title>Poirot discovers Mary Debenham's connection to the dead man</Title>
+        <Date>1933-02-07</Date>
+        <Time>19:20:00</Time>
+        <Characters ids="cr3 cr4" />
+      </SECTION>
+      <SECTION id="sc42">
+        <Title>Poirot discovers Antonio Foscarelli's connection to the dead man</Title>
+        <Date>1933-02-07</Date>
+        <Time>19:25:00</Time>
+        <Characters ids="cr4 cr6" />
+      </SECTION>
+      <SECTION id="sc78">
+        <Title>Poirot discovers Greta Ohlsson's connection to the dead man</Title>
+        <Date>1933-02-07</Date>
+        <Time>19:30:00</Time>
+        <Characters ids="cr4 cr10" />
+      </SECTION>
+      <SECTION id="sc92">
+        <Title>Poirot discovers the Valet's connection to the dead man</Title>
+        <Date>1933-02-07</Date>
+        <Time>19:35:00</Time>
+        <Characters ids="cr4 cr8" />
+      </SECTION>
+      <SECTION id="sc24">
+        <Title>Poirot announces the solution to the murder</Title>
+        <Date>1933-02-07</Date>
+        <Time>19:40:00</Time>
+        <Characters ids="cr4" />
+      </SECTION>
+    </CHAPTER>
+    <CHAPTER id="ch2" type="1">
+      <Title>Background</Title>
+      <SECTION id="sc20" type="1">
+        <Title>The Valet returns to his compartment and reads</Title>
+        <Date>1933-02-06</Date>
+        <Time>21:40:00</Time>
+        <LastsMinutes>50</LastsMinutes>
+        <Characters ids="cr8" />
+      </SECTION>
+      <SECTION id="sc30" type="1">
+        <Title>MacQueen takes down memoranda of letters with Mr Ratchett</Title>
+        <Date>1933-02-06</Date>
+        <Time>21:40:00</Time>
+        <LastsMinutes>20</LastsMinutes>
+        <Characters ids="cr2 cr7" />
+      </SECTION>
+      <SECTION id="sc14" type="1">
+        <Title>Cyrus Hardman stays awake in his compartment, watching the corridor</Title>
+        <Desc>
+          <p>Alibi from midnight to 2am (substantiated by MacQueen and the conductor)</p>
+        </Desc>
+        <Tags>Partial Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>22:00:00</Time>
+        <LastsHours>10</LastsHours>
+        <Characters ids="cr1" />
+      </SECTION>
+      <SECTION id="sc33" type="1">
+        <Title>MacQueen talks politics with Colonel Arbuthnot</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>22:00:00</Time>
+        <LastsHours>3</LastsHours>
+        <LastsMinutes>45</LastsMinutes>
+        <Characters ids="cr2 cr12" />
+      </SECTION>
+      <SECTION id="sc57" type="1">
+        <Title>MacQueen drugs Mr. Ratchett</Title>
+        <Date>1933-02-06</Date>
+        <Time>22:00:00</Time>
+        <Characters ids="cr2 cr7" />
+      </SECTION>
+      <SECTION id="sc77" type="1">
+        <Title>Mary Debenham sleeps</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>22:00:00</Time>
+        <LastsHours>7</LastsHours>
+        <Characters ids="cr3" />
+      </SECTION>
+      <SECTION id="sc90" type="1">
+        <Title>Hildegarde Schmidt sleeps</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>22:00:00</Time>
+        <LastsHours>2</LastsHours>
+        <LastsMinutes>46</LastsMinutes>
+        <Characters ids="cr15" />
+      </SECTION>
+      <SECTION id="sc9" type="1">
+        <Title>Conductor makes the beds for The Valet and Antonio Foscarelli</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>22:30:00</Time>
+        <Characters ids="cr5 cr6 cr8" />
+      </SECTION>
+      <SECTION id="sc52" type="1">
+        <Title>The Valet lies awake with a toothache</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>22:30:00</Time>
+        <LastsHours>5</LastsHours>
+        <LastsMinutes>30</LastsMinutes>
+        <Characters ids="cr8" />
+      </SECTION>
+      <SECTION id="sc54" type="1">
+        <Title>Antonio Foscarelli reads in his compartment</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>22:30:00</Time>
+        <LastsHours>5</LastsHours>
+        <LastsMinutes>30</LastsMinutes>
+        <Characters ids="cr6" />
+      </SECTION>
+      <SECTION id="sc19" type="1">
+        <Title>Mrs Hubbard sleeps</Title>
+        <Tags>No Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>22:40:00</Time>
+        <LastsHours>2</LastsHours>
+        <LastsMinutes>37</LastsMinutes>
+        <Characters ids="cr13" />
+      </SECTION>
+      <SECTION id="sc66" type="1">
+        <Title>Greta Ohlsson enters Rachett's apartment by mistake</Title>
+        <Date>1933-02-06</Date>
+        <Time>22:40:00</Time>
+        <Characters ids="cr7 cr10" />
+      </SECTION>
+      <SECTION id="sc84" type="1">
+        <Title>Greta Ohlsson asks Mrs Hubbard for some aspirin</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>22:41:00</Time>
+        <LastsMinutes>14</LastsMinutes>
+        <Characters ids="cr10 cr13" />
+      </SECTION>
+      <SECTION id="sc3" type="1">
+        <Title>Greta Ohlsson returns to her compartment and sleeps</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>22:55:00</Time>
+        <LastsHours>9</LastsHours>
+        <LastsMinutes>5</LastsMinutes>
+        <Characters ids="cr10" />
+      </SECTION>
+      <SECTION id="sc15" type="1">
+        <Title>Countess Andrenyi takes a sleeping draught and sleeps</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>23:00:00</Time>
+        <LastsHours>9</LastsHours>
+        <Characters ids="cr9" />
+      </SECTION>
+      <SECTION id="sc82" type="1">
+        <Title>The Conductor makes the bed for Count Andrenyi</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>23:00:00</Time>
+        <Characters ids="cr5 cr14" />
+      </SECTION>
+      <SECTION id="sc55" type="1">
+        <Title>Count Andrenyi sleeps</Title>
+        <Desc>
+          <p>This alibi does not cover the time period 1-1:15 am</p>
+        </Desc>
+        <Tags>Partial Alibi</Tags>
+        <Date>1933-02-06</Date>
+        <Time>23:10:00</Time>
+        <LastsHours>8</LastsHours>
+        <LastsMinutes>50</LastsMinutes>
+        <Characters ids="cr14" />
+      </SECTION>
+      <SECTION id="sc1" type="1">
+        <Title>Unknown murderer enters train at Vincovci</Title>
+        <Date>1933-02-07</Date>
+        <Time>00:00:00</Time>
+      </SECTION>
+      <SECTION id="sc46" type="1">
+        <Title>MacQueen and Colonel Arbuthnot step out onto the platform at Vincovci </Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>00:00:00</Time>
+        <Characters ids="cr2 cr12" />
+      </SECTION>
+      <SECTION id="sc73" type="1">
+        <Title>Murder time window</Title>
+        <Desc>
+          <p>This is according to time of death evidence</p>
+        </Desc>
+        <Date>1933-02-07</Date>
+        <Time>00:00:00</Time>
+        <LastsHours>2</LastsHours>
+        <Characters ids="cr7" />
+      </SECTION>
+      <SECTION id="sc58" type="1">
+        <Title>Unknown murderer enters Mr. Ratchett's apartment and stabs him</Title>
+        <Date>1933-02-07</Date>
+        <Time>00:16:00</Time>
+      </SECTION>
+      <SECTION id="sc26" type="1">
+        <Title>Hildegarde Schimdt sees imposter conductor in the corridor</Title>
+        <Desc>
+          <p>She lied about the time to try to shield the Princess</p>
+        </Desc>
+        <Tags>Imposter in Conductor's uniform</Tags>
+        <Date>1933-02-07</Date>
+        <Time>00:18:00</Time>
+        <Characters ids="cr15" />
+      </SECTION>
+      <SECTION id="sc17" type="1">
+        <Title>Unknown murderer leaves through Mrs. Hubbards compartment</Title>
+        <Desc>
+          <p>Leaves behind murder weapon and button from cloak</p>
+        </Desc>
+        <Date>1933-02-07</Date>
+        <Time>00:20:00</Time>
+      </SECTION>
+      <SECTION id="sc28" type="1">
+        <Title>Unknown murderer leaves the train</Title>
+        <Date>1933-02-07</Date>
+        <Time>00:25:00</Time>
+      </SECTION>
+      <SECTION id="sc7" type="1">
+        <Title>One of the male passengers rings the conductors bell from Mr. Ratchett's apartment and answers in French</Title>
+        <Desc>
+          <p>As Mr. Ratchett does not speak French, this is to imply to Poirot that he was already dead at this point</p>
+        </Desc>
+        <Date>1933-02-07</Date>
+        <Time>00:27:00</Time>
+        <Characters ids="cr5" />
+      </SECTION>
+      <SECTION id="sc34" type="1">
+        <Title>Unknown person enters Mr. Ratchett's compartment and finds him dead. He rings the bell for the conductor, then panics and pretends to be Mr. Ratchett when answering</Title>
+        <Date>1933-02-07</Date>
+        <Time>00:37:00</Time>
+        <Characters ids="cr2 cr5" />
+      </SECTION>
+      <SECTION id="sc79" type="1">
+        <Title>Princess Dragonmiroff rings for her maid, Hildegard Schmidt</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>00:45:00</Time>
+        <Characters ids="cr11" />
+      </SECTION>
+      <SECTION id="sc44" type="1">
+        <Title>Hildegarde Schmidt reads aloud to Princess Dragonmiroff</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>00:46:00</Time>
+        <LastsMinutes>29</LastsMinutes>
+        <Characters ids="cr11 cr15" />
+      </SECTION>
+      <SECTION id="sc70" type="1">
+        <Title>The Conductor talks with his co-workers in the adjacent carriage</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:00:00</Time>
+        <LastsMinutes>17</LastsMinutes>
+        <Characters ids="cr5" />
+      </SECTION>
+      <SECTION id="sc5" type="1">
+        <Title>Princess Dragonmiroff sleeps</Title>
+        <Tags>No Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:15:00</Time>
+        <LastsHours>6</LastsHours>
+        <LastsMinutes>45</LastsMinutes>
+        <Characters ids="cr11" />
+      </SECTION>
+      <SECTION id="sc40" type="1">
+        <Title>Hildegarde Schmidt returns to her compartment and sleeps</Title>
+        <Tags>No Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:15:00</Time>
+        <LastsHours>6</LastsHours>
+        <LastsMinutes>45</LastsMinutes>
+        <Characters ids="cr15" />
+      </SECTION>
+      <SECTION id="sc41" type="1">
+        <Title>Mrs Hubbard hears someone in her compartment and rings for the conductor</Title>
+        <Tags>Alibi;Clue</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:17:00</Time>
+        <LastsMinutes>8</LastsMinutes>
+        <Characters ids="cr5 cr13" />
+      </SECTION>
+      <SECTION id="sc69" type="1">
+        <Title>The Conductor answers the bell of Mrs Hubbard</Title>
+        <Tags>Alibi;Clue</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:17:00</Time>
+        <LastsMinutes>8</LastsMinutes>
+        <Characters ids="cr5 cr13" />
+      </SECTION>
+      <SECTION id="sc74" type="1">
+        <Title>Mrs Hubbard has a nightmare about a man in her compartment and rings for the conductor</Title>
+        <Date>1933-02-07</Date>
+        <Time>01:17:00</Time>
+        <LastsMinutes>8</LastsMinutes>
+        <Characters ids="cr5 cr13" />
+      </SECTION>
+      <SECTION id="sc75" type="1">
+        <Title>Mrs Hubbard rings for the conductor</Title>
+        <Desc>
+          <p>She lies about hearing a man in her compartment</p>
+        </Desc>
+        <Date>1933-02-07</Date>
+        <Time>01:17:00</Time>
+        <Characters ids="cr5 cr13" />
+      </SECTION>
+      <SECTION id="sc87" type="1">
+        <Title>Hildegare Schmidt sees an imposter conductor in the corridor</Title>
+        <Tags>No Alibi;Clue;Imposter in Conductor's uniform</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:17:00</Time>
+        <Characters ids="cr15" />
+      </SECTION>
+      <SECTION id="sc29" type="1">
+        <Title>The Condutor brings mineral water to Poirot</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:25:00</Time>
+        <LastsMinutes>5</LastsMinutes>
+        <Characters ids="cr4 cr5" />
+      </SECTION>
+      <SECTION id="sc11" type="1">
+        <Title>One of the woman passengers dresses in a kimono and walks up the corridor</Title>
+        <Tags>Imposter in Kimono</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:35:00</Time>
+      </SECTION>
+      <SECTION id="sc31" type="1">
+        <Title>MacQueen calls conductor and has him make up his bed</Title>
+        <Tags>Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:45:00</Time>
+        <Characters ids="cr2 cr5" />
+      </SECTION>
+      <SECTION id="sc65" type="1">
+        <Title>The passengers all stab Mr. Ratchett</Title>
+        <Desc>
+          <p>They were all in on it. Countess Andrenyi, though aware of the plan, was the only one that did not take part.</p>
+          <p>The pipe and handkerchief were left in the compartment to confuse Poirot.</p>
+          <p>This explains the different times of death and the different types of stabbing</p>
+          <p />
+        </Desc>
+        <Tags>Murder Weapon;Hankerchief;Pipe</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:45:00</Time>
+        <LastsMinutes>15</LastsMinutes>
+        <Characters ids="cr1 cr2 cr3 cr5 cr6 cr7 cr8 cr10 cr11 cr12 cr13 cr14 cr15" />
+      </SECTION>
+      <SECTION id="sc88" type="1">
+        <Title>MacQueen sleeps</Title>
+        <Tags>No Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:45:00</Time>
+        <LastsHours>6</LastsHours>
+        <Characters ids="cr2" />
+      </SECTION>
+      <SECTION id="sc91" type="1">
+        <Title>Colonel Arbuthnot returns to his compartment and sleeps</Title>
+        <Tags>No Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>01:45:00</Time>
+        <LastsHours>6</LastsHours>
+        <LastsMinutes>15</LastsMinutes>
+        <Characters ids="cr12" />
+      </SECTION>
+      <SECTION id="sc16" type="1">
+        <Title>Mrs Hubbard sleeps</Title>
+        <Tags>No Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>02:00:00</Time>
+        <LastsHours>6</LastsHours>
+        <Characters ids="cr13" />
+      </SECTION>
+      <SECTION id="sc25" type="1">
+        <Title>The passengers burn their threatening letters</Title>
+        <Tags>Burnt Paper</Tags>
+        <Date>1933-02-07</Date>
+        <Time>02:00:00</Time>
+        <Characters ids="cr1 cr2 cr3 cr5 cr6 cr8 cr10 cr11 cr12 cr13 cr14 cr15" />
+      </SECTION>
+      <SECTION id="sc2" type="1">
+        <Title>Antonio Foscarelli sleeps</Title>
+        <Tags>No Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>04:00:00</Time>
+        <LastsHours>4</LastsHours>
+        <Characters ids="cr6" />
+      </SECTION>
+      <SECTION id="sc94" type="1">
+        <Title>The Valet sleeps</Title>
+        <Tags>No Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>04:00:00</Time>
+        <LastsHours>4</LastsHours>
+        <Characters ids="cr8" />
+      </SECTION>
+      <SECTION id="sc18" type="1">
+        <Title>Mary Debenham wakes and sees a women in a kimono in the corridor</Title>
+        <Tags>No Alibi;Clue;Imposter in Kimono</Tags>
+        <Date>1933-02-07</Date>
+        <Time>04:59:00</Time>
+        <Characters ids="cr3" />
+      </SECTION>
+      <SECTION id="sc32" type="1">
+        <Title>Mary Debenham sleeps</Title>
+        <Tags>No Alibi</Tags>
+        <Date>1933-02-07</Date>
+        <Time>05:10:00</Time>
+        <LastsHours>2</LastsHours>
+        <LastsMinutes>50</LastsMinutes>
+        <Characters ids="cr3" />
+      </SECTION>
+      <SECTION id="sc71" type="1">
+        <Title>Poirot interviews MacQueen</Title>
+        <Date>1933-02-07</Date>
+        <Time>13:10:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr2 cr4" />
+      </SECTION>
+      <SECTION id="sc56" type="1">
+        <Title>Poirot interviews the Valet</Title>
+        <Date>1933-02-07</Date>
+        <Time>13:20:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr4 cr8" />
+      </SECTION>
+      <SECTION id="sc43" type="1">
+        <Title>Poirot interviews Mrs Hubbard</Title>
+        <Date>1933-02-07</Date>
+        <Time>13:31:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr4 cr13" />
+      </SECTION>
+      <SECTION id="sc36" type="1">
+        <Title>Poirot interviews Greta Ohlsson</Title>
+        <Date>1933-02-07</Date>
+        <Time>13:40:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr4 cr10" />
+      </SECTION>
+      <SECTION id="sc35" type="1">
+        <Title>Poirot interviews Princess Drawgonmiroff</Title>
+        <Date>1933-02-07</Date>
+        <Time>13:50:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr4 cr11" />
+      </SECTION>
+      <SECTION id="sc85" type="1">
+        <Title>Poirot discovers Princess Dragonmiroff's connection to the dead man</Title>
+        <Date>1933-02-07</Date>
+        <Time>13:59:00</Time>
+        <Characters ids="cr4 cr11" />
+      </SECTION>
+      <SECTION id="sc23" type="1">
+        <Title>Poirot interviews Count and Countess Andrenyi</Title>
+        <Date>1933-02-07</Date>
+        <Time>14:00:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr4 cr9 cr14" />
+      </SECTION>
+      <SECTION id="sc6" type="1">
+        <Title>Poirot interviews Colonel Arbuthnot</Title>
+        <Date>1933-02-07</Date>
+        <Time>14:20:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr4 cr12" />
+      </SECTION>
+      <SECTION id="sc45" type="1">
+        <Title>Poirot interviews Cyrus Hardman</Title>
+        <Date>1933-02-07</Date>
+        <Time>14:30:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr1 cr4" />
+      </SECTION>
+      <SECTION id="sc83" type="1">
+        <Title>Poirot interviews Antonio Foscarelli</Title>
+        <Date>1933-02-07</Date>
+        <Time>14:40:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr4 cr6" />
+      </SECTION>
+      <SECTION id="sc49" type="1">
+        <Title>Poirot interviews Mary Debenham</Title>
+        <Date>1933-02-07</Date>
+        <Time>14:50:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr3 cr4" />
+      </SECTION>
+      <SECTION id="sc86" type="1">
+        <Title>Poirot interviews Hildegarde Schmidt</Title>
+        <Date>1933-02-07</Date>
+        <Time>15:00:00</Time>
+        <LastsMinutes>10</LastsMinutes>
+        <Characters ids="cr4 cr15" />
+      </SECTION>
+      <SECTION id="sc68" type="1">
+        <Title>Poirot finds conductors uniform in Hildegarde Schmidt's compartment</Title>
+        <Tags>Clue;Imposter in Conductor's uniform</Tags>
+        <Date>1933-02-07</Date>
+        <Time>15:55:00</Time>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc10" type="1">
+        <Title>Poirot discusses the case with the doctor and inspector</Title>
+        <Date>1933-02-07</Date>
+        <Time>16:00:00</Time>
+        <LastsHours>2</LastsHours>
+        <Characters ids="cr4" />
+      </SECTION>
+      <SECTION id="sc38" type="1">
+        <Title>Poirot finds kimono in his own compartment</Title>
+        <Tags>Clue;Imposter in Kimono</Tags>
+        <Date>1933-02-07</Date>
+        <Time>16:00:00</Time>
+        <Characters ids="cr4" />
+      </SECTION>
+    </CHAPTER>
+  </CHAPTERS>
+  <CHARACTERS>
+    <CHARACTER id="cr1">
+      <Title>Cyrus Hardman</Title>
+      <FullName>Cyrus Hardman</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr2">
+      <Title>Hector MacQueen</Title>
+      <FullName>Hector MacQueen</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr3">
+      <Title>Mary Debenham</Title>
+      <FullName>Mary Debenham</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr4">
+      <Title>Poirot</Title>
+      <FullName>Poirot</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr5">
+      <Title>The Conductor</Title>
+      <FullName>The Conductor</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr6">
+      <Title>Antonio Foscarelli</Title>
+      <FullName>Antonio Foscarelli</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr7">
+      <Title>Mr Ratchett</Title>
+      <FullName>Mr Ratchett</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr8">
+      <Title>The Valet</Title>
+      <FullName>The Valet</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr9">
+      <Title>Countess Andrenyi</Title>
+      <FullName>Countess Andrenyi</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr10">
+      <Title>Greta Ohlsson</Title>
+      <FullName>Greta Ohlsson</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr11">
+      <Title>Princess Dragonmiroff</Title>
+      <FullName>Princess Dragonmiroff</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr12">
+      <Title>Colonel Arbuthnot</Title>
+      <FullName>Colonel Arbuthnot</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr13">
+      <Title>Mrs Hubbard</Title>
+      <FullName>Mrs Hubbard</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr14">
+      <Title>Count Andrenyi</Title>
+      <FullName>Count Andrenyi</FullName>
+    </CHARACTER>
+    <CHARACTER id="cr15">
+      <Title>Hildegarde Schmidt</Title>
+      <FullName>Hildegarde Schmidt</FullName>
+    </CHARACTER>
+  </CHARACTERS>
+  <LOCATIONS />
+  <ITEMS />
+  <ARCS />
+  <PROJECTNOTES />
+</novx>
