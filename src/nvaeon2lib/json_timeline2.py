@@ -386,7 +386,7 @@ class JsonTimeline2(File):
                 if ent['name'] in targetCrIdByTitle:
                     crId = targetCrIdByTitle[ent['name']]
                 else:
-                    crId = create_id(self.novel.characters)
+                    crId = create_id(self.novel.characters, prefix=CHARACTER_PREFIX)
                     self.novel.characters[crId] = Character()
                     self.novel.characters[crId].title = ent['name']
                     self.novel.tree.append(CR_ROOT, crId)
@@ -405,7 +405,7 @@ class JsonTimeline2(File):
                 if ent['name'] in targetLcIdByTitle:
                     lcId = targetLcIdByTitle[ent['name']]
                 else:
-                    lcId = create_id(self.novel.locations)
+                    lcId = create_id(self.novel.locations, prefix=LOCATION_PREFIX)
                     self.novel.locations[lcId] = WorldElement()
                     self.novel.locations[lcId].title = ent['name']
                     self.novel.tree.append(LC_ROOT, lcId)
@@ -420,7 +420,7 @@ class JsonTimeline2(File):
                 if ent['name'] in targetItIdByTitle:
                     itId = targetItIdByTitle[ent['name']]
                 else:
-                    itId = create_id(self.novel.items)
+                    itId = create_id(self.novel.items, prefix=ITEM_PREFIX)
                     self.novel.items[itId] = WorldElement()
                     self.novel.items[itId].title = ent['name']
                     self.novel.tree.append(IT_ROOT, itId)
@@ -511,7 +511,7 @@ class JsonTimeline2(File):
                     continue
 
                 # Create a new section.
-                scId = create_id(self.novel.sections)
+                scId = create_id(self.novel.sections, prefix=SECTION_PREFIX)
                 self.novel.sections[scId] = Section()
                 self.novel.sections[scId].title = evt['title']
                 # print(f'read creates {self.novel.sections[scId].title}')
@@ -673,7 +673,7 @@ class JsonTimeline2(File):
             sectionsInChapters.extend(self.novel.tree.get_children(chId))
 
         # Create a chapter for new sections.
-        newChapterId = create_id(self.novel.chapters)
+        newChapterId = create_id(self.novel.chapters, prefix=CHAPTER_PREFIX)
         newChapter = Chapter()
         newChapter.title = _('New sections')
         newChapter.chType = 0
