@@ -274,5 +274,5 @@ class Plugin():
                 # Reopen the project.
                 self._ui.reloading = True
                 # avoid popup message (novelyst v0.52+)
-                self._ui.open_project(self._ui.model.filePath)
+                self._ui.open_project(fileName=self._ui.model.filePath)
                 self._ui.set_info_how(message)
