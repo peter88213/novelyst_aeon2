@@ -1,6 +1,6 @@
 """Provide helper scripts to calculate the moon phase for Aeon Timeline 2 events.
 
-Copyright (c) 2022 Peter Triesberger
+Copyright (c) 2024 Peter Triesberger
 For further information see https://github.com/peter88213/aeon2nv
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
