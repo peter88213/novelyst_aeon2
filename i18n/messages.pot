@@ -1,10 +1,10 @@
-# novelyst_aeon2 Dictionary
+# nv_aeon2 Dictionary
 # Copyright (C) 2023 Peter Triesberger
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: unknown\n"
-"POT-Creation-Date: 2023-10-29 10:47:51\n"
+"Project-Id-Version: 3.5.0\n"
+"POT-Creation-Date: 2023-12-17 10:23:22\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: LANGUAGE\n"
@@ -21,9 +21,6 @@ msgid "Add or update moon phase data"
 msgstr ""
 
 msgid "Aeon 2 plugin Online help"
-msgstr ""
-
-msgid "Can not process file"
 msgstr ""
 
 msgid "Cannot determine file date."
@@ -44,10 +41,22 @@ msgstr ""
 msgid "File written"
 msgstr ""
 
+msgid "Friday"
+msgstr ""
+
 msgid "Information"
 msgstr ""
 
+msgid "Monday"
+msgstr ""
+
+msgid "No valid version found in file"
+msgstr ""
+
 msgid "No {} file available for this project."
+msgstr ""
+
+msgid "Saturday"
 msgstr ""
 
 msgid "Save the project and update it?"
@@ -56,16 +65,37 @@ msgstr ""
 msgid "Save the project and update the timeline?"
 msgstr ""
 
+msgid "Sunday"
+msgstr ""
+
+msgid "The project \"{}\" was created with a newer noveltree version."
+msgstr ""
+
+msgid "The project \"{}\" was created with an outdated noveltree version."
+msgstr ""
+
+msgid "Thursday"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Unnamed link"
+msgstr ""
+
 msgid "Update the project"
 msgstr ""
 
 msgid "Update the timeline"
 msgstr ""
 
+msgid "Wednesday"
+msgstr ""
+
 msgid "newer"
 msgstr ""
 
-msgid "novelyst project"
+msgid "noveltree project"
 msgstr ""
 
 msgid "older"

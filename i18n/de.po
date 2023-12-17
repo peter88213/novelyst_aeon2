@@ -1,11 +1,11 @@
-# novelyst_aeon2 Dictionary (English-German)
+# nv_aeon2 Dictionary (English-German)
 # Copyright (C) 2022 Peter Triesberger
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: unknown\n"
-"POT-Creation-Date: 2023-10-29 10:47:51\n"
-"PO-Revision-Date: 2023-10-29 10:47:56\n"
+"Project-Id-Version: 3.5.0\n"
+"POT-Creation-Date: 2023-12-17 10:23:22\n"
+"PO-Revision-Date: 2023-12-17 10:23:22\n"
 "Last-Translator: Peter Triesberger\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -21,9 +21,6 @@ msgstr "Mondphasen hinzufügen oder aktualisieren"
 
 msgid "Aeon 2 plugin Online help"
 msgstr "Aeon 2-Plugin Online-Hilfe"
-
-msgid "Can not process file"
-msgstr "Kann Datei nicht verarbeiten"
 
 msgid "Cannot determine file date."
 msgstr "Das Dateidatum ist nicht zu ermitteln."
@@ -43,11 +40,23 @@ msgstr "Datei"
 msgid "File written"
 msgstr "Datei gespeichert"
 
+msgid "Friday"
+msgstr "Freitag"
+
 msgid "Information"
 msgstr "Information"
 
+msgid "Monday"
+msgstr "Montag"
+
+msgid "No valid version found in file"
+msgstr "Keine gültige Versionsangabe in der Datei gefunden"
+
 msgid "No {} file available for this project."
 msgstr "Keine {}-Datei für dieses Projekt vorhanden."
+
+msgid "Saturday"
+msgstr "Samstag"
 
 msgid "Save the project and update it?"
 msgstr "Projekt speichern und aktualisieren?"
@@ -55,17 +64,38 @@ msgstr "Projekt speichern und aktualisieren?"
 msgid "Save the project and update the timeline?"
 msgstr "Projekt speichern und die Zeitleiste aktualisieren?"
 
+msgid "Sunday"
+msgstr "Sonntag"
+
+msgid "The project \"{}\" was created with a newer noveltree version."
+msgstr "Das Projekt \"{}\" wurde mit einer neueren Version von noveltree erzeugt."
+
+msgid "The project \"{}\" was created with an outdated noveltree version."
+msgstr "Das Projekt \"{}\" wurde mit einer veralteten Version von noveltree erzeugt."
+
+msgid "Thursday"
+msgstr "Donnerstag"
+
+msgid "Tuesday"
+msgstr "Dienstag"
+
+msgid "Unnamed link"
+msgstr "Unbenannter Link"
+
 msgid "Update the project"
 msgstr "Das Projekt aktualisieren"
 
 msgid "Update the timeline"
 msgstr "Die Zeitleiste aktualisieren"
 
+msgid "Wednesday"
+msgstr "Mittwoch"
+
 msgid "newer"
 msgstr "neuer"
 
-msgid "novelyst project"
-msgstr "novelyst-Projekt"
+msgid "noveltree project"
+msgstr "noveltree-Projekt"
 
 msgid "older"
 msgstr "älter"
