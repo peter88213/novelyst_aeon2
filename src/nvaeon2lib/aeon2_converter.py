@@ -12,11 +12,7 @@ from nvaeon2lib.json_timeline2 import JsonTimeline2
 
 
 class Aeon2Converter(Converter):
-    """A converter class for novelyst and Aeon Timeline 2.
-    
-    Public methods:
-        run(sourcePath, **kwargs) -- Create source and target objects and run conversion.
-    """
+    """A converter class for novelyst and Aeon Timeline 2."""
 
     def run(self, sourcePath, **kwargs):
         """Create source and target objects and run conversion.

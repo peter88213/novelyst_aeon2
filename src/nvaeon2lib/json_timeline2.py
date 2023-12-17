@@ -24,11 +24,6 @@ from nvaeon2lib.moonphase import get_moon_phase_plus
 class JsonTimeline2(File):
     """File representation of an Aeon Timeline 2 project. 
 
-    Public methods:
-        read() -- parse the file and get the instance variables.
-        merge(source) -- update instance variables from a source instance.
-        write() -- write instance variables to the file.
-
     Public class constants:
         SCN_KWVAR -- List of the names of the section keyword variables.
         CRT_KWVAR -- List of the names of the character keyword variables.

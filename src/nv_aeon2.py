@@ -50,15 +50,9 @@ INI_FILEPATH = '.noveltree/aeon2nv/config'
 
 
 class Plugin():
-    """Plugin class for synchronization with Aeon Timeline 2.
-    
-    Public methods:
-        disable_menu() -- disable menu entries when no project is open.
-        enable_menu() -- enable menu entries when a project is open.
-        
-    """
+    """Plugin class for synchronization with Aeon Timeline 2."""
     VERSION = '@release'
-    NOVELYST_API = '0.1'
+    NOVELYST_API = '0.6'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
     URL = 'https://peter88213.github.io/novelyst_aeon2'
     _HELP_URL = 'https://peter88213.github.io/novelyst_aeon2/usage'
@@ -86,7 +80,7 @@ class Plugin():
         add_moonphase=False,
     )
 
-    def install(self, ui):
+    def install(self, controller, ui):
         """Add a submenu to the main menu.
         
         Positional arguments:
