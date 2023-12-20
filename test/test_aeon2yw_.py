@@ -5,22 +5,21 @@ Test suite for aeon2yw.pyw.
 For further information see https://github.com/peter88213/aeon2yw
 Published under the MIT License (https://opensource.org/licenses/mit-license.php)
 """
-from shutil import copyfile
-import os
-import unittest
-import sys
-from io import StringIO
-import zipfile
 import codecs
-import json
-import novx_aeon2
+from io import StringIO
 from json import JSONDecodeError
+import json
+import os
+from shutil import copyfile
+import sys
+import unittest
+import zipfile
+
+import standalone
 
 # Test environment
-
 # The paths are relative to the "test" directory,
 # where this script is placed and executed
-
 TEST_PATH = os.getcwd() + '/../test'
 TEST_DATA_PATH = TEST_PATH + '/data/'
 TEST_EXEC_PATH = TEST_PATH + '/work/'
@@ -96,7 +95,7 @@ class NormalOperation(unittest.TestCase):
     def test_ambiguous_aeon_event(self):
         copyfile(TEST_DATA_PATH + 'normal.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)
-        novx_aeon2.run(TEST_AEON, silentMode=True)
+        standalone.run(TEST_AEON, silentMode=True)
         self.assertStderrEquals('FAIL: Ambiguous Aeon event title "Mrs Hubbard sleeps".')
 
     # @unittest.skip('')
@@ -104,7 +103,7 @@ class NormalOperation(unittest.TestCase):
         copyfile(TEST_DATA_PATH + 'create_notes.ini', INI_FILE)
         copyfile(TEST_DATA_PATH + 'date_limits.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)
-        novx_aeon2.run(TEST_AEON, silentMode=True)
+        standalone.run(TEST_AEON, silentMode=True)
         self.assertEqual(read_file(TEST_NOVX), read_file(TEST_DATA_PATH + 'date_limits_notes.novx'))
 
     # @unittest.skip('')
@@ -112,7 +111,7 @@ class NormalOperation(unittest.TestCase):
         copyfile(TEST_DATA_PATH + 'narrative_only.ini', INI_FILE)
         copyfile(TEST_DATA_PATH + 'date_limits.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)
-        novx_aeon2.run(TEST_AEON, silentMode=True)
+        standalone.run(TEST_AEON, silentMode=True)
         self.assertEqual(read_file(TEST_NOVX), read_file(TEST_DATA_PATH + 'date_limits.novx'))
 
     # @unittest.skip('')
@@ -121,7 +120,7 @@ class NormalOperation(unittest.TestCase):
         copyfile(TEST_DATA_PATH + 'date_limits.novx', TEST_NOVX)
         copyfile(TEST_DATA_PATH + 'updated.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)
-        novx_aeon2.run(TEST_AEON, silentMode=True)
+        standalone.run(TEST_AEON, silentMode=True)
         self.assertEqual(read_file(TEST_NOVX), read_file(TEST_DATA_PATH + 'updated_from_aeon_notes.novx'))
         self.assertEqual(read_file(TEST_NOVX_BAK), read_file(TEST_DATA_PATH + 'date_limits.novx'))
 
@@ -131,7 +130,7 @@ class NormalOperation(unittest.TestCase):
         copyfile(TEST_DATA_PATH + 'date_limits.novx', TEST_NOVX)
         copyfile(TEST_DATA_PATH + 'updated.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)
-        novx_aeon2.run(TEST_AEON, silentMode=True)
+        standalone.run(TEST_AEON, silentMode=True)
         self.assertEqual(read_file(TEST_NOVX), read_file(TEST_DATA_PATH + 'updated_from_aeon.novx'))
         self.assertEqual(read_file(TEST_NOVX_BAK), read_file(TEST_DATA_PATH + 'date_limits.novx'))
 
@@ -140,7 +139,7 @@ class NormalOperation(unittest.TestCase):
         copyfile(TEST_DATA_PATH + 'date_limits.novx', TEST_NOVX)
         copyfile(TEST_DATA_PATH + 'minimal.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)
-        novx_aeon2.run(TEST_NOVX, silentMode=True)
+        standalone.run(TEST_NOVX, silentMode=True)
         self.assertEqual(open_timeline(TEST_AEON), open_timeline(TEST_DATA_PATH + 'created.aeonzip'))
 
     # @unittest.skip('')
@@ -148,7 +147,7 @@ class NormalOperation(unittest.TestCase):
         copyfile(TEST_DATA_PATH + 'arc.novx', TEST_NOVX)
         copyfile(TEST_DATA_PATH + 'minimal.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)
-        novx_aeon2.run(TEST_NOVX, silentMode=True)
+        standalone.run(TEST_NOVX, silentMode=True)
         self.assertEqual(open_timeline(TEST_AEON), open_timeline(TEST_DATA_PATH + 'created_arc.aeonzip'))
 
     # @unittest.skip('')
@@ -156,7 +155,7 @@ class NormalOperation(unittest.TestCase):
         copyfile(TEST_DATA_PATH + 'updated.novx', TEST_NOVX)
         copyfile(TEST_DATA_PATH + 'created.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)
-        novx_aeon2.run(TEST_NOVX, silentMode=True)
+        standalone.run(TEST_NOVX, silentMode=True)
         self.assertEqual(open_timeline(TEST_AEON), open_timeline(TEST_DATA_PATH + 'updated_from_yw.aeonzip'))
 
     # @unittest.skip('')
@@ -164,7 +163,7 @@ class NormalOperation(unittest.TestCase):
         copyfile(TEST_DATA_PATH + 'updated1.novx', TEST_NOVX)
         copyfile(TEST_DATA_PATH + 'updated_from_yw.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)
-        novx_aeon2.run(TEST_NOVX, silentMode=True)
+        standalone.run(TEST_NOVX, silentMode=True)
         self.assertEqual(open_timeline(TEST_AEON), open_timeline(TEST_DATA_PATH + 'updated1_from_yw.aeonzip'))
 
     def tearDown(self):

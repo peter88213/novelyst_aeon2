@@ -6,15 +6,16 @@ Copyright (c) 2024 Peter Triesberger
 For further information see https://github.com/peter88213/aeon2yw
 Published under the MIT License (https://opensource.org/licenses/mit-license.php)
 """
+import os
 import argparse
-from pathlib import Path
-
 from novxlib.config.configuration import Configuration
 from novxlib.novx_globals import _
 from novxlib.ui.set_icon_tk import set_icon
 from novxlib.ui.ui import Ui
 from novxlib.ui.ui_tk import UiTk
 from nvaeon2lib.aeon2_converter import Aeon2Converter
+from pathlib import Path
+
 
 SUFFIX = ''
 APPNAME = 'nv_aeon2'

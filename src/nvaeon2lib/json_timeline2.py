@@ -6,19 +6,32 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 from datetime import datetime
 from datetime import timedelta
-from novxlib.novx_globals import *
+
+from novxlib.file.file import File
 from novxlib.model.chapter import Chapter
-from novxlib.model.section import Section
 from novxlib.model.character import Character
-from novxlib.model.world_element import WorldElement
+from novxlib.model.id_generator import create_id
 from novxlib.model.novel import Novel
 from novxlib.model.nv_tree import NvTree
-from novxlib.model.id_generator import create_id
-from novxlib.file.file import File
+from novxlib.model.section import Section
+from novxlib.model.world_element import WorldElement
+from novxlib.novx_globals import CHAPTER_PREFIX
+from novxlib.novx_globals import CHARACTER_PREFIX
+from novxlib.novx_globals import CH_ROOT
+from novxlib.novx_globals import CR_ROOT
+from novxlib.novx_globals import Error
+from novxlib.novx_globals import ITEM_PREFIX
+from novxlib.novx_globals import IT_ROOT
+from novxlib.novx_globals import LC_ROOT
+from novxlib.novx_globals import LOCATION_PREFIX
+from novxlib.novx_globals import SECTION_PREFIX
+from novxlib.novx_globals import _
+from novxlib.novx_globals import list_to_string
+from novxlib.novx_globals import string_to_list
 from nvaeon2lib.aeon2_fop import open_timeline
 from nvaeon2lib.aeon2_fop import save_timeline
-from nvaeon2lib.uid_helper import get_uid
 from nvaeon2lib.moonphase import get_moon_phase_plus
+from nvaeon2lib.uid_helper import get_uid
 
 
 class JsonTimeline2(File):

@@ -16,21 +16,24 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 """
-import os
-import sys
-from pathlib import Path
-import tkinter as tk
-import locale
-import gettext
-import webbrowser
-from tkinter import messagebox
 from datetime import datetime
-from novxlib.novx_globals import *
-from novxlib.model.novel import Novel
+import gettext
+import locale
+import os
+from pathlib import Path
+import sys
+from tkinter import messagebox
+import webbrowser
+
 from novxlib.config.configuration import Configuration
 from novxlib.file.doc_open import open_document
-from nvaeon2lib.json_timeline2 import JsonTimeline2
+from novxlib.model.novel import Novel
 from novxlib.novx.novx_file import NovxFile
+from novxlib.novx_globals import Error
+from novxlib.novx_globals import _
+from novxlib.novx_globals import norm_path
+from nvaeon2lib.json_timeline2 import JsonTimeline2
+import tkinter as tk
 
 # Initialize localization.
 LOCALE_PATH = f'{os.path.dirname(sys.argv[0])}/locale/'
@@ -80,12 +83,13 @@ class Plugin():
         add_moonphase=False,
     )
 
-    def install(self, controller, ui):
+    def install(self, model, ui, controller, prefs):
         """Add a submenu to the main menu.
         
         Positional arguments:
             ui -- reference to the NoveltreeUi instance of the application.
         """
+        self._controller = controller
         self._ui = ui
 
         # Create a submenu in the Tools menu.
@@ -143,8 +147,8 @@ class Plugin():
 
     def _launch_application(self):
         """Launch Aeon Timeline 2 with the current project."""
-        if self._ui.model:
-            timelinePath = f'{os.path.splitext(self._ui.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._controller.model:
+            timelinePath = f'{os.path.splitext(self._controller.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if os.path.isfile(timelinePath):
                 if self._ui.lock():
                     open_document(timelinePath)
@@ -158,8 +162,8 @@ class Plugin():
         If the moon phase event property already exists, just update.
         """
         #--- Try to get persistent configuration data
-        if self._ui.model:
-            timelinePath = f'{os.path.splitext(self._ui.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._controller.model:
+            timelinePath = f'{os.path.splitext(self._controller.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if os.path.isfile(timelinePath):
                 sourceDir = os.path.dirname(timelinePath)
                 if not sourceDir:
@@ -188,12 +192,12 @@ class Plugin():
 
     def _info(self):
         """Show information about the Aeon Timeline 2 file."""
-        if self._ui.model:
-            timelinePath = f'{os.path.splitext(self._ui.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._controller.model:
+            timelinePath = f'{os.path.splitext(self._controller.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if os.path.isfile(timelinePath):
                 try:
                     timestamp = os.path.getmtime(timelinePath)
-                    if timestamp > self._ui.model.timestamp:
+                    if timestamp > self._controller.model.timestamp:
                         cmp = _('newer')
                     else:
                         cmp = _('older')
@@ -212,8 +216,8 @@ class Plugin():
         This works by merging the timeline with the open project as a source object.
         The JsonTimeline2 target object's merge method reads from the disk.
         """
-        if self._ui.model:
-            timelinePath = f'{os.path.splitext(self._ui.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._controller.model:
+            timelinePath = f'{os.path.splitext(self._controller.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if not os.path.isfile(timelinePath):
                 self._ui.set_info_how(_('!No {} file available for this project.').format(APPLICATION))
                 return
@@ -221,7 +225,7 @@ class Plugin():
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
                 self._ui.save_project()
                 kwargs = self._get_config(timelinePath)
-                source = NovxFile(self._ui.model.filePath, **kwargs)
+                source = NovxFile(self._controller.model.filePath, **kwargs)
                 source.novel = Novel()
                 target = JsonTimeline2(timelinePath, **kwargs)
                 try:
@@ -243,8 +247,8 @@ class Plugin():
         This is done by the special Yw7Target object. Its merge method reads from the disk. 
         Re-reading the project afterwards is the safest way to get a display update.
         """
-        if self._ui.model:
-            timelinePath = f'{os.path.splitext(self._ui.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._controller.model:
+            timelinePath = f'{os.path.splitext(self._controller.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if not os.path.isfile(timelinePath):
                 self._ui.set_info_how(_('!No {} file available for this project.').format(APPLICATION))
                 return
@@ -253,7 +257,7 @@ class Plugin():
                 self._ui.save_project()
                 kwargs = self._get_config(timelinePath)
                 source = JsonTimeline2(timelinePath, **kwargs)
-                target = NovxFile(self._ui.model.filePath, **kwargs)
+                target = NovxFile(self._controller.model.filePath, **kwargs)
                 try:
                     target.novel = Novel()
                     target.read()
@@ -268,5 +272,5 @@ class Plugin():
                 # Reopen the project.
                 self._ui.reloading = True
                 # avoid popup message (novelyst v0.52+)
-                self._ui.open_project(fileName=self._ui.model.filePath)
+                self._ui.open_project(fileName=self._controller.model.filePath)
                 self._ui.set_info_how(message)

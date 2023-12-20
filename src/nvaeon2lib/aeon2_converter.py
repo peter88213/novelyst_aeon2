@@ -5,9 +5,11 @@ For further information see https://github.com/peter88213/aeon2nv
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
 import os
-from novxlib.novx_globals import *
-from novxlib.novx.novx_file import NovxFile
+
 from novxlib.converter.converter import Converter
+from novxlib.novx.novx_file import NovxFile
+from novxlib.novx_globals import _
+from novxlib.novx_globals import norm_path
 from nvaeon2lib.json_timeline2 import JsonTimeline2
 
 

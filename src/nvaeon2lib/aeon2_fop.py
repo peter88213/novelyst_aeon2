@@ -4,12 +4,15 @@ Copyright (c) 2024 Peter Triesberger
 For further information see https://github.com/peter88213/aeon2nv
 License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 """
-import zipfile
 import codecs
+from json import JSONDecodeError
 import json
 import os
-from novxlib.novx_globals import *
-from json import JSONDecodeError
+import zipfile
+
+from novxlib.novx_globals import Error
+from novxlib.novx_globals import _
+from novxlib.novx_globals import norm_path
 
 
 def open_timeline(filePath):
