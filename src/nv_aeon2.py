@@ -153,7 +153,7 @@ class Plugin():
                 if self._ui.lock():
                     open_document(timelinePath)
             else:
-                self._ui.set_info_how(_('!No {} file available for this project.').format(APPLICATION))
+                self._ui.set_status(_('!No {} file available for this project.').format(APPLICATION))
 
     def _add_moonphase(self):
         """Add/update moon phase data.
@@ -188,7 +188,7 @@ class Plugin():
                     message = f'{_("File written")}: "{norm_path(timeline.filePath)}".'
                 except Error as ex:
                     message = f'!{str(ex)}'
-                self._ui.set_info_how(message)
+                self._ui.set_status(message)
 
     def _info(self):
         """Show information about the Aeon Timeline 2 file."""
@@ -219,7 +219,7 @@ class Plugin():
         if self._controller.model:
             timelinePath = f'{os.path.splitext(self._controller.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if not os.path.isfile(timelinePath):
-                self._ui.set_info_how(_('!No {} file available for this project.').format(APPLICATION))
+                self._ui.set_status(_('!No {} file available for this project.').format(APPLICATION))
                 return
 
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
@@ -235,7 +235,7 @@ class Plugin():
                     message = f'{_("File written")}: "{norm_path(target.filePath)}".'
                 except Error as ex:
                     message = f'!{str(ex)}'
-                self._ui.set_info_how(message)
+                self._ui.set_status(message)
 
     def _import_to_novx(self):
         """Update the current project from the timeline.
@@ -250,7 +250,7 @@ class Plugin():
         if self._controller.model:
             timelinePath = f'{os.path.splitext(self._controller.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if not os.path.isfile(timelinePath):
-                self._ui.set_info_how(_('!No {} file available for this project.').format(APPLICATION))
+                self._ui.set_status(_('!No {} file available for this project.').format(APPLICATION))
                 return
 
             if self._ui.ask_yes_no(_('Save the project and update it?')):
@@ -273,4 +273,4 @@ class Plugin():
                 self._ui.reloading = True
                 # avoid popup message (novelyst v0.52+)
                 self._ui.open_project(fileName=self._controller.model.filePath)
-                self._ui.set_info_how(message)
+                self._ui.set_status(message)
