@@ -55,7 +55,7 @@ INI_FILEPATH = '.noveltree/aeon2nv/config'
 class Plugin():
     """Plugin class for synchronization with Aeon Timeline 2."""
     VERSION = '@release'
-    NOVELYST_API = '0.6'
+    NOVELYST_API = '0.7'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
     URL = 'https://peter88213.github.io/novelyst_aeon2'
     _HELP_URL = 'https://peter88213.github.io/novelyst_aeon2/usage'
@@ -223,7 +223,7 @@ class Plugin():
                 return
 
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
-                self._ui.save_project()
+                self._ui.c_save_project()
                 kwargs = self._get_config(timelinePath)
                 source = NovxFile(self._controller.model.filePath, **kwargs)
                 source.novel = Novel()
@@ -254,7 +254,7 @@ class Plugin():
                 return
 
             if self._ui.ask_yes_no(_('Save the project and update it?')):
-                self._ui.save_project()
+                self._ui.c_save_project()
                 kwargs = self._get_config(timelinePath)
                 source = JsonTimeline2(timelinePath, **kwargs)
                 target = NovxFile(self._controller.model.filePath, **kwargs)
@@ -270,7 +270,7 @@ class Plugin():
                     message = f'!{str(ex)}'
 
                 # Reopen the project.
-                self._ui.reloading = True
+                self._model.doNotSave = True
                 # avoid popup message (novelyst v0.52+)
-                self._ui.open_project(fileName=self._controller.model.filePath)
+                self._ui.c_open_project(fileName=self._controller.model.filePath)
                 self._ui.set_status(message)
