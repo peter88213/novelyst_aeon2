@@ -83,14 +83,14 @@ class Plugin():
         add_moonphase=False,
     )
 
-    def install(self, model, ui, controller, prefs):
+    def install(self, model, view, controller, prefs):
         """Add a submenu to the main menu.
         
         Positional arguments:
-            ui -- reference to the NoveltreeUi instance of the application.
+            view -- reference to the NoveltreeUi instance of the application.
         """
         self._ctrl = controller
-        self._ui = ui
+        self._ui = view
 
         # Create a submenu in the Tools menu.
         self._pluginMenu = tk.Menu(self._ui.toolsMenu, tearoff=0)
