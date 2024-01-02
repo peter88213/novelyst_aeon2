@@ -632,9 +632,9 @@ class JsonTimeline2(File):
             #--- Find sections and get characters, locations, and items.
             self.novel.sections[scId].scType = 1
             # type = "Notes"
-            self.novel.sections[scId].characters = None
-            self.novel.sections[scId].locations = None
-            self.novel.sections[scId].items = None
+            scCharacters = self.novel.sections[scId].characters
+            scLocations = self.novel.sections[scId].locations
+            scItems = self.novel.sections[scId].items
             arcs = []
             for evtRel in evt['relationships']:
                 if evtRel['role'] == self._roleArcGuid:
@@ -650,20 +650,18 @@ class JsonTimeline2(File):
                         if evtRel['entity'] == self._arcGuidsByName[arcName]:
                             arcs.append(arcName)
                 elif evtRel['role'] == self._roleCharacterGuid:
-                    if self.novel.sections[scId].characters is None:
-                        self.novel.sections[scId].characters = []
                     crId = crIdsByGuid[evtRel['entity']]
-                    self.novel.sections[scId].characters.append(crId)
+                    scCharacters.append(crId)
                 elif evtRel['role'] == self._roleLocationGuid:
-                    if self.novel.sections[scId].locations is None:
-                        self.novel.sections[scId].locations = []
                     lcId = lcIdsByGuid[evtRel['entity']]
-                    self.novel.sections[scId].locations.append(lcId)
+                    scLocations.append(lcId)
                 elif evtRel['role'] == self._roleItemGuid:
-                    if self.novel.sections[scId].items is None:
-                        self.novel.sections[scId].items = []
                     itId = itIdsByGuid[evtRel['entity']]
-                    self.novel.sections[scId].items.append(itId)
+                    scItems.append(itId)
+
+            self.novel.sections[scId].characters = scCharacters
+            self.novel.sections[scId].locations = scLocations
+            self.novel.sections[scId].items = scItems
 
             # Add arcs to the section keyword variables.
             self.novel.sections[scId].arcs = list_to_string(arcs)
@@ -672,7 +670,7 @@ class JsonTimeline2(File):
         for scId in self.novel.sections:
             if not scId in narrativeEvents:
                 if self.novel.sections[scId].scType == 0:
-                    self.novel.sections[scId].scType = 3
+                    self.novel.sections[scId].scType = 1
 
         #--- Make sure every section is assigned to a chapter.
         sectionsInChapters = []
@@ -779,8 +777,6 @@ class JsonTimeline2(File):
             }
             if section.scType == 1:
                 event['color'] = self._colors[self._eventColor]
-            elif section.scType == 2:
-                event['color'] = self._colors[self._pointColor]
             else:
                 event['color'] = self._colors[self._sectionColor]
             return event
@@ -978,7 +974,7 @@ class JsonTimeline2(File):
         totalEvents = len(self._jsonData['events'])
         for chId in source.chapters:
             for srcId in source.tree.get_children(chId):
-                if source.sections[srcId].scType == 3:
+                if source.sections[srcId].scType == 1:
                     # Remove unused section from the "Narrative" arc.
                     if source.sections[srcId].title in scIdsByTitle:
                         scId = scIdsByTitle[source.sections[srcId].title]
@@ -1223,22 +1219,6 @@ class JsonTimeline2(File):
 
                 #--- Assign events to arcs.
                 sectionArcs = self.novel.sections[scId].scArcs
-                for arcName in arcs:
-                    if arcName in sectionArcs:
-                        if arcs[arcName] not in evt['relationships']:
-                            evt['relationships'].append(arcs[arcName])
-                    else:
-                        try:
-                            evt['relationships'].remove(arcs[arcName])
-                        except:
-                            pass
-
-            elif self.novel.sections[scId].scType == 2:
-                if narrativeArc in evt['relationships']:
-                    evt['relationships'].remove(narrativeArc)
-
-                #--- Assign events to arcs.
-                sectionArcs = string_to_list(self.novel.sections[scId].arcs)
                 for arcName in arcs:
                     if arcName in sectionArcs:
                         if arcs[arcName] not in evt['relationships']:
