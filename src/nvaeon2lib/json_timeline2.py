@@ -11,8 +11,6 @@ from novxlib.file.file import File
 from novxlib.model.chapter import Chapter
 from novxlib.model.character import Character
 from novxlib.model.id_generator import create_id
-from novxlib.model.novel import Novel
-from novxlib.model.nv_tree import NvTree
 from novxlib.model.section import Section
 from novxlib.model.world_element import WorldElement
 from novxlib.novx_globals import CHAPTER_PREFIX
@@ -696,7 +694,7 @@ class JsonTimeline2(File):
         if self._timestampMax == 0:
             self._timestampMax = (self.referenceDate - datetime.min).total_seconds()
 
-    def write(self):
+    def write(self, source):
         """Write instance variables to the file.
         
         Update instance variables from a source instance.              
@@ -781,10 +779,6 @@ class JsonTimeline2(File):
             return event
 
         #--- Merge first.
-        source = self.novel
-        self.novel = Novel(tree=NvTree())
-        self.read()
-        # create a new target novel from the aeon2 project file
 
         targetEvents = []
         for evt in self._jsonData['events']:

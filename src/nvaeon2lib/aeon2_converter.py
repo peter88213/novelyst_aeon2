@@ -7,7 +7,10 @@ License: GNU GPLv3 (https://www.gnu.org/licenses/gpl-3.0.en.html)
 import os
 
 from novxlib.converter.converter import Converter
+from novxlib.model.novel import Novel
+from novxlib.model.nv_tree import NvTree
 from novxlib.novx.novx_file import NovxFile
+from novxlib.novx_globals import Error
 from novxlib.novx_globals import _
 from novxlib.novx_globals import norm_path
 from nvaeon2lib.json_timeline2 import JsonTimeline2
@@ -49,3 +52,40 @@ class Aeon2Converter(Converter):
         else:
             # Source file format is not supported
             self.ui.set_status(f'!{_("File type is not supported")}: "{norm_path(sourcePath)}".')
+
+    def export_from_novx(self, source, target):
+        """Convert from noveltree project to other file format.
+
+        Positional arguments:
+            source -- NovxFile subclass instance.
+            target -- JsonTimeline2 instance.
+
+        Operation:
+        1. Send specific information about the conversion to the UI.
+        2. Convert source into target.
+        3. Pass the message to the UI.
+        4. Save the new file pathname.
+
+        Error handling:
+        - If the conversion fails, newFile is set to None.
+        
+        Overrides the superclass method.
+        """
+        self.ui.set_info(
+            _('Input: {0} "{1}"\nOutput: {2} "{3}"').format(source.DESCRIPTION, norm_path(source.filePath), target.DESCRIPTION, norm_path(target.filePath)))
+        message = ''
+        try:
+            self.check(source, target)
+            source.novel = Novel(tree=NvTree())
+            target.novel = Novel(tree=NvTree())
+            source.read()
+            target.read()
+            target.write(source.novel)
+        except Error as ex:
+            message = f'!{str(ex)}'
+            self.newFile = None
+        else:
+            message = f'{_("File written")}: "{norm_path(target.filePath)}".'
+            self.newFile = target.filePath
+        finally:
+            self.ui.set_status(message)

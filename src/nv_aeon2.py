@@ -49,7 +49,7 @@ except:
 
 APPLICATION = 'Aeon Timeline 2'
 PLUGIN = f'{APPLICATION} plugin v@release'
-INI_FILENAME = 'aeon2nv.ini'
+INI_FILENAME = 'nv_aeon2.ini'
 INI_FILEPATH = '.noveltree/aeon2nv/config'
 
 
@@ -111,33 +111,6 @@ class Plugin():
         # Add an entry to the Help menu.
         self._ui.helpMenu.add_command(label=_('Aeon 2 plugin Online help'), command=lambda: webbrowser.open(self._HELP_URL))
 
-    def _get_config(self, sourcePath):
-        """ Read persistent configuration data for Aeon 2 conversion.
-        
-        First, look for a global configuration file in the aeon2nv installation directory,
-        then look for a local configuration file in the project directory.
-        """
-        sourceDir = os.path.dirname(sourcePath)
-        if not sourceDir:
-            sourceDir = '.'
-        try:
-            homeDir = str(Path.home()).replace('\\', '/')
-            pluginCnfDir = f'{homeDir}/{INI_FILEPATH}'
-        except:
-            pluginCnfDir = '.'
-        iniFiles = [f'{pluginCnfDir}/{INI_FILENAME}', f'{sourceDir}/{INI_FILENAME}']
-        configuration = Configuration(self.SETTINGS, self.OPTIONS)
-        for iniFile in iniFiles:
-            configuration.read(iniFile)
-        kwargs = {}
-        kwargs.update(configuration.settings)
-        kwargs.update(configuration.options)
-        return kwargs
-
-    def _edit_settings(self):
-        """Toplevel window"""
-        return
-
     def disable_menu(self):
         """Disable menu entries when no project is open."""
         self._ui.toolsMenu.entryconfig(APPLICATION, state='disabled')
@@ -145,16 +118,6 @@ class Plugin():
     def enable_menu(self):
         """Enable menu entries when a project is open."""
         self._ui.toolsMenu.entryconfig(APPLICATION, state='normal')
-
-    def _launch_application(self):
-        """Launch Aeon Timeline 2 with the current project."""
-        if self._mdl.prjFile:
-            timelinePath = f'{os.path.splitext(self._mdl.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
-            if os.path.isfile(timelinePath):
-                if self._ctrl.lock():
-                    open_document(timelinePath)
-            else:
-                self._ui.set_status(_('!No {} file available for this project.').format(APPLICATION))
 
     def _add_moonphase(self):
         """Add/update moon phase data.
@@ -186,30 +149,16 @@ class Plugin():
                 timeline.novel = Novel(tree=NvTree())
                 try:
                     timeline.read()
-                    timeline.write()
-                    message = f'{_("File written")}: "{norm_path(timeline.filePath)}".'
+                    timeline.write(timeline.novel)
                 except Error as ex:
                     message = f'!{str(ex)}'
+                else:
+                    message = f'{_("File written")}: "{norm_path(timeline.filePath)}".'
                 self._ui.set_status(message)
 
-    def _info(self):
-        """Show information about the Aeon Timeline 2 file."""
-        if self._mdl.prjFile:
-            timelinePath = f'{os.path.splitext(self._mdl.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
-            if os.path.isfile(timelinePath):
-                try:
-                    timestamp = os.path.getmtime(timelinePath)
-                    if timestamp > self._mdl.prjFile.timestamp:
-                        cmp = _('newer')
-                    else:
-                        cmp = _('older')
-                    fileDate = datetime.fromtimestamp(timestamp).replace(microsecond=0).isoformat(sep=' ')
-                    message = _('{0} file is {1} than the noveltree project.\n (last saved on {2})').format(APPLICATION, cmp, fileDate)
-                except:
-                    message = _('Cannot determine file date.')
-            else:
-                message = _('No {} file available for this project.').format(APPLICATION)
-            messagebox.showinfo(PLUGIN, message)
+    def _edit_settings(self):
+        """Toplevel window"""
+        return
 
     def _export_from_novx(self):
         """Update the timeline from noveltree."""
@@ -225,14 +174,38 @@ class Plugin():
                 source = NovxFile(self._mdl.prjFile.filePath, **kwargs)
                 source.novel = Novel(tree=NvTree())
                 target = JsonTimeline2(timelinePath, **kwargs)
+                target.novel = Novel(tree=NvTree())
                 try:
                     source.read()
-                    target.novel = source.novel
-                    target.write()
+                    target.read()
+                    target.write(source.novel)
                     message = f'{_("File written")}: "{norm_path(target.filePath)}".'
                 except Error as ex:
                     message = f'!{str(ex)}'
                 self._ui.set_status(message)
+
+    def _get_config(self, sourcePath):
+        """ Read persistent configuration data for Aeon 2 conversion.
+        
+        First, look for a global configuration file in the aeon2nv installation directory,
+        then look for a local configuration file in the project directory.
+        """
+        sourceDir = os.path.dirname(sourcePath)
+        if not sourceDir:
+            sourceDir = '.'
+        try:
+            homeDir = str(Path.home()).replace('\\', '/')
+            pluginCnfDir = f'{homeDir}/{INI_FILEPATH}'
+        except:
+            pluginCnfDir = '.'
+        iniFiles = [f'{pluginCnfDir}/{INI_FILENAME}', f'{sourceDir}/{INI_FILENAME}']
+        configuration = Configuration(self.SETTINGS, self.OPTIONS)
+        for iniFile in iniFiles:
+            configuration.read(iniFile)
+        kwargs = {}
+        kwargs.update(configuration.settings)
+        kwargs.update(configuration.options)
+        return kwargs
 
     def _import_to_novx(self):
         """Update the current project from the timeline.
@@ -267,3 +240,33 @@ class Plugin():
                 # Reopen the project.
                 self._ctrl.c_open_project(filePath=self._mdl.prjFile.filePath, doNotSave=True)
                 self._ui.set_status(message)
+
+    def _info(self):
+        """Show information about the Aeon Timeline 2 file."""
+        if self._mdl.prjFile:
+            timelinePath = f'{os.path.splitext(self._mdl.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
+            if os.path.isfile(timelinePath):
+                try:
+                    timestamp = os.path.getmtime(timelinePath)
+                    if timestamp > self._mdl.prjFile.timestamp:
+                        cmp = _('newer')
+                    else:
+                        cmp = _('older')
+                    fileDate = datetime.fromtimestamp(timestamp).replace(microsecond=0).isoformat(sep=' ')
+                    message = _('{0} file is {1} than the noveltree project.\n (last saved on {2})').format(APPLICATION, cmp, fileDate)
+                except:
+                    message = _('Cannot determine file date.')
+            else:
+                message = _('No {} file available for this project.').format(APPLICATION)
+            messagebox.showinfo(PLUGIN, message)
+
+    def _launch_application(self):
+        """Launch Aeon Timeline 2 with the current project."""
+        if self._mdl.prjFile:
+            timelinePath = f'{os.path.splitext(self._mdl.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
+            if os.path.isfile(timelinePath):
+                if self._ctrl.lock():
+                    open_document(timelinePath)
+            else:
+                self._ui.set_status(_('!No {} file available for this project.').format(APPLICATION))
+
