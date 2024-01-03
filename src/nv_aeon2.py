@@ -50,7 +50,7 @@ except:
 APPLICATION = 'Aeon Timeline 2'
 PLUGIN = f'{APPLICATION} plugin v@release'
 INI_FILENAME = 'nv_aeon2.ini'
-INI_FILEPATH = '.noveltree/aeon2nv/config'
+INI_FILEPATH = '.noveltree/config'
 
 
 class Plugin():
