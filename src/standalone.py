@@ -16,7 +16,6 @@ from novxlib.ui.ui_tk import UiTk
 from nvaeon2lib.aeon2_converter import Aeon2Converter
 from pathlib import Path
 
-
 SUFFIX = ''
 APPNAME = 'nv_aeon2'
 SETTINGS = dict(
@@ -35,7 +34,6 @@ SETTINGS = dict(
     color_point='Blue',
 )
 OPTIONS = dict(
-    sections_only=True,
     add_moonphase=False,
 )
 

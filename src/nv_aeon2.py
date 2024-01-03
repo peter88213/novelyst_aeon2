@@ -79,7 +79,6 @@ class Plugin():
 
     )
     OPTIONS = dict(
-        sections_only=True,
         add_moonphase=False,
     )
 

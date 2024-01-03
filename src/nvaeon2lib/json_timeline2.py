@@ -76,13 +76,10 @@ class JsonTimeline2(File):
             type_character: str -- name of the user-defined "Character" type.
             type_location: str -- name of the user-defined "Location" type.
             type_item: str -- name of the user-defined "Item" type.
-            sections_only: bool -- synchronize only "Normal" sections.
             color_section: str -- color of new section events.
             color_event: str -- color of new non-section events.
             add_moonphase: bool -- add a moon phase property to each event.
         
-        If sections_only is True: synchronize only "Normal" sections.
-        If sections_only is False: synchronize "Notes" sections as well.            
         Extends the superclass constructor.
         """
         super().__init__(filePath, **kwargs)
@@ -127,7 +124,6 @@ class JsonTimeline2(File):
             self.referenceDate = datetime.fromisoformat(self.referenceDateStr)
         except ValueError:
             self.referenceDate = datetime.today()
-        self._sectionsOnly = kwargs['sections_only']
         self._addMoonphase = kwargs['add_moonphase']
         self._sectionColor = kwargs['color_section']
         self._eventColor = kwargs['color_event']
@@ -514,18 +510,18 @@ class JsonTimeline2(File):
             if evt['title'] in targetScIdByTitle:
                 scId = targetScIdByTitle[evt['title']]
             else:
-                if self._sectionsOnly and not isNarrative:
-                    # don't create a "Notes" section
+                if not isNarrative:
                     continue
 
                 # Create a new section.
                 scId = create_id(self.novel.sections, prefix=SECTION_PREFIX)
-                self.novel.sections[scId] = Section()
-                self.novel.sections[scId].title = evt['title']
+                self.novel.sections[scId] = Section(
+                    title=evt['title'],
+                    status=1,
+                    scType=0,
+                    scPacing=0,
+                    )
                 # print(f'read creates {self.novel.sections[scId].title}')
-                self.novel.sections[scId].status = 1
-                self.novel.sections[scId].scType = 0
-                self.novel.sections[scId].scPacing = 0
 
             narrativeEvents.append(scId)
             displayId = float(evt['displayId'])
@@ -632,9 +628,9 @@ class JsonTimeline2(File):
             #--- Find sections and get characters, locations, and items.
             self.novel.sections[scId].scType = 1
             # type = "Notes"
-            scCharacters = self.novel.sections[scId].characters
-            scLocations = self.novel.sections[scId].locations
-            scItems = self.novel.sections[scId].items
+            scCharacters = []
+            scLocations = []
+            scItems = []
             arcs = []
             for evtRel in evt['relationships']:
                 if evtRel['role'] == self._roleArcGuid:
@@ -659,9 +655,12 @@ class JsonTimeline2(File):
                     itId = itIdsByGuid[evtRel['entity']]
                     scItems.append(itId)
 
-            self.novel.sections[scId].characters = scCharacters
-            self.novel.sections[scId].locations = scLocations
-            self.novel.sections[scId].items = scItems
+            if scCharacters:
+                self.novel.sections[scId].characters = scCharacters
+            if scLocations:
+                self.novel.sections[scId].locations = scLocations
+            if scItems:
+                self.novel.sections[scId].items = scItems
 
             # Add arcs to the section keyword variables.
             self.novel.sections[scId].arcs = list_to_string(arcs)
@@ -974,22 +973,8 @@ class JsonTimeline2(File):
         totalEvents = len(self._jsonData['events'])
         for chId in source.chapters:
             for srcId in source.tree.get_children(chId):
-                if source.sections[srcId].scType == 1:
+                if source.sections[srcId].scType != 0:
                     # Remove unused section from the "Narrative" arc.
-                    if source.sections[srcId].title in scIdsByTitle:
-                        scId = scIdsByTitle[source.sections[srcId].title]
-                        self.novel.sections[scId].scType = 1
-                    continue
-
-                if source.sections[srcId].scType == 1 and self._sectionsOnly:
-                    # Remove unsynchronized section from the "Narrative" arc.
-                    if source.sections[srcId].title in scIdsByTitle:
-                        scId = scIdsByTitle[source.sections[srcId].title]
-                        self.novel.sections[scId].scType = 1
-                    continue
-
-                if source.sections[srcId].scType == 2 and source.sections[srcId].arcs is None:
-                    # Remove "non-point" Todo section from the "Narrative" arc.
                     if source.sections[srcId].title in scIdsByTitle:
                         scId = scIdsByTitle[source.sections[srcId].title]
                         self.novel.sections[scId].scType = 1
@@ -1029,24 +1014,27 @@ class JsonTimeline2(File):
 
                 #--- Update section characters.
                 if source.sections[srcId].characters is not None:
-                    self.novel.sections[scId].characters = []
+                    scCharacters = []
                     for crId in source.sections[srcId].characters:
                         if crId in crIdsBySrcId:
-                            self.novel.sections[scId].characters.append(crIdsBySrcId[crId])
+                            scCharacters.append(crIdsBySrcId[crId])
+                    self.novel.sections[scId].characters = scCharacters
 
                 #--- Update section locations.
                 if source.sections[srcId].locations is not None:
-                    self.novel.sections[scId].locations = []
+                    scLocations = []
                     for lcId in source.sections[srcId].locations:
                         if lcId in lcIdsBySrcId:
-                            self.novel.sections[scId].locations.append(lcIdsBySrcId[lcId])
+                            scLocations.append(lcIdsBySrcId[lcId])
+                    self.novel.sections[scId].locations = scLocations
 
                 #--- Update section items.
                 if source.sections[srcId].items is not None:
-                    self.novel.sections[scId].items = []
+                    scItems = []
                     for itId in source.sections[srcId].items:
                         if itId in itIdsBySrcId:
-                            self.novel.sections[scId].items.append(itIdsBySrcId[itId])
+                            scItems.append(itIdsBySrcId[itId])
+                    self.novel.sections[scId].items = scItems
 
                 #--- Update section arcs and turning points.
                 self.novel.sections[scId].scArcs = source.sections[srcId].scArcs
