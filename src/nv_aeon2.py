@@ -28,6 +28,7 @@ import webbrowser
 from novxlib.config.configuration import Configuration
 from novxlib.file.doc_open import open_document
 from novxlib.model.novel import Novel
+from novxlib.model.nv_tree import NvTree
 from novxlib.novx.novx_file import NovxFile
 from novxlib.novx_globals import Error
 from novxlib.novx_globals import _
@@ -88,8 +89,9 @@ class Plugin():
         Positional arguments:
             view -- reference to the NoveltreeUi instance of the application.
         """
-        self._ctrl = controller
+        self._mdl = model
         self._ui = view
+        self._ctrl = controller
 
         # Create a submenu in the Tools menu.
         self._pluginMenu = tk.Menu(self._ui.toolsMenu, tearoff=0)
@@ -146,10 +148,10 @@ class Plugin():
 
     def _launch_application(self):
         """Launch Aeon Timeline 2 with the current project."""
-        if self._ctrl.model:
-            timelinePath = f'{os.path.splitext(self._ctrl.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._mdl.prjFile:
+            timelinePath = f'{os.path.splitext(self._mdl.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if os.path.isfile(timelinePath):
-                if self._ui.lock():
+                if self._ctrl.lock():
                     open_document(timelinePath)
             else:
                 self._ui.set_status(_('!No {} file available for this project.').format(APPLICATION))
@@ -161,8 +163,8 @@ class Plugin():
         If the moon phase event property already exists, just update.
         """
         #--- Try to get persistent configuration data
-        if self._ctrl.model:
-            timelinePath = f'{os.path.splitext(self._ctrl.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._mdl.prjFile:
+            timelinePath = f'{os.path.splitext(self._mdl.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if os.path.isfile(timelinePath):
                 sourceDir = os.path.dirname(timelinePath)
                 if not sourceDir:
@@ -181,6 +183,7 @@ class Plugin():
                 kwargs.update(configuration.options)
                 kwargs['add_moonphase'] = True
                 timeline = JsonTimeline2(timelinePath, **kwargs)
+                timeline.novel = Novel(tree=NvTree())
                 try:
                     timeline.read()
                     timeline.write()
@@ -191,12 +194,12 @@ class Plugin():
 
     def _info(self):
         """Show information about the Aeon Timeline 2 file."""
-        if self._ctrl.model:
-            timelinePath = f'{os.path.splitext(self._ctrl.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._mdl.prjFile:
+            timelinePath = f'{os.path.splitext(self._mdl.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if os.path.isfile(timelinePath):
                 try:
                     timestamp = os.path.getmtime(timelinePath)
-                    if timestamp > self._ctrl.model.timestamp:
+                    if timestamp > self._mdl.prjFile.timestamp:
                         cmp = _('newer')
                     else:
                         cmp = _('older')
@@ -209,23 +212,18 @@ class Plugin():
             messagebox.showinfo(PLUGIN, message)
 
     def _export_from_novx(self):
-        """Update the timeline from noveltree.
-        
-        Note:
-        This works by merging the timeline with the open project as a source object.
-        The JsonTimeline2 target object's merge method reads from the disk.
-        """
-        if self._ctrl.model:
-            timelinePath = f'{os.path.splitext(self._ctrl.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        """Update the timeline from noveltree."""
+        if self._mdl.prjFile:
+            timelinePath = f'{os.path.splitext(self._mdl.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if not os.path.isfile(timelinePath):
                 self._ui.set_status(_('!No {} file available for this project.').format(APPLICATION))
                 return
 
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
-                self._ui.c_save_project()
+                self._ctrl.c_save_project()
                 kwargs = self._get_config(timelinePath)
-                source = NovxFile(self._ctrl.model.filePath, **kwargs)
-                source.novel = Novel()
+                source = NovxFile(self._mdl.prjFile.filePath, **kwargs)
+                source.novel = Novel(tree=NvTree())
                 target = JsonTimeline2(timelinePath, **kwargs)
                 try:
                     source.read()
@@ -240,25 +238,23 @@ class Plugin():
         """Update the current project from the timeline.
         
         Note:
-        The Yw7WorkFile object of the open project cannot be used as target object.
+        The NvWorkFile object of the open project cannot be used as target object.
         This is because the JsonTimeline2 source object's IDs do not match, so 
         the sections and other elements are identified by their titles when merging.
-        This is done by the special Yw7Target object. Its merge method reads from the disk. 
-        Re-reading the project afterwards is the safest way to get a display update.
         """
-        if self._ctrl.model:
-            timelinePath = f'{os.path.splitext(self._ctrl.model.filePath)[0]}{JsonTimeline2.EXTENSION}'
+        if self._mdl.prjFile:
+            timelinePath = f'{os.path.splitext(self._mdl.prjFile.filePath)[0]}{JsonTimeline2.EXTENSION}'
             if not os.path.isfile(timelinePath):
                 self._ui.set_status(_('!No {} file available for this project.').format(APPLICATION))
                 return
 
             if self._ui.ask_yes_no(_('Save the project and update it?')):
-                self._ui.c_save_project()
+                self._ctrl.c_save_project()
                 kwargs = self._get_config(timelinePath)
                 source = JsonTimeline2(timelinePath, **kwargs)
-                target = NovxFile(self._ctrl.model.filePath, **kwargs)
+                target = NovxFile(self._mdl.prjFile.filePath, **kwargs)
                 try:
-                    target.novel = Novel()
+                    target.novel = Novel(tree=NvTree())
                     target.read()
                     source.novel = target.novel
                     source.read()
@@ -269,7 +265,5 @@ class Plugin():
                     message = f'!{str(ex)}'
 
                 # Reopen the project.
-                self._mdl.doNotSave = True
-                # avoid popup message (noveltree v0.52+)
-                self._ui.c_open_project(fileName=self._ctrl.model.filePath)
+                self._ctrl.c_open_project(filePath=self._mdl.prjFile.filePath, doNotSave=True)
                 self._ui.set_status(message)
