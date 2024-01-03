@@ -779,7 +779,6 @@ class JsonTimeline2(File):
             return event
 
         #--- Merge first.
-
         targetEvents = []
         for evt in self._jsonData['events']:
             targetEvents.append(evt['title'])
