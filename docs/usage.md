@@ -1,8 +1,8 @@
-[Project homepage](https://peter88213.github.io/novelyst_aeon2) > Instructions for use
+[Project homepage](https://peter88213.github.io/noveltree_aeon2) > Instructions for use
 
 --- 
 
-A [novelyst](https://peter88213.github.io/novelyst/) plugin providing synchronization with Aeon Timeline 2. 
+A [noveltree](https://peter88213.github.io/noveltree/) plugin providing synchronization with Aeon Timeline 2. 
 
 ---
 
@@ -11,9 +11,9 @@ A [novelyst](https://peter88213.github.io/novelyst/) plugin providing synchroniz
 - Unzip the downloaded zipfile into a new folder.
 - Move into this new folder and launch **setup.pyw**. This installs the plugin.
 
-*Note: If you install novelyst at a later time, you can always install the plugin afterwards by running the novelyst_aeon2 setup script again.*
+*Note: If you install noveltree at a later time, you can always install the plugin afterwards by running the noveltree_aeon2 setup script again.*
 
-The plugin adds an **Aeon Timeline 2** entry to the *novelyst* **Tools** menu, and an **Aeon 2 plugin Online Help** entry to the **Help** menu. 
+The plugin adds an **Aeon Timeline 2** entry to the *noveltree* **Tools** menu, and an **Aeon 2 plugin Online Help** entry to the **Help** menu. 
 
 ---
 
@@ -23,13 +23,13 @@ The plugin adds an **Aeon Timeline 2** entry to the *novelyst* **Tools** menu, a
 
 ## Launch the converter
 
-The plugin's features are accessible via the **Tools > Aeon Timeline 2** submenu in *novelyst*.
+The plugin's features are accessible via the **Tools > Aeon Timeline 2** submenu in *noveltree*.
 
 The submenu has the following entries:
 
-- Information (compare novelyst and timeline file dates)
-- Update timeline from novelyst
-- Update novelyst from timeline
+- Information (compare noveltree and timeline file dates)
+- Update timeline from noveltree
+- Update noveltree from timeline
 - Add or update moon phase data
 - Edit timeline (launch Aeon Timeline 2)
 
@@ -42,7 +42,7 @@ The submenu has the following entries:
 ## Prepare your timeline for export
 
 The included installation script installs a "yWriter" template in the *aeon2nv* configuration folder. 
-The easiest way is to create new timelines based on this template. It provides the entities and event properties that are converted to novelyst by default.
+The easiest way is to create new timelines based on this template. It provides the entities and event properties that are converted to noveltree by default.
 
 For existing timelines you have two choices:
 
@@ -55,10 +55,10 @@ For existing timelines you have two choices:
 
 ### Known limitations
 
-- "Narrative" events that begin before 0100-01-01 in the timeline, will not be synchronized with novelyst, because novelyst can not handle these dates.
-- The same applies to the section duration in this case, i.e. the event duration in Timeline and the section duration in novelyst may differ.
+- "Narrative" events that begin before 0100-01-01 in the timeline, will not be synchronized with noveltree, because noveltree can not handle these dates.
+- The same applies to the section duration in this case, i.e. the event duration in Timeline and the section duration in noveltree may differ.
 
-### Conversion rules for newly created novelyst projects
+### Conversion rules for newly created noveltree projects
 
 The names/column labels refer to timelines based on the "yWriter" template. 
 
@@ -78,11 +78,11 @@ The names/column labels refer to timelines based on the "yWriter" template.
 - "Locations" are imported, if any (*).
 - "Items" are imported, if any (*).
 
-### Update rules for existing novelyst projects
+### Update rules for existing noveltree projects
 
 - Only sections that have the same title as an event are updated.
 - If an Aeon event title occurs more than once, the program aborts with an error message.
-- If a novelyst section title occurs more than once, the program aborts with an error message.
+- If a noveltree section title occurs more than once, the program aborts with an error message.
 - Sections are marked "unused" if the associated event is deleted in Aeon.
 - Section date, section time, and section duration are updated.
 - Non-empty section description and section tags are updated.
@@ -100,13 +100,13 @@ The names/column labels refer to timelines based on the "yWriter" template.
 ### Update rules for Aeon Timeline 2 projects
 
 - If an Aeon event title occurs more than once, the program aborts with an error message.
-- If a novelyst section title occurs more than once, the program aborts with an error message.
+- If a noveltree section title occurs more than once, the program aborts with an error message.
 - Event date/time and event span are updated, if the start year is 100 or above.
-- Updated event span is specified in days/hours/minutes as in novelyst.
+- Updated event span is specified in days/hours/minutes as in noveltree.
 - Non-empty event description and event tags are updated.
 - Event properties "Description" and "Notes" are created, if missing.
 - Events created or updated from "Normal" sections are assigned to the *Narrative* arc (*).
-- "Narrative" events are removed if the associated section is deleted in novelyst.
+- "Narrative" events are removed if the associated section is deleted in noveltree.
 - Optionally, events are created or updated from "Notes" sections (not assigned to the *Narrative* arc)(**).
 - Entity types "Arc", "Character", "Location", and "Item" are created, if missing.
 - A "Narrative" arc is created, if missing.
@@ -130,11 +130,11 @@ You can override the default settings by providing a configuration file. Be alwa
 ### Global configuration
 
 An optional global configuration file can be placed in the configuration directory in your user profile. It is applied to any project. Its entries override aeon2nv's built-in constants. This is the path:
-`c:\Users\<user name>\.novelyst\config\aeon2nv.ini`
+`c:\Users\<user name>\.noveltree\config\aeon2nv.ini`
   
 ### Local project configuration
 
-An optional project configuration file named `aeon2nv.ini` can be placed in your project directory, i.e. the folder containing your novelyst and Aeon Timeline project files. It is only applied to this project. Its entries override aeon2nv's built-in constants as well as the global configuration, if any.
+An optional project configuration file named `aeon2nv.ini` can be placed in your project directory, i.e. the folder containing your noveltree and Aeon Timeline project files. It is only applied to this project. Its entries override aeon2nv's built-in constants as well as the global configuration, if any.
 
 ### How to provide/modify a configuration file
 
@@ -221,7 +221,7 @@ The changed entries are sufficient.
 
 # License
 
-This is Open Source software, and the *novelyst_aeon2* plugin is licensed under GPLv3. See the
+This is Open Source software, and the *noveltree_aeon2* plugin is licensed under GPLv3. See the
 [GNU General Public License website](https://www.gnu.org/licenses/gpl-3.0.en.html) for more
 details, or consult the [LICENSE](https://github.com/peter88213/noveltree_aeon2/blob/main/LICENSE) file.
 

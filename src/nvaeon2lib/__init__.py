@@ -2,7 +2,7 @@
 
 Modules:
 
-aeon2_converter -- Provide a converter class for Aeon Timeline 2 and novelyst.
+aeon2_converter -- Provide a converter class for Aeon Timeline 2 and noveltree.
 aeon2_fop -- Provide helper functions for Aeon Timeline 2 file operation.
 json_timeline2 -- Provide a class for Aeon Timeline 2 JSON representation.
 moonphase -- Provide helper scripts to calculate the moon phase for Aeon Timeline 2 events.

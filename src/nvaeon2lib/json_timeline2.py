@@ -49,7 +49,7 @@ class JsonTimeline2(File):
     VALUE_YES = '1'
     # JSON representation of "yes" in Aeon2 "yes/no" properties
     DATE_LIMIT = (datetime(100, 1, 1) - datetime.min).total_seconds()
-    # Dates before 100-01-01 can not be displayed properly in novelyst
+    # Dates before 100-01-01 can not be displayed properly in noveltree
     PROPERTY_MOONPHASE = 'Moon phase'
 
     SCN_KWVAR = [
@@ -142,7 +142,7 @@ class JsonTimeline2(File):
         """Parse the file and get the instance variables.
         
         Read the JSON part of the Aeon Timeline 2 file located at filePath, 
-        and build a novelyst novel structure.
+        and build a noveltree novel structure.
         - Events marked as sections are converted to sections in one single chapter.
         - Other events are converted to "Notes" sections in another chapter.
         Raise the "Error" exception in case of error. 
@@ -333,7 +333,7 @@ class JsonTimeline2(File):
             title = self.novel.sections[scId].title
             if title:
                 if title in targetScIdByTitle:
-                    raise Error(_('Ambiguous novelyst section title "{}".').format(title))
+                    raise Error(_('Ambiguous noveltree section title "{}".').format(title))
 
                 targetScIdByTitle[title] = scId
 
@@ -342,7 +342,7 @@ class JsonTimeline2(File):
             title = self.novel.characters[crId].title
             if title:
                 if title in targetCrIdByTitle:
-                    raise Error(_('Ambiguous novelyst character "{}".').format(title))
+                    raise Error(_('Ambiguous noveltree character "{}".').format(title))
 
                 targetCrIdByTitle[title] = crId
 
@@ -351,7 +351,7 @@ class JsonTimeline2(File):
             title = self.novel.locations[lcId].title
             if title:
                 if title in targetLcIdByTitle:
-                    raise Error(_('Ambiguous novelyst location "{}".').format(title))
+                    raise Error(_('Ambiguous noveltree location "{}".').format(title))
 
                 targetLcIdByTitle[title] = lcId
 
@@ -360,7 +360,7 @@ class JsonTimeline2(File):
             title = self.novel.items[itId].title
             if title:
                 if title in targetItIdByTitle:
-                    raise Error(_('Ambiguous novelyst item "{}".').format(title))
+                    raise Error(_('Ambiguous noveltree item "{}".').format(title))
 
                 targetItIdByTitle[title] = itId
 
@@ -563,7 +563,7 @@ class JsonTimeline2(File):
                 if evtRgv['rangeProperty'] == self._tplDateGuid:
                     timestamp = evtRgv['position']['timestamp']
                     if timestamp >= self.DATE_LIMIT:
-                        # Restrict date/time calculation to dates within novelyst's range
+                        # Restrict date/time calculation to dates within noveltree's range
                         sectionStart = datetime.min + timedelta(seconds=timestamp)
                         startDateTime = sectionStart.isoformat().split('T')
 
@@ -803,7 +803,7 @@ class JsonTimeline2(File):
 
             for scId in source.tree.get_children(chId):
                 if source.sections[scId].title in srcScnTitles:
-                    raise Error(_('Ambiguous novelyst section title "{}".').format(source.sections[scId].title))
+                    raise Error(_('Ambiguous noveltree section title "{}".').format(source.sections[scId].title))
 
                 srcScnTitles.append(source.sections[scId].title)
 
@@ -828,7 +828,7 @@ class JsonTimeline2(File):
                 continue
 
             if source.characters[crId].title in srcChrNames:
-                raise Error(_('Ambiguous novelyst character "{}".').format(source.characters[crId].title))
+                raise Error(_('Ambiguous noveltree character "{}".').format(source.characters[crId].title))
 
             srcChrNames.append(source.characters[crId].title)
 
@@ -839,7 +839,7 @@ class JsonTimeline2(File):
                 continue
 
             if source.locations[lcId].title in srcLocTitles:
-                raise Error(_('Ambiguous novelyst location "{}".').format(source.locations[lcId].title))
+                raise Error(_('Ambiguous noveltree location "{}".').format(source.locations[lcId].title))
 
             srcLocTitles.append(source.locations[lcId].title)
 
@@ -850,7 +850,7 @@ class JsonTimeline2(File):
                 continue
 
             if source.items[itId].title in srcItmTitles:
-                raise Error(_('Ambiguous novelyst item "{}".').format(source.items[itId].title))
+                raise Error(_('Ambiguous noveltree item "{}".').format(source.items[itId].title))
 
             srcItmTitles.append(source.items[itId].title)
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE novx SYSTEM "novx_1_0.dtd">
 <?xml-stylesheet href="novx.css" type="text/css"?>
-<novx version="1.0" xml:lang="de-DE">
+<novx version="1.0" xml:lang="None-None">
   <PROJECT />
   <CHAPTERS>
     <CHAPTER id="ch1">
-      <Title>New scenes</Title>
+      <Title>New sections</Title>
       <SECTION id="sc1">
         <Title>NaNoWriMo 2021</Title>
         <Desc>

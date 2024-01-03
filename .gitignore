@@ -1,4 +1,5 @@
 /test/work/
+/test/temp/
 /test/nv_aeon2.py
 /build/
 *.pyc

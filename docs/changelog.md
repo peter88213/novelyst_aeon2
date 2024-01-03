@@ -4,63 +4,63 @@
 
 ## Changelog
 
-### v3.4.2 for novelyst v4.0+
+### v3.4.2 for noveltree v4.0+
 
 - Update German translations.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v12.14.0
 Based on aeon2nv v3.4.1
 
-### v3.4.1 for novelyst v4.0+
+### v3.4.1 for noveltree v4.0+
 
 - Library update.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v12.4.1
 Based on aeon2nv v3.4.1
 
-### v3.4.0 for novelyst v4.0+
+### v3.4.0 for noveltree v4.0+
 
 - New arc points in yw7 are assigned a different color when converting to aeonzip.
 - New arc points in yw7 are no longer assigned to the "Narrative" arc when converting to aeonzip.
 - Arc points existing in aeonzip are not synchronized with yw7.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v12.1.2
 Based on aeon2nv v3.4.0
 
-### v3.3.3 for novelyst v4.0+
+### v3.3.3 for noveltree v4.0+
 
 - Reduce the memory use by discarding the docstrings on building.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v12.1.2
 Based on aeon2nv v3.3.2
 
-### v3.3.2 for novelyst v4.0+
+### v3.3.2 for noveltree v4.0+
 
 - Update for PyWriter v12.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v12.1.0
 Based on aeon2nv v3.3.2
 
-### v3.3.1 for novelyst v4.0+
+### v3.3.1 for noveltree v4.0+
 
 - Process unspecific date (day/hour/minute).
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v11.0.2
 Based on aeon2nv v3.3.1
 
-### v3.2.2 for novelyst v4.0+
+### v3.2.2 for noveltree v4.0+
 
-This update is mandatory for novelyst v4.4+, because v2.1.1 interferes with the section arc assignments.
+This update is mandatory for noveltree v4.4+, because v2.1.1 interferes with the section arc assignments.
 - The "sections_only" parameter only affects the creation of new sections, but not the update.
 - Update for PyWriter v9+
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v10.0.1
 Based on aeon2nv v3.2.3
 
@@ -68,14 +68,14 @@ Based on aeon2nv v3.2.3
 
 - Bugfix update.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v10.0.1
 Based on aeon2nv v3.2.2
 
 ### v3.2.0
 
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v10.0.1
 Based on aeon2nv v3.2.1
 
@@ -84,7 +84,7 @@ Based on aeon2nv v3.2.1
 - The "sections_only" parameter only affects the creation of new sections, but not the update.
 - Update for PyWriter v9+
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v10.0.1
 Based on aeon2nv v3.1.0
 
@@ -92,7 +92,7 @@ Based on aeon2nv v3.1.0
 
 Rebuild with restructured build environment and defined dependencies.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v8.0.11
 Based on aeon2nv v2.0.5
 
@@ -100,7 +100,7 @@ Based on aeon2nv v2.0.5
 
 - Provide online help.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v8.0.11
 Based on aeon2nv v2.0.5
 
@@ -109,7 +109,7 @@ Based on aeon2nv v2.0.5
 - Make it run on old Windows versions.
 - Update the setup script.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v8.0.11
 Based on aeon2nv v2.0.5
 
@@ -117,7 +117,7 @@ Based on aeon2nv v2.0.5
 
 Downgrade from v4.0.1 due to a regression that takes some time to fix.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 Based on PyWriter v8.0.10
 Based on aeon2nv v2.0.4
 
@@ -125,19 +125,19 @@ Based on aeon2nv v2.0.4
 
 - Make the setup script run with Python 3.11 under Windows.
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 
 ### v4.0.0
 
 - API update. 
 
-Compatibility: novelyst v4.0 API
+Compatibility: noveltree v4.0 API
 
 ### v3.0.0
 
 - Code optimization and library update. 
 
-Compatibility: novelyst v3.0 API
+Compatibility: noveltree v3.0 API
 Based on PyWriter v9.0.4
 Based on aeon2nv v3.0.1
 
@@ -147,7 +147,7 @@ Based on aeon2nv v3.0.1
 - Fix a bug where attempting to save a write-protected file raises an uncaught exception.
 - Extend localization.
 
-Compatibility: novelyst v2.0 API
+Compatibility: noveltree v2.0 API
 Based on PyWriter v8.0.8
 Based on aeon2nv v2.0.3
 
@@ -155,17 +155,17 @@ Based on aeon2nv v2.0.3
 
 - Fix a bug in aeon2nvlib where the program aborts silently due to an unhandled exception.
 
-Compatibility: novelyst v1.0.0 API
+Compatibility: noveltree v1.0.0 API
 Based on PyWriter v7.4.9
 Based on aeon2nv v1.8.3
 
 ### v1.0.0
 
-- Revise the wording: use "novelyst project" instead of "yWriter project."
+- Revise the wording: use "noveltree project" instead of "yWriter project."
 - Extend the instructions for use.
 - Provide a sample ini file.
 
-Compatibility: novelyst v1.0.0 API
+Compatibility: noveltree v1.0.0 API
 Based on PyWriter v7.4.9
 Based on aeon2nv v1.8.2
 
@@ -173,15 +173,15 @@ Based on aeon2nv v1.8.2
 
 - Release under the GPLv3 license.
 
-Compatibility: novelyst v1.0.0 API
+Compatibility: noveltree v1.0.0 API
 Based on PyWriter v7.4.9
 Based on aeon2nv v1.8.2
 
 ### v0.4.0 Beta test release
 
-- Provide information for the novelyst v0.50+ Plugin Manager.
+- Provide information for the noveltree v0.50+ Plugin Manager.
 
-Compatibility: novelyst v0.46 API
+Compatibility: noveltree v0.46 API
 Based on PyWriter v7.4.9
 Based on aeon2nv v1.8.2
 

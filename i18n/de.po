@@ -100,6 +100,6 @@ msgstr "noveltree-Projekt"
 msgid "older"
 msgstr "älter"
 
-msgid "{0} file is {1} than the novelyst project.\n (last saved on {2})"
-msgstr "{0}-Datei ist {1} als das novelyst-Projekt.\n (zuletzt gespeichert: {2})"
+msgid "{0} file is {1} than the noveltree project.\n (last saved on {2})"
+msgstr "{0}-Datei ist {1} als das noveltree-Projekt.\n (zuletzt gespeichert: {2})"
 

@@ -14,7 +14,7 @@ File structure:
 │   └── src/
 │       ├── translations.py
 │       └── msgfmt.py
-└── novelyst_aeon2/
+└── noveltree_aeon2/
     ├── src/ 
     │   └── translate_de.py
     └── i18n/
@@ -27,7 +27,7 @@ File structure:
         └── plugin_locale/
             └─ de/
                └─ LC_MESSAGES/
-                  └─ novelyst_aeon2.mo
+                  └─ noveltree_aeon2.mo
     
 Copyright (c) 2024 Peter Triesberger
 For further information see https://github.com/peter88213/noveltree_aeon2

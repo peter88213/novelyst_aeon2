@@ -1,4 +1,4 @@
-"""Aeon Timeline 2 sync plugin for novelyst.
+"""Aeon Timeline 2 sync plugin for noveltree.
 
 Version @release
 Requires Python 3.6+
@@ -57,8 +57,8 @@ class Plugin():
     VERSION = '@release'
     NOVELYST_API = '0.7'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
-    URL = 'https://peter88213.github.io/novelyst_aeon2'
-    _HELP_URL = 'https://peter88213.github.io/novelyst_aeon2/usage'
+    URL = 'https://peter88213.github.io/noveltree_aeon2'
+    _HELP_URL = 'https://peter88213.github.io/noveltree_aeon2/usage'
 
     SETTINGS = dict(
         default_date_time='2023-01-01 00:00:00',
@@ -201,7 +201,7 @@ class Plugin():
                     else:
                         cmp = _('older')
                     fileDate = datetime.fromtimestamp(timestamp).replace(microsecond=0).isoformat(sep=' ')
-                    message = _('{0} file is {1} than the novelyst project.\n (last saved on {2})').format(APPLICATION, cmp, fileDate)
+                    message = _('{0} file is {1} than the noveltree project.\n (last saved on {2})').format(APPLICATION, cmp, fileDate)
                 except:
                     message = _('Cannot determine file date.')
             else:
@@ -209,7 +209,7 @@ class Plugin():
             messagebox.showinfo(PLUGIN, message)
 
     def _export_from_novx(self):
-        """Update the timeline from novelyst.
+        """Update the timeline from noveltree.
         
         Note:
         This works by merging the timeline with the open project as a source object.
@@ -270,6 +270,6 @@ class Plugin():
 
                 # Reopen the project.
                 self._mdl.doNotSave = True
-                # avoid popup message (novelyst v0.52+)
+                # avoid popup message (noveltree v0.52+)
                 self._ui.c_open_project(fileName=self._ctrl.model.filePath)
                 self._ui.set_status(message)

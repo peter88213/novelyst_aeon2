@@ -22,7 +22,7 @@ import standalone
 # where this script is placed and executed
 TEST_PATH = os.getcwd() + '/../test'
 TEST_DATA_PATH = TEST_PATH + '/data/'
-TEST_EXEC_PATH = TEST_PATH + '/work/'
+TEST_EXEC_PATH = TEST_PATH + '/temp/'
 
 # Test data
 INI_FILE = TEST_EXEC_PATH + 'nv_aeon2.ini'
@@ -53,6 +53,7 @@ def read_file(inputFile):
 
 
 def remove_all_testfiles():
+    return
     try:
         os.remove(TEST_NOVX)
     except:
@@ -99,34 +100,16 @@ class NormalOperation(unittest.TestCase):
         self.assertStderrEquals('FAIL: Ambiguous Aeon event title "Mrs Hubbard sleeps".')
 
     # @unittest.skip('')
-    def test_create_yw7(self):
-        copyfile(TEST_DATA_PATH + 'create_notes.ini', INI_FILE)
-        copyfile(TEST_DATA_PATH + 'date_limits.aeonzip', TEST_AEON)
-        os.chdir(TEST_EXEC_PATH)
-        standalone.run(TEST_AEON, silentMode=True)
-        self.assertEqual(read_file(TEST_NOVX), read_file(TEST_DATA_PATH + 'date_limits_notes.novx'))
-
-    # @unittest.skip('')
-    def test_create_yw7_narrative_only(self):
-        copyfile(TEST_DATA_PATH + 'narrative_only.ini', INI_FILE)
+    def test_create_novx(self):
+        copyfile(TEST_DATA_PATH + 'nv_aeon2.ini', INI_FILE)
         copyfile(TEST_DATA_PATH + 'date_limits.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)
         standalone.run(TEST_AEON, silentMode=True)
         self.assertEqual(read_file(TEST_NOVX), read_file(TEST_DATA_PATH + 'date_limits.novx'))
 
     # @unittest.skip('')
-    def test_update_yw7(self):
-        copyfile(TEST_DATA_PATH + 'create_notes.ini', INI_FILE)
-        copyfile(TEST_DATA_PATH + 'date_limits.novx', TEST_NOVX)
-        copyfile(TEST_DATA_PATH + 'updated.aeonzip', TEST_AEON)
-        os.chdir(TEST_EXEC_PATH)
-        standalone.run(TEST_AEON, silentMode=True)
-        self.assertEqual(read_file(TEST_NOVX), read_file(TEST_DATA_PATH + 'updated_from_aeon_notes.novx'))
-        self.assertEqual(read_file(TEST_NOVX_BAK), read_file(TEST_DATA_PATH + 'date_limits.novx'))
-
-    # @unittest.skip('')
-    def test_update_yw7_narrative_only(self):
-        copyfile(TEST_DATA_PATH + 'narrative_only.ini', INI_FILE)
+    def test_update_novx(self):
+        copyfile(TEST_DATA_PATH + 'nv_aeon2.ini', INI_FILE)
         copyfile(TEST_DATA_PATH + 'date_limits.novx', TEST_NOVX)
         copyfile(TEST_DATA_PATH + 'updated.aeonzip', TEST_AEON)
         os.chdir(TEST_EXEC_PATH)

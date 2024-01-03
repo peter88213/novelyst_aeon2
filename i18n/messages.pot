@@ -101,5 +101,5 @@ msgstr ""
 msgid "older"
 msgstr ""
 
-msgid "{0} file is {1} than the novelyst project.\n (last saved on {2})"
+msgid "{0} file is {1} than the noveltree project.\n (last saved on {2})"
 msgstr ""
