@@ -53,7 +53,6 @@ def read_file(inputFile):
 
 
 def remove_all_testfiles():
-    return
     try:
         os.remove(TEST_NOVX)
     except:
