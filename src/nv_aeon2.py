@@ -170,7 +170,7 @@ class Plugin():
                 return
 
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
-                self._ctrl.c_save_project()
+                self._ctrl.save_project()
                 kwargs = self._get_config(timelinePath)
                 source = NovxFile(self._mdl.prjFile.filePath, **kwargs)
                 source.novel = Novel(tree=NvTree())
@@ -223,7 +223,7 @@ class Plugin():
                 return
 
             if self._ui.ask_yes_no(_('Save the project and update it?')):
-                self._ctrl.c_save_project()
+                self._ctrl.save_project()
                 kwargs = self._get_config(timelinePath)
                 source = JsonTimeline2(timelinePath, **kwargs)
                 target = NovxFile(self._mdl.prjFile.filePath, **kwargs)
@@ -239,7 +239,7 @@ class Plugin():
                     message = f'!{str(ex)}'
 
                 # Reopen the project.
-                self._ctrl.c_open_project(filePath=self._mdl.prjFile.filePath, doNotSave=True)
+                self._ctrl.open_project(filePath=self._mdl.prjFile.filePath, doNotSave=True)
                 self._ui.set_status(message)
 
     def _info(self):
