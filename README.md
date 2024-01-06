@@ -53,21 +53,20 @@ Before you distribute your translations, you can convert and install the message
 The plugin needs the message catalog in binary format. This is easily achieved using the **msgfmt.py** converter script. 
 You find it in your Python installation, in the **Tools/i18n** subdirectory. If not, you can download the code from [here](https://github.com/python/cpython/blob/main/Tools/i18n/msgfmt.py)
 
-Name the binary file **noveltree_aeon2.mo**. 
+Name the binary file **nv_aeon2.mo**. 
 
 
 ### Install your translation for testing
 
-Add a subdirectory tree to **noveltree/locale**, and place *noveltree_aeon2.mo* there, like this:
+Add a subdirectory tree to **.noveltree/locale**, and place *nv_aeon2.mo* there, like this:
 
 ```
 <your home directory>
-└── .novxlib/
-    └── noveltree/
-        └── locale/
-            └─ <language code>/
-               └─ LC_MESSAGES/
-                  └─ noveltree_aeon2.mo
+└── .noveltree/
+    └── locale/
+        └─ <language code>/
+           └─ LC_MESSAGES/
+              └─ nv_aeon2.mo
 ```
 
 Then start *noveltree* and see whether your translation works. 
@@ -95,11 +94,9 @@ An easy way may be to put a posting in the [noveltree forum](https://github.com/
 ├── novxlib/
 │   └── src/
 │       └── novxlib/
-├── aeon2nv/
-│   └── src/
-│      └── aeon2nvlib/
 └── noveltree_aeon2/
     ├── src/
+	│   └── aeon2nvlib/
     ├── test/
     └── tools/ 
         └── build.xml
