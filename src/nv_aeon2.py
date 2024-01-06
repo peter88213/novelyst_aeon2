@@ -94,9 +94,10 @@ class Plugin():
         self._ctrl = controller
 
         # Create a submenu in the Tools menu.
-        self._pluginMenu = tk.Menu(self._ui.toolsMenu, tearoff=0)
-        self._ui.toolsMenu.add_cascade(label=APPLICATION, menu=self._pluginMenu)
-        self._ui.toolsMenu.entryconfig(APPLICATION, state='disabled')
+        self._pluginMenu = tk.Menu(self._ui.mainMenu, tearoff=0)
+        position = self._ui.mainMenu.index('end')
+        self._ui.mainMenu.insert_cascade(position, label=APPLICATION, menu=self._pluginMenu)
+        self._ui.mainMenu.entryconfig(APPLICATION, state='disabled')
         self._pluginMenu.add_command(label=_('Information'), command=self._info)
         self._pluginMenu.add_separator()
         # self._pluginMenu.add_command(label=_('Settings'), command=self._edit_settings)
@@ -113,11 +114,11 @@ class Plugin():
 
     def disable_menu(self):
         """Disable menu entries when no project is open."""
-        self._ui.toolsMenu.entryconfig(APPLICATION, state='disabled')
+        self._ui.mainMenu.entryconfig(APPLICATION, state='disabled')
 
     def enable_menu(self):
         """Enable menu entries when a project is open."""
-        self._ui.toolsMenu.entryconfig(APPLICATION, state='normal')
+        self._ui.mainMenu.entryconfig(APPLICATION, state='normal')
 
     def _add_moonphase(self):
         """Add/update moon phase data.

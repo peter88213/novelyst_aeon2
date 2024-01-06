@@ -1,4 +1,4 @@
-"""Provide a converter class for Aeon Timeline 2 and noveltree. 
+"""Provide a converter class for test_aeon2yw. 
 
 Copyright (c) 2024 Peter Triesberger
 For further information see https://github.com/peter88213/aeon2nv
