@@ -58,7 +58,7 @@ Name the binary file **nv_aeon2.mo**.
 
 ### Install your translation for testing
 
-Add a subdirectory tree to **.noveltree/locale**, and place *nv_aeon2.mo* there, like this:
+Add a subdirectory tree to **~/.noveltree/locale**, and place *nv_aeon2.mo* there, like this:
 
 ```
 <your home directory>
