@@ -56,7 +56,7 @@ INI_FILEPATH = '.noveltree/config'
 class Plugin():
     """Plugin class for synchronization with Aeon Timeline 2."""
     VERSION = '@release'
-    NOVELYST_API = '0.7'
+    NOVELYST_API = '1.0'
     DESCRIPTION = 'Synchronize with Aeon Timeline 2'
     URL = 'https://peter88213.github.io/noveltree_aeon2'
     _HELP_URL = 'https://peter88213.github.io/noveltree_aeon2/usage'
@@ -169,6 +169,7 @@ class Plugin():
                 self._ui.set_status(_('!No {} file available for this project.').format(APPLICATION))
                 return
 
+            self._ui.restore_status()
             if self._ui.ask_yes_no(_('Save the project and update the timeline?')):
                 self._ctrl.save_project()
                 kwargs = self._get_config(timelinePath)
